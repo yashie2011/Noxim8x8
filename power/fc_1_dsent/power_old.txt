@@ -1,0 +1,23 @@
+total dynamic power of BFS/slice_0.log = 0.1117005635
+total static power of BFS/slice_0.log = 0.95538752
+total dynamic power of CONV/slice_0.log = 0.155433469
+total static power of CONV/slice_0.log = 0.95538752
+total dynamic power of CP/slice_0.log = 0.045602635
+total static power of CP/slice_0.log = 0.95538752
+total dynamic power of EV/slice_0.log = 0.0346181517
+total static power of EV/slice_0.log = 0.95538752
+total dynamic power of FWT/slice_0.log = 0.133716472
+total static power of FWT/slice_0.log = 0.95538752
+total dynamic power of LIB/slice_0.log = 0.1034285816
+total static power of LIB/slice_0.log = 0.95538752
+total dynamic power of NN/slice_0.log = 0.1175778222
+total static power of NN/slice_0.log = 0.95538752
+total dynamic power of NQU/slice_0.log = 0.0688770802
+total static power of NQU/slice_0.log = 0.95538752
+total dynamic power of RAY/slice_0.log = 0.149832102
+total static power of RAY/slice_0.log = 0.95538752
+total dynamic power of STO/slice_0.log = 0.159806963
+total static power of STO/slice_0.log = 0.95538752
+total dynamic power of TRANS/slice_0.log = 0.140181154
+total static power of TRANS/slice_0.log = 0.95538752
+

@@ -1,0 +1,100 @@
+node: 37 matching clock cycle 809342, pushing packet into request queue 
+node: 5 matching clock cycle 809342, pushing packet into request queue 
+node: 37 matching clock cycle 809344, pushing packet into request queue 
+node: 38 matching clock cycle 809344, pushing packet into request queue 
+node: 37 matching clock cycle 809346, pushing packet into request queue 
+node: 38 matching clock cycle 809346, pushing packet into request queue 
+node: 46 matching clock cycle 809346, pushing packet into request queue 
+node: 37 matching clock cycle 809348, pushing packet into request queue 
+the processing element 12stops at 929544000.00000000
+the processing element 10stops at 935992000.00000000
+the processing element 16stops at 941690000.00000000
+the processing element 52stops at 950214000.00000000
+the processing element 13stops at 953602000.00000000
+the processing element 11stops at 956866000.00000000
+the processing element 19stops at 959488000.00000000
+the processing element 3stops at 960560000.00000000
+the processing element 5stops at 963828000.00000000
+the processing element 4stops at 963958000.00000000
+the processing element 21stops at 979128000.00000000
+the processing element 7stops at 979220000.00000000
+the processing element 1stops at 988504000.00000000
+the processing element 14stops at 989552000.00000000
+the processing element 28stops at 991088000.00000000
+the processing element 6stops at 997186000.00000000
+the processing element 35stops at 998148000.00000000
+the processing element 15stops at 1002146000.00000000
+the processing element 43stops at 1003966000.00000000
+the processing element 20stops at 1009826000.00000000
+the processing element 22stops at 1016158000.00000000
+the processing element 23stops at 1019784000.00000000
+the processing element 50stops at 1021706000.00000000
+the processing element 2stops at 1028322000.00000000
+the processing element 25stops at 1028834000.00000000
+the processing element 44stops at 1031764000.00000000
+the processing element 59stops at 1037442000.00000000
+the processing element 48stops at 1039266000.00000000
+the processing element 42stops at 1042420000.00000000
+the processing element 29stops at 1042850000.00000000
+the processing element 37stops at 1044252000.00000000
+the processing element 47stops at 1046542000.00000000
+the processing element 8stops at 1051460000.00000000
+the processing element 26stops at 1052856000.00000000
+the processing element 17stops at 1053232000.00000000
+the processing element 41stops at 1053710000.00000000
+the processing element 57stops at 1056118000.00000000
+the processing element 38stops at 1057430000.00000000
+the processing element 34stops at 1059450000.00000000
+the processing element 46stops at 1061236000.00000000
+the processing element 61stops at 1061578000.00000000
+the processing element 55stops at 1061584000.00000000
+the processing element 30stops at 1062844000.00000000
+the processing element 31stops at 1063714000.00000000
+the processing element 51stops at 1067020000.00000000
+the processing element 60stops at 1068536000.00000000
+the processing element 53stops at 1068824000.00000000
+the processing element 49stops at 1069600000.00000000
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+Noxim simulation completed.
+ ( 1069600.00000000 cycles executed)
+% Total received packets: 1185433
+% Global average throughput (flits/cycle): 0.12029065
+% Throughput (flits/cycle/IP): 2.45910740
+% Max delay (cycles): 2914.00000000
+% Total energy (J): 8.7212959409e-04
+% received flits to slice 0 1778163
+% transmitted flits from slice 0 1778179
+% average delay of slice 0 7.6080511742e+01
+% received flits to slice 1 1319878
+% transmitted flits from slice 1 1319898
+% average delay of slice 1 5.2383411068e+01
+% received flits to slice 2 1339656
+% transmitted flits from slice 2 1339668
+% average delay of slice 2 5.3684917702e+01
+% received flits to slice 3 1320102
+% transmitted flits from slice 3 1320106
+% average delay of slice 3 5.3981646873e+01
+% received flits to slice 4 1345994
+% transmitted flits from slice 4 1346012
+% average delay of slice 4 5.3673348757e+01
+% received flits to slice 5 1329570
+% transmitted flits from slice 5 1329570
+% average delay of slice 5 5.2444405334e+01
+% received flits to slice 6 1339922
+% transmitted flits from slice 6 1339928
+% average delay of slice 6 5.0409161741e+01
+% received flits to slice 7 1330092
+% transmitted flits from slice 7 1330092
+% average delay of slice 7 4.7784989309e+01
+% received flits to slice 8 1343641
+% transmitted flits from slice 8 1343646
+% average delay of slice 8 5.0508051336e+01
+
+Info: (I804) /IEEE_Std_1666/deprecated: You can turn off warnings about
+             IEEE 1666 deprecated features by placing this method call
+             as the first statement in your sc_main() function:
+
+  sc_core::sc_report_handler::set_actions( "/IEEE_Std_1666/deprecated",
+                                           sc_core::SC_DO_NOTHING );
+

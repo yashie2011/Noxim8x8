@@ -1,0 +1,14 @@
+
+		Noxim - the NoC Simulator
+		(C) University of Catania
+
+Reset... done! Now running for 10000 cycles...
+Noxim simulation completed.
+ ( 11000 cycles executed)
+% Total received packets: 1287
+% Total received flits: 10288
+% Global average delay (cycles): 10.1523
+% Global average throughput (flits/cycle): 0.0719236
+% Throughput (flits/cycle/IP): 0.080375
+% Max delay (cycles): 81
+% Total energy (J): 1.56618e-06

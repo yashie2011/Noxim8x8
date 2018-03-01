@@ -1,0 +1,1 @@
+total dynamic power of slice_1.log = 0.0236265479total dynamic power of slice_1.log = 0.086069376

@@ -1,0 +1,213 @@
+
+		Noxim - the NoC Simulator
+		(C) University of Catania
+
+
+Info: (I804) /IEEE_Std_1666/deprecated: use of () to specify sensitivity is deprecated, use << instead
+
+Info: (I804) /IEEE_Std_1666/deprecated: sc_sensitive_pos is deprecated use sc_sensitive << with pos() instead
+Reset... done! Now running for 100000 cycles...
+the processing element 0stops at 6616217000.00000000
+the processing element 63stops at 6616837000.00000000
+the processing element 52stops at 6617147000.00000000
+the processing element 11stops at 6657577000.00000000
+the processing element 49stops at 6711162000.00000000
+the processing element 32stops at 6721817000.00000000
+the processing element 35stops at 6754012000.00000000
+the processing element 29stops at 6758362000.00000000
+the processing element 43stops at 6773902000.00000000
+the processing element 40stops at 6774567000.00000000
+the processing element 45stops at 6777072000.00000000
+the processing element 24stops at 6782622000.00000000
+the processing element 34stops at 6788112000.00000000
+the processing element 28stops at 6790962000.00000000
+the processing element 31stops at 6792167000.00000000
+the processing element 21stops at 6802872000.00000000
+the processing element 27stops at 6803897000.00000000
+the processing element 59stops at 6805487000.00000000
+the processing element 37stops at 6808142000.00000000
+the processing element 47stops at 6810977000.00000000
+the processing element 50stops at 6828627000.00000000
+the processing element 23stops at 6843762000.00000000
+the processing element 54stops at 6847757000.00000000
+the processing element 3stops at 6854607000.00000000
+the processing element 39stops at 6855322000.00000000
+the processing element 36stops at 6857047000.00000000
+the processing element 26stops at 6857947000.00000000
+the processing element 42stops at 6868237000.00000000
+the processing element 60stops at 6874422000.00000000
+the processing element 33stops at 6876972000.00000000
+the processing element 44stops at 6877637000.00000000
+the processing element 51stops at 6877887000.00000000
+the processing element 4stops at 6881277000.00000000
+the processing element 7stops at 6908547000.00000000
+the processing element 30stops at 6909367000.00000000
+the processing element 41stops at 6911262000.00000000
+the processing element 22stops at 6926312000.00000000
+the processing element 9stops at 6934547000.00000000
+the processing element 25stops at 6939897000.00000000
+the processing element 56stops at 6949707000.00000000
+the processing element 46stops at 6958577000.00000000
+the processing element 38stops at 6969267000.00000000
+the processing element 61stops at 7039012000.00000000
+the processing element 2stops at 7108522000.00000000
+the processing element 58stops at 7149862000.00000000
+the processing element 53stops at 7263337000.00000000
+the processing element 10stops at 7366992000.00000000
+the processing element 5stops at 7368717000.00000000
+the processing element 14stops at 7788712000.00000000
+the processing element 16stops at 7801832000.00000000
+the processing element 13stops at 8041177000.00000000
+the processing element 18stops at 8187067000.00000000
+the processing element 12stops at 8295387000.00000000
+the processing element 19stops at 8435267000.00000000
+the processing element 20stops at 8658072000.00000000
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+Noxim simulation completed.
+ ( 8658072.00000000 cycles executed)
+%% Total received packets in slice: 0 2175134% Total received packets: 2175134
+% Total received flits: 14138365
+% Global average throughput (flits/cycle): 0.04325420
+% Throughput (flits/cycle/IP): 2.25420360
+% Max delay (cycles): 254213.00000000
+% Total energy (J): 0.00009976
+% received flits from slice 0 14138417
+% transmitted flits from slice 0 14138437
+received packets in this slice 16006
+average delay of the routers in this slice 339.66906160
+received packets in this slice 136289
+average delay of the routers in this slice 50.83835086
+received packets in this slice 18738
+average delay of the routers in this slice 271.72505070
+received packets in this slice 18749
+average delay of the routers in this slice 301.60259214
+received packets in this slice 18718
+average delay of the routers in this slice 304.69142002
+received packets in this slice 18743
+average delay of the routers in this slice 289.02091447
+received packets in this slice 136238
+average delay of the routers in this slice 49.53049076
+received packets in this slice 18811
+average delay of the routers in this slice 275.71330604
+received packets in this slice 136025
+average delay of the routers in this slice 55.26875942
+received packets in this slice 18835
+average delay of the routers in this slice 305.51738784
+received packets in this slice 18789
+average delay of the routers in this slice 269.41652030
+received packets in this slice 18543
+average delay of the routers in this slice 298.82403063
+received packets in this slice 37915
+average delay of the routers in this slice 192.00817618
+received packets in this slice 37696
+average delay of the routers in this slice 191.22607173
+received packets in this slice 37861
+average delay of the routers in this slice 199.67864029
+received packets in this slice 136167
+average delay of the routers in this slice 39.03613210
+received packets in this slice 37896
+average delay of the routers in this slice 189.52008128
+received packets in this slice 36097
+average delay of the routers in this slice 197.39039255
+received packets in this slice 37834
+average delay of the routers in this slice 193.60752233
+received packets in this slice 37818
+average delay of the routers in this slice 187.84068433
+received packets in this slice 38117
+average delay of the routers in this slice 212.07928221
+received packets in this slice 16078
+average delay of the routers in this slice 344.07911432
+received packets in this slice 16056
+average delay of the routers in this slice 332.06670404
+received packets in this slice 16067
+average delay of the routers in this slice 355.78303355
+received packets in this slice 16114
+average delay of the routers in this slice 342.05547971
+received packets in this slice 16062
+average delay of the routers in this slice 324.22245050
+received packets in this slice 16039
+average delay of the routers in this slice 339.71145333
+received packets in this slice 16057
+average delay of the routers in this slice 319.26798281
+received packets in this slice 15750
+average delay of the routers in this slice 333.66222222
+received packets in this slice 15580
+average delay of the routers in this slice 346.31514763
+received packets in this slice 15620
+average delay of the routers in this slice 336.04449424
+received packets in this slice 15604
+average delay of the routers in this slice 356.36836709
+received packets in this slice 15628
+average delay of the routers in this slice 350.17590223
+received packets in this slice 15600
+average delay of the routers in this slice 334.90160256
+received packets in this slice 15615
+average delay of the routers in this slice 348.56996478
+received packets in this slice 15646
+average delay of the routers in this slice 329.17601943
+received packets in this slice 16040
+average delay of the routers in this slice 326.88029925
+received packets in this slice 16099
+average delay of the routers in this slice 335.91881483
+received packets in this slice 16095
+average delay of the routers in this slice 321.33519727
+received packets in this slice 16107
+average delay of the routers in this slice 337.03396039
+received packets in this slice 16069
+average delay of the routers in this slice 346.85867198
+received packets in this slice 16032
+average delay of the routers in this slice 335.62163174
+received packets in this slice 16100
+average delay of the routers in this slice 343.45062112
+received packets in this slice 16067
+average delay of the routers in this slice 332.13393913
+received packets in this slice 15834
+average delay of the routers in this slice 319.90918277
+received packets in this slice 15690
+average delay of the routers in this slice 336.58859146
+received packets in this slice 15684
+average delay of the routers in this slice 320.08747768
+received packets in this slice 15696
+average delay of the routers in this slice 327.63971713
+received packets in this slice 136147
+average delay of the routers in this slice 39.83755059
+received packets in this slice 15597
+average delay of the routers in this slice 356.39360133
+received packets in this slice 15637
+average delay of the routers in this slice 335.48449191
+received packets in this slice 15638
+average delay of the routers in this slice 338.08057296
+received packets in this slice 15682
+average delay of the routers in this slice 336.23842622
+received packets in this slice 16011
+average delay of the routers in this slice 311.81737555
+received packets in this slice 16133
+average delay of the routers in this slice 334.56418521
+received packets in this slice 134380
+average delay of the routers in this slice 61.58021283
+received packets in this slice 16136
+average delay of the routers in this slice 320.30974219
+received packets in this slice 136164
+average delay of the routers in this slice 47.96985987
+received packets in this slice 16102
+average delay of the routers in this slice 315.26835176
+received packets in this slice 16098
+average delay of the routers in this slice 334.70921854
+received packets in this slice 16137
+average delay of the routers in this slice 316.71723369
+received packets in this slice 16114
+average delay of the routers in this slice 300.58222664
+received packets in this slice 136158
+average delay of the routers in this slice 56.69240147
+received packets in this slice 16086
+average delay of the routers in this slice 338.85633470
+% average delay of slice 0 169.72530704
+
+Info: (I804) /IEEE_Std_1666/deprecated: You can turn off warnings about
+             IEEE 1666 deprecated features by placing this method call
+             as the first statement in your sc_main() function:
+
+  sc_core::sc_report_handler::set_actions( "/IEEE_Std_1666/deprecated",
+                                           sc_core::SC_DO_NOTHING );
+

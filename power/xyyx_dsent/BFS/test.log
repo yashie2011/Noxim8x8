@@ -1,0 +1,527 @@
+
+		Noxim - the NoC Simulator
+		(C) University of Catania
+
+
+Info: (I804) /IEEE_Std_1666/deprecated: use of () to specify sensitivity is deprecated, use << instead
+
+Info: (I804) /IEEE_Std_1666/deprecated: sc_sensitive_pos is deprecated use sc_sensitive << with pos() instead
+Benchmark.h: Number of values read from nodes[0].txt file are 4320
+
+Warning: (W505) object already exists: NoC.Tile[00][00].Router. Latter declaration will be renamed to NoC.Tile[00][00].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[8].txt file are 4052
+
+Warning: (W505) object already exists: NoC.Tile[00][01].Router. Latter declaration will be renamed to NoC.Tile[00][01].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[16].txt file are 4165
+
+Warning: (W505) object already exists: NoC.Tile[00][02].Router. Latter declaration will be renamed to NoC.Tile[00][02].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[24].txt file are 4064
+
+Warning: (W505) object already exists: NoC.Tile[00][03].Router. Latter declaration will be renamed to NoC.Tile[00][03].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[32].txt file are 3804
+
+Warning: (W505) object already exists: NoC.Tile[00][04].Router. Latter declaration will be renamed to NoC.Tile[00][04].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[40].txt file are 4014
+
+Warning: (W505) object already exists: NoC.Tile[00][05].Router. Latter declaration will be renamed to NoC.Tile[00][05].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[48].txt file are 4099
+
+Warning: (W505) object already exists: NoC.Tile[00][06].Router. Latter declaration will be renamed to NoC.Tile[00][06].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[48].txt file are 4099
+
+Warning: (W505) object already exists: NoC.Tile[00][07].Router. Latter declaration will be renamed to NoC.Tile[00][07].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[1].txt file are 3872
+
+Warning: (W505) object already exists: NoC.Tile[01][00].Router. Latter declaration will be renamed to NoC.Tile[01][00].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[9].txt file are 3999
+
+Warning: (W505) object already exists: NoC.Tile[01][01].Router. Latter declaration will be renamed to NoC.Tile[01][01].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[17].txt file are 3998
+
+Warning: (W505) object already exists: NoC.Tile[01][02].Router. Latter declaration will be renamed to NoC.Tile[01][02].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[25].txt file are 3915
+
+Warning: (W505) object already exists: NoC.Tile[01][03].Router. Latter declaration will be renamed to NoC.Tile[01][03].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[33].txt file are 3725
+
+Warning: (W505) object already exists: NoC.Tile[01][04].Router. Latter declaration will be renamed to NoC.Tile[01][04].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[41].txt file are 4120
+
+Warning: (W505) object already exists: NoC.Tile[01][05].Router. Latter declaration will be renamed to NoC.Tile[01][05].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[49].txt file are 4111
+
+Warning: (W505) object already exists: NoC.Tile[01][06].Router. Latter declaration will be renamed to NoC.Tile[01][06].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[49].txt file are 4111
+
+Warning: (W505) object already exists: NoC.Tile[01][07].Router. Latter declaration will be renamed to NoC.Tile[01][07].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[2].txt file are 3928
+
+Warning: (W505) object already exists: NoC.Tile[02][00].Router. Latter declaration will be renamed to NoC.Tile[02][00].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[10].txt file are 3778
+
+Warning: (W505) object already exists: NoC.Tile[02][01].Router. Latter declaration will be renamed to NoC.Tile[02][01].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[18].txt file are 3854
+
+Warning: (W505) object already exists: NoC.Tile[02][02].Router. Latter declaration will be renamed to NoC.Tile[02][02].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[26].txt file are 3906
+
+Warning: (W505) object already exists: NoC.Tile[02][03].Router. Latter declaration will be renamed to NoC.Tile[02][03].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[34].txt file are 3510
+
+Warning: (W505) object already exists: NoC.Tile[02][04].Router. Latter declaration will be renamed to NoC.Tile[02][04].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[42].txt file are 3728
+
+Warning: (W505) object already exists: NoC.Tile[02][05].Router. Latter declaration will be renamed to NoC.Tile[02][05].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[50].txt file are 4110
+
+Warning: (W505) object already exists: NoC.Tile[02][06].Router. Latter declaration will be renamed to NoC.Tile[02][06].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[50].txt file are 4110
+
+Warning: (W505) object already exists: NoC.Tile[02][07].Router. Latter declaration will be renamed to NoC.Tile[02][07].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[3].txt file are 3604
+
+Warning: (W505) object already exists: NoC.Tile[03][00].Router. Latter declaration will be renamed to NoC.Tile[03][00].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[11].txt file are 3849
+
+Warning: (W505) object already exists: NoC.Tile[03][01].Router. Latter declaration will be renamed to NoC.Tile[03][01].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[19].txt file are 3851
+
+Warning: (W505) object already exists: NoC.Tile[03][02].Router. Latter declaration will be renamed to NoC.Tile[03][02].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[27].txt file are 3841
+
+Warning: (W505) object already exists: NoC.Tile[03][03].Router. Latter declaration will be renamed to NoC.Tile[03][03].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[35].txt file are 3712
+
+Warning: (W505) object already exists: NoC.Tile[03][04].Router. Latter declaration will be renamed to NoC.Tile[03][04].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[43].txt file are 3731
+
+Warning: (W505) object already exists: NoC.Tile[03][05].Router. Latter declaration will be renamed to NoC.Tile[03][05].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[51].txt file are 4100
+
+Warning: (W505) object already exists: NoC.Tile[03][06].Router. Latter declaration will be renamed to NoC.Tile[03][06].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[51].txt file are 4100
+
+Warning: (W505) object already exists: NoC.Tile[03][07].Router. Latter declaration will be renamed to NoC.Tile[03][07].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[4].txt file are 4005
+
+Warning: (W505) object already exists: NoC.Tile[04][00].Router. Latter declaration will be renamed to NoC.Tile[04][00].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[12].txt file are 4031
+
+Warning: (W505) object already exists: NoC.Tile[04][01].Router. Latter declaration will be renamed to NoC.Tile[04][01].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[20].txt file are 4001
+
+Warning: (W505) object already exists: NoC.Tile[04][02].Router. Latter declaration will be renamed to NoC.Tile[04][02].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[28].txt file are 3934
+
+Warning: (W505) object already exists: NoC.Tile[04][03].Router. Latter declaration will be renamed to NoC.Tile[04][03].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[36].txt file are 4187
+
+Warning: (W505) object already exists: NoC.Tile[04][04].Router. Latter declaration will be renamed to NoC.Tile[04][04].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[44].txt file are 3895
+
+Warning: (W505) object already exists: NoC.Tile[04][05].Router. Latter declaration will be renamed to NoC.Tile[04][05].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[52].txt file are 4268
+
+Warning: (W505) object already exists: NoC.Tile[04][06].Router. Latter declaration will be renamed to NoC.Tile[04][06].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[52].txt file are 4268
+
+Warning: (W505) object already exists: NoC.Tile[04][07].Router. Latter declaration will be renamed to NoC.Tile[04][07].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[5].txt file are 3790
+
+Warning: (W505) object already exists: NoC.Tile[05][00].Router. Latter declaration will be renamed to NoC.Tile[05][00].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[13].txt file are 3880
+
+Warning: (W505) object already exists: NoC.Tile[05][01].Router. Latter declaration will be renamed to NoC.Tile[05][01].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[21].txt file are 3923
+
+Warning: (W505) object already exists: NoC.Tile[05][02].Router. Latter declaration will be renamed to NoC.Tile[05][02].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[29].txt file are 3880
+
+Warning: (W505) object already exists: NoC.Tile[05][03].Router. Latter declaration will be renamed to NoC.Tile[05][03].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[37].txt file are 3965
+
+Warning: (W505) object already exists: NoC.Tile[05][04].Router. Latter declaration will be renamed to NoC.Tile[05][04].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[45].txt file are 3856
+
+Warning: (W505) object already exists: NoC.Tile[05][05].Router. Latter declaration will be renamed to NoC.Tile[05][05].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[53].txt file are 4205
+
+Warning: (W505) object already exists: NoC.Tile[05][06].Router. Latter declaration will be renamed to NoC.Tile[05][06].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[53].txt file are 4205
+
+Warning: (W505) object already exists: NoC.Tile[05][07].Router. Latter declaration will be renamed to NoC.Tile[05][07].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[6].txt file are 3943
+
+Warning: (W505) object already exists: NoC.Tile[06][00].Router. Latter declaration will be renamed to NoC.Tile[06][00].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[14].txt file are 3936
+
+Warning: (W505) object already exists: NoC.Tile[06][01].Router. Latter declaration will be renamed to NoC.Tile[06][01].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[22].txt file are 3962
+
+Warning: (W505) object already exists: NoC.Tile[06][02].Router. Latter declaration will be renamed to NoC.Tile[06][02].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[30].txt file are 3712
+
+Warning: (W505) object already exists: NoC.Tile[06][03].Router. Latter declaration will be renamed to NoC.Tile[06][03].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[38].txt file are 3788
+
+Warning: (W505) object already exists: NoC.Tile[06][04].Router. Latter declaration will be renamed to NoC.Tile[06][04].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[46].txt file are 3758
+
+Warning: (W505) object already exists: NoC.Tile[06][05].Router. Latter declaration will be renamed to NoC.Tile[06][05].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[54].txt file are 4119
+
+Warning: (W505) object already exists: NoC.Tile[06][06].Router. Latter declaration will be renamed to NoC.Tile[06][06].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[54].txt file are 4119
+
+Warning: (W505) object already exists: NoC.Tile[06][07].Router. Latter declaration will be renamed to NoC.Tile[06][07].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[7].txt file are 3758
+
+Warning: (W505) object already exists: NoC.Tile[07][00].Router. Latter declaration will be renamed to NoC.Tile[07][00].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[15].txt file are 3902
+
+Warning: (W505) object already exists: NoC.Tile[07][01].Router. Latter declaration will be renamed to NoC.Tile[07][01].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[23].txt file are 3694
+
+Warning: (W505) object already exists: NoC.Tile[07][02].Router. Latter declaration will be renamed to NoC.Tile[07][02].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[31].txt file are 3768
+
+Warning: (W505) object already exists: NoC.Tile[07][03].Router. Latter declaration will be renamed to NoC.Tile[07][03].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[39].txt file are 3780
+
+Warning: (W505) object already exists: NoC.Tile[07][04].Router. Latter declaration will be renamed to NoC.Tile[07][04].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[47].txt file are 3786
+
+Warning: (W505) object already exists: NoC.Tile[07][05].Router. Latter declaration will be renamed to NoC.Tile[07][05].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[55].txt file are 4025
+
+Warning: (W505) object already exists: NoC.Tile[07][06].Router. Latter declaration will be renamed to NoC.Tile[07][06].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Benchmark.h: Number of values read from nodes[55].txt file are 4025
+
+Warning: (W505) object already exists: NoC.Tile[07][07].Router. Latter declaration will be renamed to NoC.Tile[07][07].Router_0
+In file: ../../../../src/sysc/kernel/sc_object_manager.cpp:149
+Reset... done! Now running for 100000 cycles...
+the processing element 43stops at 1205402000.00000000
+the processing element 42stops at 1205530000.00000000
+the processing element 27stops at 1228598000.00000000
+the processing element 46stops at 1235910000.00000000
+the processing element 34stops at 1250130000.00000000
+the processing element 35stops at 1276790000.00000000
+the processing element 45stops at 1310882000.00000000
+the processing element 38stops at 1337906000.00000000
+the processing element 39stops at 1343142000.00000000
+the processing element 30stops at 1350086000.00000000
+the processing element 3stops at 1358218000.00000000
+the processing element 44stops at 1358286000.00000000
+the processing element 33stops at 1371974000.00000000
+the processing element 25stops at 1378178000.00000000
+the processing element 17stops at 1382818000.00000000
+the processing element 21stops at 1387838000.00000000
+the processing element 47stops at 1391738000.00000000
+the processing element 18stops at 1392010000.00000000
+the processing element 11stops at 1392466000.00000000
+the processing element 31stops at 1392670000.00000000
+the processing element 23stops at 1392782000.00000000
+the processing element 19stops at 1400266000.00000000
+the processing element 32stops at 1414106000.00000000
+the processing element 28stops at 1419690000.00000000
+the processing element 50stops at 1421742000.00000000
+the processing element 51stops at 1422586000.00000000
+the processing element 49stops at 1426386000.00000000
+the processing element 13stops at 1427026000.00000000
+the processing element 26stops at 1427186000.00000000
+the processing element 53stops at 1427626000.00000000
+the processing element 41stops at 1430102000.00000000
+the processing element 20stops at 1431110000.00000000
+the processing element 15stops at 1431446000.00000000
+the processing element 37stops at 1433018000.00000000
+the processing element 52stops at 1433226000.00000000
+the processing element 10stops at 1433978000.00000000
+the processing element 40stops at 1436266000.00000000
+the processing element 55stops at 1438310000.00000000
+the processing element 2stops at 1440094000.00000000
+the processing element 29stops at 1440306000.00000000
+the processing element 54stops at 1440798000.00000000
+the processing element 5stops at 1443906000.00000000
+the processing element 48stops at 1446622000.00000000
+the processing element 24stops at 1446994000.00000000
+the processing element 9stops at 1448478000.00000000
+the processing element 7stops at 1449774000.00000000
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+Noxim simulation completed.
+ ( 1449774.00000000 cycles executed)
+%% Total received packets in slice: 0 218845%% Total received packets in slice: 1 437740% Total received packets: 437740
+% Total received flits: 2845450
+% Global average throughput (flits/cycle): 0.04353503
+% Throughput (flits/cycle/IP): 0.90735013
+% Max delay (cycles): 2134.00000000
+% Total energy (J): 0.00002407
+% received flits from slice 0 657009
+% transmitted flits from slice 0 657023
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 28145
+average delay of the routers in this slice 48.02167348
+received packets in this slice 27189
+average delay of the routers in this slice 44.17845452
+received packets in this slice 27323
+average delay of the routers in this slice 42.23899279
+received packets in this slice 26880
+average delay of the routers in this slice 40.09497768
+received packets in this slice 28741
+average delay of the routers in this slice 39.99662503
+received packets in this slice 26567
+average delay of the routers in this slice 40.84401701
+received packets in this slice 28185
+average delay of the routers in this slice 43.09849211
+received packets in this slice 25815
+average delay of the routers in this slice 46.07786171
+% average delay of slice 0 43.05999223
+% received flits from slice 1 2189942
+% transmitted flits from slice 1 2190012
+received packets in this slice 4201
+average delay of the routers in this slice 323.20733159
+received packets in this slice 3855
+average delay of the routers in this slice 353.19896239
+received packets in this slice 3924
+average delay of the routers in this slice 344.97247706
+received packets in this slice 3599
+average delay of the routers in this slice 353.46096138
+received packets in this slice 3956
+average delay of the routers in this slice 347.69362993
+received packets in this slice 3786
+average delay of the routers in this slice 357.19175911
+received packets in this slice 3913
+average delay of the routers in this slice 347.45974955
+received packets in this slice 3752
+average delay of the routers in this slice 359.72494670
+received packets in this slice 3972
+average delay of the routers in this slice 343.35649547
+received packets in this slice 3996
+average delay of the routers in this slice 342.49949950
+received packets in this slice 3774
+average delay of the routers in this slice 362.82352941
+received packets in this slice 3845
+average delay of the routers in this slice 348.79635891
+received packets in this slice 4023
+average delay of the routers in this slice 341.26224211
+received packets in this slice 3876
+average delay of the routers in this slice 351.52012384
+received packets in this slice 3886
+average delay of the routers in this slice 351.42768914
+received packets in this slice 3898
+average delay of the routers in this slice 344.61570036
+received packets in this slice 4059
+average delay of the routers in this slice 339.42596699
+received packets in this slice 3995
+average delay of the routers in this slice 333.69962453
+received packets in this slice 3851
+average delay of the routers in this slice 348.68397819
+received packets in this slice 3848
+average delay of the routers in this slice 352.57900208
+received packets in this slice 3998
+average delay of the routers in this slice 346.53726863
+received packets in this slice 3920
+average delay of the routers in this slice 342.32346939
+received packets in this slice 3948
+average delay of the routers in this slice 352.18338399
+received packets in this slice 3691
+average delay of the routers in this slice 358.17339474
+received packets in this slice 4061
+average delay of the routers in this slice 341.75572519
+received packets in this slice 3912
+average delay of the routers in this slice 341.14723926
+received packets in this slice 3904
+average delay of the routers in this slice 349.95799180
+received packets in this slice 3838
+average delay of the routers in this slice 310.65033872
+received packets in this slice 3932
+average delay of the routers in this slice 345.63377416
+received packets in this slice 3878
+average delay of the routers in this slice 355.51521403
+received packets in this slice 3710
+average delay of the routers in this slice 344.05714286
+received packets in this slice 3766
+average delay of the routers in this slice 351.09718534
+received packets in this slice 3802
+average delay of the routers in this slice 348.15886376
+received packets in this slice 3723
+average delay of the routers in this slice 352.62046737
+received packets in this slice 3508
+average delay of the routers in this slice 332.90535918
+received packets in this slice 3710
+average delay of the routers in this slice 333.43072776
+received packets in this slice 4164
+average delay of the routers in this slice 336.64841499
+received packets in this slice 3963
+average delay of the routers in this slice 345.65379763
+received packets in this slice 3786
+average delay of the routers in this slice 339.99788695
+received packets in this slice 3778
+average delay of the routers in this slice 331.76707253
+received packets in this slice 4012
+average delay of the routers in this slice 337.23330010
+received packets in this slice 4119
+average delay of the routers in this slice 338.06506434
+received packets in this slice 3726
+average delay of the routers in this slice 304.56897477
+received packets in this slice 3729
+average delay of the routers in this slice 315.42880129
+received packets in this slice 3893
+average delay of the routers in this slice 340.14847162
+received packets in this slice 3854
+average delay of the routers in this slice 330.13596264
+received packets in this slice 3756
+average delay of the routers in this slice 310.98615548
+received packets in this slice 3784
+average delay of the routers in this slice 352.36152220
+received packets in this slice 4097
+average delay of the routers in this slice 341.50988528
+received packets in this slice 4109
+average delay of the routers in this slice 342.70966172
+received packets in this slice 4108
+average delay of the routers in this slice 345.14605648
+received packets in this slice 4098
+average delay of the routers in this slice 345.82820888
+received packets in this slice 4266
+average delay of the routers in this slice 334.00281294
+received packets in this slice 4203
+average delay of the routers in this slice 336.22031882
+received packets in this slice 4117
+average delay of the routers in this slice 346.12824872
+received packets in this slice 4023
+average delay of the routers in this slice 350.76559781
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+% average delay of slice 1 342.45484821
+
+Info: (I804) /IEEE_Std_1666/deprecated: You can turn off warnings about
+             IEEE 1666 deprecated features by placing this method call
+             as the first statement in your sc_main() function:
+
+  sc_core::sc_report_handler::set_actions( "/IEEE_Std_1666/deprecated",
+                                           sc_core::SC_DO_NOTHING );
+

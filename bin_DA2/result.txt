@@ -1,0 +1,156 @@
+Noxim simulation completed.
+ ( 3.81252e+06 cycles executed)
+%% Total received packets in slice: 0 165990%% Total received packets in slice: 1 207329%% Total received packets in slice: 2 248856%% Total received packets in slice: 3 290437%% Total received packets in slice: 4 331973% Total received packets: 331973
+% Total received flits: 6021056
+% Global average throughput (flits/cycle): 0.0314445
+% Throughput (flits/cycle/IP): 5.90763
+% Max delay (cycles): 10209
+% Total energy (J): 2.20463e-06
+% received flits from slice 0 498186
+% transmitted flits from slice 0 498190
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 41647
+average delay of the routers in this slice 30.0426
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 41404
+average delay of the routers in this slice 27.6346
+received packets in this slice 41320
+average delay of the routers in this slice 27.643
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 41619
+average delay of the routers in this slice 29.5407
+received packets in this slice 0
+received packets in this slice 0
+% average delay of slice 0 28.7188
+% received flits from slice 1 1376662
+% transmitted flits from slice 1 1376667
+received packets in this slice 3444
+average delay of the routers in this slice 740.108
+received packets in this slice 3473
+average delay of the routers in this slice 283.36
+received packets in this slice 0
+received packets in this slice 3355
+average delay of the routers in this slice 522.974
+received packets in this slice 3493
+average delay of the routers in this slice 917.774
+received packets in this slice 3521
+average delay of the routers in this slice 311.717
+received packets in this slice 3572
+average delay of the routers in this slice 577.246
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 3271
+average delay of the routers in this slice 233.33
+received packets in this slice 3448
+average delay of the routers in this slice 468.899
+received packets in this slice 3540
+average delay of the routers in this slice 855.937
+received packets in this slice 3508
+average delay of the routers in this slice 852.224
+received packets in this slice 0
+received packets in this slice 3378
+average delay of the routers in this slice 612.343
+received packets in this slice 3336
+average delay of the routers in this slice 606.31
+% average delay of slice 1 584.04
+% received flits from slice 2 1383161
+% transmitted flits from slice 2 1383169
+received packets in this slice 3445
+average delay of the routers in this slice 707.197
+received packets in this slice 3455
+average delay of the routers in this slice 372.177
+received packets in this slice 0
+received packets in this slice 3408
+average delay of the routers in this slice 898.491
+received packets in this slice 3442
+average delay of the routers in this slice 840.572
+received packets in this slice 3629
+average delay of the routers in this slice 488.529
+received packets in this slice 3546
+average delay of the routers in this slice 651.555
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 3332
+average delay of the routers in this slice 350.166
+received packets in this slice 3474
+average delay of the routers in this slice 562.941
+received packets in this slice 3529
+average delay of the routers in this slice 1117.7
+received packets in this slice 3484
+average delay of the routers in this slice 795.487
+received packets in this slice 0
+received packets in this slice 3384
+average delay of the routers in this slice 695.433
+received packets in this slice 3399
+average delay of the routers in this slice 949.606
+% average delay of slice 2 702.677
+% received flits from slice 3 1383941
+% transmitted flits from slice 3 1383948
+received packets in this slice 3446
+average delay of the routers in this slice 801.114
+received packets in this slice 3398
+average delay of the routers in this slice 233.994
+received packets in this slice 0
+received packets in this slice 3414
+average delay of the routers in this slice 912.956
+received packets in this slice 3529
+average delay of the routers in this slice 1065.04
+received packets in this slice 3613
+average delay of the routers in this slice 328.75
+received packets in this slice 3561
+average delay of the routers in this slice 643.917
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 3275
+average delay of the routers in this slice 226.584
+received packets in this slice 3518
+average delay of the routers in this slice 663.839
+received packets in this slice 3559
+average delay of the routers in this slice 1190.06
+received packets in this slice 3512
+average delay of the routers in this slice 977.056
+received packets in this slice 0
+received packets in this slice 3385
+average delay of the routers in this slice 785.262
+received packets in this slice 3371
+average delay of the routers in this slice 917.114
+% average delay of slice 3 731.245
+% received flits from slice 4 1381383
+% transmitted flits from slice 4 1381389
+received packets in this slice 3432
+average delay of the routers in this slice 503.806
+received packets in this slice 3509
+average delay of the routers in this slice 364.22
+received packets in this slice 0
+received packets in this slice 3356
+average delay of the routers in this slice 636.351
+received packets in this slice 3467
+average delay of the routers in this slice 618.379
+received packets in this slice 3577
+average delay of the routers in this slice 457.762
+received packets in this slice 3540
+average delay of the routers in this slice 788.75
+received packets in this slice 0
+received packets in this slice 0
+received packets in this slice 3340
+average delay of the routers in this slice 356.495
+received packets in this slice 3482
+average delay of the routers in this slice 602.998
+received packets in this slice 3557
+average delay of the routers in this slice 970.323
+received packets in this slice 3489
+average delay of the routers in this slice 638.644
+received packets in this slice 0
+received packets in this slice 3408
+average delay of the routers in this slice 871.183
+received packets in this slice 3379
+average delay of the routers in this slice 714.115
+% average delay of slice 4 627.605
+

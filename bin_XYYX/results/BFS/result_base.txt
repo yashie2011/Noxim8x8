@@ -1,0 +1,44 @@
+Noxim simulation completed.
+ ( 3.81252e+06 cycles executed)
+%% Total received packets in slice: 0 331967% Total received packets: 331967
+% Total received flits: 2127690
+% Global average throughput (flits/cycle): 0.0341684
+% Throughput (flits/cycle/IP): 1.35695
+% Max delay (cycles): 7729
+% Total energy (J): 8.53784e-06
+% received flits from slice 0 2128499
+% transmitted flits from slice 0 2128546
+received packets in this slice 13767
+average delay of the routers in this slice 787.836
+received packets in this slice 13835
+average delay of the routers in this slice 783.068
+received packets in this slice 41647
+average delay of the routers in this slice 37.7815
+received packets in this slice 13533
+average delay of the routers in this slice 826.923
+received packets in this slice 13932
+average delay of the routers in this slice 825.722
+received packets in this slice 14339
+average delay of the routers in this slice 823.208
+received packets in this slice 14216
+average delay of the routers in this slice 781.428
+received packets in this slice 41404
+average delay of the routers in this slice 36.7068
+received packets in this slice 41320
+average delay of the routers in this slice 36.5692
+received packets in this slice 13218
+average delay of the routers in this slice 704.485
+received packets in this slice 13922
+average delay of the routers in this slice 736.586
+received packets in this slice 14185
+average delay of the routers in this slice 991.551
+received packets in this slice 13990
+average delay of the routers in this slice 806.289
+received packets in this slice 41619
+average delay of the routers in this slice 36.9908
+received packets in this slice 13555
+average delay of the routers in this slice 841.521
+received packets in this slice 13485
+average delay of the routers in this slice 808.595
+% average delay of slice 0 423.698
+

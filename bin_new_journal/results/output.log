@@ -1,0 +1,880 @@
+old InjectionRate                           = 0.0121984
+
+new InjectionRate                           = 0.014919
+
+InjectionRate                           = 0.014919
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 7.076850e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 2.032597e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 2.780636e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.565934e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.014919
+
+new InjectionRate                           = 0.0121438
+
+InjectionRate                           = 0.0121438
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 5.760430e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 1.654498e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 2.263388e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.391310e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.0121438
+
+new InjectionRate                           = 0
+
+InjectionRate                           = 0
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 0.000000e+00
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 0.000000e+00
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 0.000000e+00
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 1.627183e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0
+
+new InjectionRate                           = 0.0207079
+
+InjectionRate                           = 0.0207079
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 9.822824e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 2.821290e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 3.859584e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.930190e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.0207079
+
+new InjectionRate                           = 0.0177555
+
+InjectionRate                           = 0.0177555
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 8.422349e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 2.419048e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 3.309309e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.744416e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.0177555
+
+new InjectionRate                           = 0.0176464
+
+InjectionRate                           = 0.0176464
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 8.370597e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 2.404184e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 3.288975e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.737551e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.0176464
+
+new InjectionRate                           = 0.0152122
+
+InjectionRate                           = 0.0152122
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 7.215930e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 2.072544e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 2.835283e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.584383e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.0152122
+
+new InjectionRate                           = 0
+
+InjectionRate                           = 0
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 0.000000e+00
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 0.000000e+00
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 0.000000e+00
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 1.627183e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0
+
+new InjectionRate                           = 0
+
+InjectionRate                           = 0
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 0.000000e+00
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 0.000000e+00
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 0.000000e+00
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 1.627183e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0
+
+new InjectionRate                           = 0.0096005
+
+InjectionRate                           = 0.0096005
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 4.554012e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 1.307993e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 1.789362e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.231277e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.0096005
+
+new InjectionRate                           = 0.0152122
+
+InjectionRate                           = 0.0152122
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 7.215930e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 2.072544e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 2.835283e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.584383e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.0152122
+
+new InjectionRate                           = 0.00652534
+
+InjectionRate                           = 0.00652534
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 3.095305e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 8.890267e-06
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 1.216207e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.037778e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.00652534
+
+new InjectionRate                           = 0.014919
+
+InjectionRate                           = 0.014919
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 7.076850e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 2.032597e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 2.780636e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.565934e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.014919
+
+new InjectionRate                           = 0
+
+InjectionRate                           = 0
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 0.000000e+00
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 0.000000e+00
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 0.000000e+00
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 1.627183e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0
+
+new InjectionRate                           = 0.0152122
+
+InjectionRate                           = 0.0152122
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 7.215930e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 2.072544e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 2.835283e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.584383e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11
+old InjectionRate                           = 0.0152122
+
+new InjectionRate                           = 0.0121984
+
+InjectionRate                           = 0.0121984
+Energy>>Router:WriteBuffer = 5.05756e-13 (5.05756e-13 * 1)
+Energy>>Router:ReadBuffer = 4.42947e-13 (4.42947e-13 * 1)
+Energy>>Router:TraverseCrossbar->Multicast1 = 2.72484e-13 (2.72484e-13 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage1 = 3.49684e-15 (3.49684e-15 * 1)
+Energy>>Router:ArbitrateSwitch->ArbitrateStage2 = 3.37796e-14 (3.37796e-14 * 1)
+Energy>>Router:DistributeClock = 1.62718e-13 (1.62718e-13 * 1)
+NddPower>>Router:Leakage->InputPort:Leakage = 0.00677571 (0.00135514 * 5)
+NddPower>>Router:Leakage->SwitchAllocator:Leakage = 0.00017801 (0.00017801 * 1)
+NddPower>>Router:Leakage->Crossbar:Leakage = 0.000620941 (0.000620941 * 1)
+NddPower>>Router:Leakage->Crossbar_Sel_DFF:Leakage = 1.80856e-05 (1.20571e-06 * 15)
+NddPower>>Router:Leakage->ClockTree:Leakage = 9.52509e-06 (9.52509e-06 * 1)
+NddPower>>Router:Leakage->PipelineReg0:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg1:Leakage = 0.000385827 (1.20571e-06 * 320)
+NddPower>>Router:Leakage->PipelineReg2_0:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_1:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_2:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_3:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+NddPower>>Router:Leakage->PipelineReg2_4:Leakage = 7.71654e-05 (1.20571e-06 * 64)
+Area>>Router:Active->InputPort:Active = 7.55251e-09 (1.5105e-09 * 5)
+Area>>Router:Active->SwitchAllocator:Active = 2.14579e-10 (2.14579e-10 * 1)
+Area>>Router:Active->Crossbar:Active = 1.23904e-09 (1.23904e-09 * 1)
+Area>>Router:Active->Crossbar_Sel_DFF:Active = 1.9008e-11 (1.2672e-12 * 15)
+Area>>Router:Active->ClockTree:Active = 1.19962e-11 (1.19962e-11 * 1)
+Area>>Router:Active->PipelineReg0:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg1:Active = 4.05504e-10 (1.2672e-12 * 320)
+Area>>Router:Active->PipelineReg2_0:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_1:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_2:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_3:Active = 8.11008e-11 (1.2672e-12 * 64)
+Area>>Router:Active->PipelineReg2_4:Active = 8.11008e-11 (1.2672e-12 * 64)
+Buffer:
+    Dynamic power: 5.786330e-05
+    Leakage power: 7.547368e-03
+Crossbar:
+    Dynamic power: 1.661937e-05
+    Leakage power: 1.006768e-03
+Switch allocator:
+    Dynamic power: 2.273564e-06
+    Leakage power: 1.780102e-04
+Clock:
+    Dynamic power: 1.627183e-04
+    Leakage power: 9.525093e-06
+Total:
+    Dynamic power: 2.394746e-04
+    Leakage power: 8.759757e-03
+Area:
+    Buffer:           8.363520e-09
+    Crossbar:         1.645811e-09
+    Switch allocator: 2.145792e-10
+    Other:            1.199616e-11

@@ -1,0 +1,158 @@
+
+		Noxim - the NoC Simulator
+		(C) University of Catania
+
+
+Info: (I804) /IEEE_Std_1666/deprecated: use of () to specify sensitivity is deprecated, use << instead
+
+Info: (I804) /IEEE_Std_1666/deprecated: sc_sensitive_pos is deprecated use sc_sensitive << with pos() instead
+Reset... done! Now running for 100000 cycles...
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+Noxim simulation completed.
+ ( 7641572.00000000 cycles executed)
+%% Total received packets in slice: 0 2037658% Total received packets: 2037658
+% Total received flits: 10969575
+% Global average throughput (flits/cycle): 0.03482863
+% Throughput (flits/cycle/IP): 1.74897561
+% Max delay (cycles): 41760.00000000
+% Total energy (J): 0.00009385
+% received flits from slice 0 10970202
+% transmitted flits from slice 0 10970381
+received packets in this slice 17013
+average delay of the routers in this slice 409.08328925
+received packets in this slice 130398
+average delay of the routers in this slice 53.81394653
+received packets in this slice 17732
+average delay of the routers in this slice 392.79077374
+received packets in this slice 128165
+average delay of the routers in this slice 50.87125190
+received packets in this slice 17606
+average delay of the routers in this slice 386.18442576
+received packets in this slice 132837
+average delay of the routers in this slice 52.79177488
+received packets in this slice 1538
+average delay of the routers in this slice 476.71586476
+received packets in this slice 125998
+average delay of the routers in this slice 59.99422213
+received packets in this slice 17941
+average delay of the routers in this slice 411.39278747
+received packets in this slice 18917
+average delay of the routers in this slice 392.82898980
+received packets in this slice 19600
+average delay of the routers in this slice 382.70790816
+received packets in this slice 18134
+average delay of the routers in this slice 414.67778758
+received packets in this slice 19018
+average delay of the routers in this slice 394.81801451
+received packets in this slice 18645
+average delay of the routers in this slice 401.09198176
+received packets in this slice 18841
+average delay of the routers in this slice 394.78254870
+received packets in this slice 19103
+average delay of the routers in this slice 384.27021934
+received packets in this slice 17990
+average delay of the routers in this slice 410.61895497
+received packets in this slice 18968
+average delay of the routers in this slice 393.69169127
+received packets in this slice 18696
+average delay of the routers in this slice 400.66875267
+received packets in this slice 18600
+average delay of the routers in this slice 403.24193548
+received packets in this slice 18673
+average delay of the routers in this slice 402.46446741
+received packets in this slice 19248
+average delay of the routers in this slice 388.61045303
+received packets in this slice 19040
+average delay of the routers in this slice 391.35898109
+received packets in this slice 18688
+average delay of the routers in this slice 393.25123074
+received packets in this slice 18398
+average delay of the routers in this slice 401.62213284
+received packets in this slice 18741
+average delay of the routers in this slice 397.11957740
+received packets in this slice 18448
+average delay of the routers in this slice 406.17351474
+received packets in this slice 18069
+average delay of the routers in this slice 415.46167469
+received packets in this slice 19144
+average delay of the routers in this slice 392.80777267
+received packets in this slice 18642
+average delay of the routers in this slice 402.07198798
+received packets in this slice 19385
+average delay of the routers in this slice 384.83905081
+received packets in this slice 18217
+average delay of the routers in this slice 405.04506779
+received packets in this slice 18190
+average delay of the routers in this slice 406.09180869
+received packets in this slice 18826
+average delay of the routers in this slice 396.09120365
+received packets in this slice 18245
+average delay of the routers in this slice 410.41381200
+received packets in this slice 18236
+average delay of the routers in this slice 411.96057249
+received packets in this slice 18720
+average delay of the routers in this slice 401.50507479
+received packets in this slice 18950
+average delay of the routers in this slice 395.22664908
+received packets in this slice 19098
+average delay of the routers in this slice 389.64310399
+received packets in this slice 18590
+average delay of the routers in this slice 396.63098440
+received packets in this slice 18137
+average delay of the routers in this slice 407.82053261
+received packets in this slice 18538
+average delay of the routers in this slice 401.01866437
+received packets in this slice 18585
+average delay of the routers in this slice 402.82835620
+received packets in this slice 18436
+average delay of the routers in this slice 407.53243654
+received packets in this slice 18974
+average delay of the routers in this slice 395.64915147
+received packets in this slice 18883
+average delay of the routers in this slice 396.00296563
+received packets in this slice 19195
+average delay of the routers in this slice 387.57150300
+received packets in this slice 19051
+average delay of the routers in this slice 386.82867041
+received packets in this slice 17999
+average delay of the routers in this slice 409.82593477
+received packets in this slice 18598
+average delay of the routers in this slice 401.04333799
+received packets in this slice 18692
+average delay of the routers in this slice 398.34827734
+received packets in this slice 19023
+average delay of the routers in this slice 394.75550649
+received packets in this slice 18964
+average delay of the routers in this slice 396.60894326
+received packets in this slice 19183
+average delay of the routers in this slice 390.08908930
+received packets in this slice 18904
+average delay of the routers in this slice 394.13785442
+received packets in this slice 18485
+average delay of the routers in this slice 399.25047336
+received packets in this slice 127863
+average delay of the routers in this slice 58.78667011
+received packets in this slice 16466
+average delay of the routers in this slice 391.26460585
+received packets in this slice 123409
+average delay of the routers in this slice 52.69503035
+received packets in this slice 16884
+average delay of the routers in this slice 405.91281687
+received packets in this slice 127582
+average delay of the routers in this slice 51.27229546
+received packets in this slice 17310
+average delay of the routers in this slice 396.08232236
+received packets in this slice 122579
+average delay of the routers in this slice 55.43632270
+received packets in this slice 16630
+average delay of the routers in this slice 399.19693325
+% average delay of slice 0 226.51186117
+
+Info: (I804) /IEEE_Std_1666/deprecated: You can turn off warnings about
+             IEEE 1666 deprecated features by placing this method call
+             as the first statement in your sc_main() function:
+
+  sc_core::sc_report_handler::set_actions( "/IEEE_Std_1666/deprecated",
+                                           sc_core::SC_DO_NOTHING );
+

@@ -1,0 +1,100 @@
+node: 43 matching clock cycle 2746556.00000000, pushing packet into request queue 
+node: 43 matching clock cycle 2746556.00000000, pushing packet into request queue 
+node: 31 matching clock cycle 2746565.00000000, pushing packet into request queue 
+node: 33 matching clock cycle 2746568.00000000, pushing packet into request queue 
+node: 9 matching clock cycle 2746574.00000000, pushing packet into request queue 
+node: 50 matching clock cycle 2746575.00000000, pushing packet into request queue 
+node: 50 matching clock cycle 2746575.00000000, pushing packet into request queue 
+node: 3 matching clock cycle 2746576.00000000, pushing packet into request queue 
+node: 16 matching clock cycle 2746576.00000000, pushing packet into request queue 
+node: 53 matching clock cycle 2746576.00000000, pushing packet into request queue 
+node: 39 matching clock cycle 2746580.00000000, pushing packet into request queue 
+node: 4 matching clock cycle 2746583.00000000, pushing packet into request queue 
+node: 4 matching clock cycle 2746583.00000000, pushing packet into request queue 
+node: 55 matching clock cycle 2746587.00000000, pushing packet into request queue 
+node: 20 matching clock cycle 2746596.00000000, pushing packet into request queue 
+node: 32 matching clock cycle 2746596.00000000, pushing packet into request queue 
+node: 49 matching clock cycle 2746598.00000000, pushing packet into request queue 
+node: 49 matching clock cycle 2746598.00000000, pushing packet into request queue 
+node: 47 matching clock cycle 2746600.00000000, pushing packet into request queue 
+node: 7 matching clock cycle 2746613.00000000, pushing packet into request queue 
+node: 42 matching clock cycle 2746613.00000000, pushing packet into request queue 
+node: 48 matching clock cycle 2746615.00000000, pushing packet into request queue 
+node: 16 matching clock cycle 2746621.00000000, pushing packet into request queue 
+node: 48 matching clock cycle 2746624.00000000, pushing packet into request queue 
+node: 25 matching clock cycle 2746626.00000000, pushing packet into request queue 
+node: 21 matching clock cycle 2746627.00000000, pushing packet into request queue 
+node: 1 matching clock cycle 2746632.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2746633.00000000, pushing packet into request queue 
+node: 40 matching clock cycle 2746634.00000000, pushing packet into request queue 
+node: 37 matching clock cycle 2746638.00000000, pushing packet into request queue 
+node: 43 matching clock cycle 2746641.00000000, pushing packet into request queue 
+node: 43 matching clock cycle 2746641.00000000, pushing packet into request queue 
+node: 12 matching clock cycle 2746642.00000000, pushing packet into request queue 
+node: 15 matching clock cycle 2746643.00000000, pushing packet into request queue 
+node: 29 matching clock cycle 2746644.00000000, pushing packet into request queue 
+node: 30 matching clock cycle 2746644.00000000, pushing packet into request queue 
+node: 27 matching clock cycle 2746648.00000000, pushing packet into request queue 
+node: 36 matching clock cycle 2746649.00000000, pushing packet into request queue 
+node: 2 matching clock cycle 2746650.00000000, pushing packet into request queue 
+node: 14 matching clock cycle 2746651.00000000, pushing packet into request queue 
+node: 34 matching clock cycle 2746652.00000000, pushing packet into request queue 
+node: 17 matching clock cycle 2746661.00000000, pushing packet into request queue 
+node: 46 matching clock cycle 2746663.00000000, pushing packet into request queue 
+node: 53 matching clock cycle 2746666.00000000, pushing packet into request queue 
+node: 44 matching clock cycle 2746667.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2746668.00000000, pushing packet into request queue 
+node: 49 matching clock cycle 2746669.00000000, pushing packet into request queue 
+node: 49 matching clock cycle 2746669.00000000, pushing packet into request queue 
+node: 7 matching clock cycle 2746674.00000000, pushing packet into request queue 
+node: 18 matching clock cycle 2746675.00000000, pushing packet into request queue 
+node: 1 matching clock cycle 2746676.00000000, pushing packet into request queue 
+node: 47 matching clock cycle 2746680.00000000, pushing packet into request queue 
+node: 24 matching clock cycle 2746684.00000000, pushing packet into request queue 
+node: 36 matching clock cycle 2746688.00000000, pushing packet into request queue 
+node: 55 matching clock cycle 2746688.00000000, pushing packet into request queue 
+node: 40 matching clock cycle 2746690.00000000, pushing packet into request queue 
+node: 30 matching clock cycle 2746693.00000000, pushing packet into request queue 
+node: 2 matching clock cycle 2746704.00000000, pushing packet into request queue 
+node: 42 matching clock cycle 2746710.00000000, pushing packet into request queue 
+node: 54 matching clock cycle 2746713.00000000, pushing packet into request queue 
+node: 54 matching clock cycle 2746713.00000000, pushing packet into request queue 
+node: 29 matching clock cycle 2746719.00000000, pushing packet into request queue 
+node: 18 matching clock cycle 2746724.00000000, pushing packet into request queue 
+node: 41 matching clock cycle 2746727.00000000, pushing packet into request queue 
+node: 30 matching clock cycle 2746734.00000000, pushing packet into request queue 
+node: 41 matching clock cycle 2746738.00000000, pushing packet into request queue 
+node: 35 matching clock cycle 2746740.00000000, pushing packet into request queue 
+node: 50 matching clock cycle 2746742.00000000, pushing packet into request queue 
+node: 50 matching clock cycle 2746742.00000000, pushing packet into request queue 
+node: 11 matching clock cycle 2746745.00000000, pushing packet into request queue 
+node: 11 matching clock cycle 2746745.00000000, pushing packet into request queue 
+node: 5 matching clock cycle 2746751.00000000, pushing packet into request queue 
+node: 39 matching clock cycle 2746751.00000000, pushing packet into request queue 
+node: 5 matching clock cycle 2746751.00000000, pushing packet into request queue 
+node: 19 matching clock cycle 2746751.00000000, pushing packet into request queue 
+node: 10 matching clock cycle 2746754.00000000, pushing packet into request queue 
+the processing element 61stops at 2746955000.00000000
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+Noxim simulation completed.
+ ( 2746955.00000000 cycles executed)
+% Total received packets: 891321
+% Global average throughput (flits/cycle): 0.06125845
+% Throughput (flits/cycle/IP): 3.34600851
+% Max delay (cycles): 337.00000000
+% Total energy (J): 3.5009796642e-04
+% received flits to slice 0 1337064
+% transmitted flits from slice 0 1337080
+% average delay of slice 0 2.1800930247e+01
+% received flits to slice 1 1782540
+% transmitted flits from slice 1 1782616
+% average delay of slice 1 6.9154295126e+01
+
+Info: (I804) /IEEE_Std_1666/deprecated: You can turn off warnings about
+             IEEE 1666 deprecated features by placing this method call
+             as the first statement in your sc_main() function:
+
+  sc_core::sc_report_handler::set_actions( "/IEEE_Std_1666/deprecated",
+                                           sc_core::SC_DO_NOTHING );
+

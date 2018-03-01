@@ -1,0 +1,100 @@
+node: 53 matching clock cycle 2284353.00000000, pushing packet into request queue 
+node: 0 matching clock cycle 2284355.00000000, pushing packet into request queue 
+node: 0 matching clock cycle 2284355.00000000, pushing packet into request queue 
+node: 2 matching clock cycle 2284355.00000000, pushing packet into request queue 
+node: 52 matching clock cycle 2284355.00000000, pushing packet into request queue 
+node: 9 matching clock cycle 2284357.00000000, pushing packet into request queue 
+node: 55 matching clock cycle 2284357.00000000, pushing packet into request queue 
+node: 55 matching clock cycle 2284358.00000000, pushing packet into request queue 
+node: 55 matching clock cycle 2284359.00000000, pushing packet into request queue 
+node: 13 matching clock cycle 2284359.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284369.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284369.00000000, pushing packet into request queue 
+node: 22 matching clock cycle 2284370.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284371.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284371.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284373.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284373.00000000, pushing packet into request queue 
+node: 22 matching clock cycle 2284374.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284375.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284375.00000000, pushing packet into request queue 
+node: 15 matching clock cycle 2284376.00000000, pushing packet into request queue 
+node: 15 matching clock cycle 2284376.00000000, pushing packet into request queue 
+node: 11 matching clock cycle 2284376.00000000, pushing packet into request queue 
+node: 30 matching clock cycle 2284379.00000000, pushing packet into request queue 
+node: 31 matching clock cycle 2284380.00000000, pushing packet into request queue 
+node: 31 matching clock cycle 2284380.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284381.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284381.00000000, pushing packet into request queue 
+node: 31 matching clock cycle 2284381.00000000, pushing packet into request queue 
+node: 31 matching clock cycle 2284381.00000000, pushing packet into request queue 
+node: 22 matching clock cycle 2284382.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284383.00000000, pushing packet into request queue 
+node: 23 matching clock cycle 2284383.00000000, pushing packet into request queue 
+node: 31 matching clock cycle 2284383.00000000, pushing packet into request queue 
+node: 31 matching clock cycle 2284383.00000000, pushing packet into request queue 
+node: 52 matching clock cycle 2284385.00000000, pushing packet into request queue 
+node: 36 matching clock cycle 2284387.00000000, pushing packet into request queue 
+node: 36 matching clock cycle 2284389.00000000, pushing packet into request queue 
+node: 40 matching clock cycle 2284389.00000000, pushing packet into request queue 
+node: 36 matching clock cycle 2284390.00000000, pushing packet into request queue 
+node: 36 matching clock cycle 2284391.00000000, pushing packet into request queue 
+node: 18 matching clock cycle 2284394.00000000, pushing packet into request queue 
+node: 38 matching clock cycle 2284395.00000000, pushing packet into request queue 
+node: 38 matching clock cycle 2284396.00000000, pushing packet into request queue 
+node: 22 matching clock cycle 2284399.00000000, pushing packet into request queue 
+node: 22 matching clock cycle 2284400.00000000, pushing packet into request queue 
+node: 9 matching clock cycle 2284400.00000000, pushing packet into request queue 
+node: 52 matching clock cycle 2284401.00000000, pushing packet into request queue 
+node: 52 matching clock cycle 2284402.00000000, pushing packet into request queue 
+node: 18 matching clock cycle 2284403.00000000, pushing packet into request queue 
+node: 52 matching clock cycle 2284404.00000000, pushing packet into request queue 
+node: 18 matching clock cycle 2284404.00000000, pushing packet into request queue 
+node: 52 matching clock cycle 2284405.00000000, pushing packet into request queue 
+node: 0 matching clock cycle 2284407.00000000, pushing packet into request queue 
+node: 0 matching clock cycle 2284407.00000000, pushing packet into request queue 
+node: 18 matching clock cycle 2284410.00000000, pushing packet into request queue 
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+Noxim simulation completed.
+ ( 2284610.00000000 cycles executed)
+% Total received packets: 2031203
+% Global average throughput (flits/cycle): 0.03677236
+% Throughput (flits/cycle/IP): 7.62466517
+% Max delay (cycles): 823.00000000
+% Total energy (J): 8.6157448034e-04
+% received flits to slice 0 756843
+% transmitted flits from slice 0 756847
+% average delay of slice 0 2.5048319328e+01
+% received flits to slice 1 760464
+% transmitted flits from slice 1 760470
+% average delay of slice 1 2.3737770624e+01
+% received flits to slice 2 764288
+% transmitted flits from slice 2 764292
+% average delay of slice 2 2.2882776866e+01
+% received flits to slice 3 765714
+% transmitted flits from slice 3 765717
+% average delay of slice 3 2.2516772581e+01
+% received flits to slice 4 758634
+% transmitted flits from slice 4 758634
+% average delay of slice 4 2.2463638593e+01
+% received flits to slice 5 759597
+% transmitted flits from slice 5 759600
+% average delay of slice 5 2.2864256432e+01
+% received flits to slice 6 761472
+% transmitted flits from slice 6 761472
+% average delay of slice 6 2.3737345562e+01
+% received flits to slice 7 766674
+% transmitted flits from slice 7 766674
+% average delay of slice 7 2.5015518982e+01
+% received flits to slice 8 4062367
+% transmitted flits from slice 8 4062449
+% average delay of slice 8 8.0884329306e+01
+
+Info: (I804) /IEEE_Std_1666/deprecated: You can turn off warnings about
+             IEEE 1666 deprecated features by placing this method call
+             as the first statement in your sc_main() function:
+
+  sc_core::sc_report_handler::set_actions( "/IEEE_Std_1666/deprecated",
+                                           sc_core::SC_DO_NOTHING );
+

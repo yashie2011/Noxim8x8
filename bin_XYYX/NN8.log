@@ -1,0 +1,100 @@
+node: 47 matching clock cycle 1141840.00000000, pushing packet into request queue 
+node: 4 matching clock cycle 1141848.00000000, pushing packet into request queue 
+node: 36 matching clock cycle 1141849.00000000, pushing packet into request queue 
+node: 55 matching clock cycle 1141855.00000000, pushing packet into request queue 
+node: 55 matching clock cycle 1141855.00000000, pushing packet into request queue 
+node: 6 matching clock cycle 1141860.00000000, pushing packet into request queue 
+node: 38 matching clock cycle 1141868.00000000, pushing packet into request queue 
+node: 33 matching clock cycle 1141908.00000000, pushing packet into request queue 
+node: 22 matching clock cycle 1141912.00000000, pushing packet into request queue 
+node: 35 matching clock cycle 1141915.00000000, pushing packet into request queue 
+node: 12 matching clock cycle 1141918.00000000, pushing packet into request queue 
+the processing element 35stops at 1142122000.00000000
+the processing element 44stops at 1142130000.00000000
+node: 51 matching clock cycle 1141931.00000000, pushing packet into request queue 
+node: 51 matching clock cycle 1141931.00000000, pushing packet into request queue 
+the processing element 51stops at 1142132000.00000000
+node: 39 matching clock cycle 1141933.00000000, pushing packet into request queue 
+node: 5 matching clock cycle 1141934.00000000, pushing packet into request queue 
+node: 49 matching clock cycle 1141937.00000000, pushing packet into request queue 
+node: 49 matching clock cycle 1141937.00000000, pushing packet into request queue 
+the processing element 49stops at 1142138000.00000000
+node: 40 matching clock cycle 1141958.00000000, pushing packet into request queue 
+the processing element 40stops at 1142178000.00000000
+node: 28 matching clock cycle 1141978.00000000, pushing packet into request queue 
+node: 1 matching clock cycle 1141995.00000000, pushing packet into request queue 
+the processing element 42stops at 1142198000.00000000
+node: 9 matching clock cycle 1142000.00000000, pushing packet into request queue 
+node: 17 matching clock cycle 1142031.00000000, pushing packet into request queue 
+node: 53 matching clock cycle 1142066.00000000, pushing packet into request queue 
+node: 53 matching clock cycle 1142066.00000000, pushing packet into request queue 
+the processing element 53stops at 1142267000.00000000
+node: 32 matching clock cycle 1142074.00000000, pushing packet into request queue 
+node: 41 matching clock cycle 1142079.00000000, pushing packet into request queue 
+the processing element 41stops at 1142280000.00000000
+node: 48 matching clock cycle 1142086.00000000, pushing packet into request queue 
+node: 48 matching clock cycle 1142086.00000000, pushing packet into request queue 
+the processing element 48stops at 1142287000.00000000
+node: 16 matching clock cycle 1142093.00000000, pushing packet into request queue 
+node: 27 matching clock cycle 1142098.00000000, pushing packet into request queue 
+the processing element 45stops at 1142302000.00000000
+node: 26 matching clock cycle 1142104.00000000, pushing packet into request queue 
+node: 20 matching clock cycle 1142174.00000000, pushing packet into request queue 
+node: 25 matching clock cycle 1142182.00000000, pushing packet into request queue 
+node: 29 matching clock cycle 1142260.00000000, pushing packet into request queue 
+the processing element 26stops at 1148310000.00000000
+the processing element 36stops at 1155710000.00000000
+the processing element 33stops at 1161250000.00000000
+the processing element 27stops at 1164006000.00000000
+the processing element 19stops at 1165910000.00000000
+the processing element 25stops at 1173274000.00000000
+the processing element 28stops at 1173570000.00000000
+the processing element 37stops at 1173810000.00000000
+the processing element 29stops at 1175434000.00000000
+the processing element 38stops at 1179666000.00000000
+the processing element 47stops at 1185354000.00000000
+the processing element 55stops at 1186114000.00000000
+the processing element 30stops at 1190826000.00000000
+the processing element 32stops at 1195310000.00000000
+the processing element 24stops at 1198922000.00000000
+the processing element 12stops at 1202674000.00000000
+the processing element 39stops at 1204110000.00000000
+the processing element 21stops at 1213630000.00000000
+the processing element 20stops at 1214406000.00000000
+the processing element 31stops at 1218434000.00000000
+the processing element 16stops at 1221702000.00000000
+the processing element 22stops at 1223922000.00000000
+the processing element 17stops at 1232326000.00000000
+the processing element 11stops at 1237522000.00000000
+the processing element 18stops at 1246426000.00000000
+the processing element 23stops at 1266882000.00000000
+the processing element 3stops at 1266922000.00000000
+the processing element 9stops at 1268626000.00000000
+the processing element 4stops at 1271694000.00000000
+the processing element 14stops at 1272734000.00000000
+the processing element 8stops at 1276734000.00000000
+the processing element 2stops at 1280930000.00000000
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+Noxim simulation completed.
+ ( 1280930.00000000 cycles executed)
+% Total received packets: 951845
+% Total received flits: 3331464
+% Global average throughput (flits/cycle): 0.08868623
+% Throughput (flits/cycle/IP): 1.04212462
+% Max delay (cycles): 1117.00000000
+% Total energy (J): 9.9813161083e-04
+% received flits to slice 0 1427776
+% transmitted flits from slice 0 1427794
+% average delay of slice 0 4.9081880720e+01
+% received flits to slice 1 1903688
+% transmitted flits from slice 1 1903702
+% average delay of slice 1 1.0874608601e+02
+
+Info: (I804) /IEEE_Std_1666/deprecated: You can turn off warnings about
+             IEEE 1666 deprecated features by placing this method call
+             as the first statement in your sc_main() function:
+
+  sc_core::sc_report_handler::set_actions( "/IEEE_Std_1666/deprecated",
+                                           sc_core::SC_DO_NOTHING );
+

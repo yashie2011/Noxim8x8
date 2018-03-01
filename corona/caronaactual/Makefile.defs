@@ -1,0 +1,27 @@
+## Variable that points to SystemC installation path
+#SYSTEMC = ../../..
+SYSTEMC = /home/vineel/systemc-2.3.0
+
+INCDIR = -I. -I.. -I$(SYSTEMC)/include
+LIBDIR = -L. -L.. -L$(SYSTEMC)/lib-$(TARGET_ARCH)
+
+LIBS   =  -lsystemc -lm -ldl
+
+
+EXE    = $(MODULE)
+
+.SUFFIXES: .cc .cpp .o .x .so
+
+$(EXE): $(OBJS) $(SYSTEMC)/lib-$(TARGET_ARCH)/libsystemc.a 
+	$(CC) $(CFLAGS) $(INCDIR) $(LIBDIR) -o $@ $(OBJS) $(LIBS) 2>&1 | c++filt
+
+.cpp.o:
+	$(CC) $(CFLAGS) $(INCDIR) -o $@ -c $<
+
+.cc.o:
+	$(CC) $(CFLAGS) $(INCDIR) -o $@ -c $<
+
+clean:
+	#rm -f $(OBJS) $(EXE)
+	#rm -f `find -name "*~"`
+
