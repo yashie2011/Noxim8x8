@@ -29,20 +29,20 @@ SC_MODULE(NoximNoC)
     sc_in < bool > reset;	// The reset signal for the NoC
 
     // Signals
-    sc_signal <bool> req_to_east[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
-    sc_signal <bool> req_to_west[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
-    sc_signal <bool> req_to_south[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
-    sc_signal <bool> req_to_north[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <bool> req_to_east[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <bool> req_to_west[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <bool> req_to_south[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <bool> req_to_north[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
 
-    sc_signal <bool> ack_to_east[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
-    sc_signal <bool> ack_to_west[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
-    sc_signal <bool> ack_to_south[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
-    sc_signal <bool> ack_to_north[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <bool> ack_to_east[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <bool> ack_to_west[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <bool> ack_to_south[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <bool> ack_to_north[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
 
-    sc_signal <NoximFlit> flit_to_east[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
-    sc_signal <NoximFlit> flit_to_west[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
-    sc_signal <NoximFlit> flit_to_south[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
-    sc_signal <NoximFlit> flit_to_north[SLICES][MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <NoximFlit> flit_to_east[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <NoximFlit> flit_to_west[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <NoximFlit> flit_to_south[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
+    sc_signal <NoximFlit> flit_to_north[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
 
    /* sc_signal <int> free_slots_to_east[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
     sc_signal <int> free_slots_to_west[MAX_STATIC_DIM + 1][MAX_STATIC_DIM + 1];
@@ -77,8 +77,7 @@ SC_MODULE(NoximNoC)
 	    unsigned int count = 0;
 	    for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++)
 		for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++)
-			for(int k=0; k< SLICES; k++)
-		    count += t[i][j]->r[k]->getFlitsCount();
+		    count += t[i][j]->r->getFlitsCount();
 	    cout << count << endl;
 	}
     }

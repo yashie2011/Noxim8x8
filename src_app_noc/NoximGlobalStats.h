@@ -18,15 +18,6 @@
 #include "NoximTile.h"
 using namespace std;
 
-extern ofstream slice_0_trace;
-extern ofstream slice_1_trace;
-extern ofstream slice_2_trace;
-extern ofstream slice_3_trace;
-extern ofstream slice_4_trace;
-extern ofstream slice_5_trace;
-extern ofstream slice_6_trace;
-extern ofstream slice_7_trace;
-extern ofstream slice_8_trace;
 
 class NoximGlobalStats {
 
@@ -35,7 +26,7 @@ class NoximGlobalStats {
     NoximGlobalStats(const NoximNoC * _noc);
 
     // Returns the aggragated average delay (cycles)
-    double getAverageDelay(int slice);
+    double getAverageDelay();
 
     // Returns the aggragated average delay (cycles) for communication src_id->dst_id
     double getAverageDelay(const int src_id, const int dst_id);
@@ -85,9 +76,6 @@ class NoximGlobalStats {
 
     void showBufferStats(std::ostream & out);
 
-
-    int getReceivedflits_slice(int k);
-    int gettransmittedflits_slice(int k);
 
 #ifdef TESTING
     unsigned int drained_total;
