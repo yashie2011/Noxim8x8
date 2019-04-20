@@ -20,14 +20,22 @@ void NoximNoC::buildMesh()
     if (NoximGlobalParams::traffic_distribution == TRAFFIC_TABLE_BASED)
 	assert(gttable.load(NoximGlobalParams::traffic_table_filename));
 
+    // create the Trace DB handler
+    SQLiteDB* trace_db_p = new SQLiteDB();
+    //Connect TO database
+    char* trace_filename = NoximGlobalParams::bench_name;
+    char* trace_filepath = NoximGlobalParams::file_path;
+    if(!trace_db_p->OpenConnection(trace_filename, trace_filepath))
+    {
+    	cout<<"\nConnecting To DB Failed :"<<trace_db_p->GetLastError().c_str();
+    	exit(0);
+    }
     // Create the mesh as a matrix of tiles
 
     for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++) {
 	for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++) {
 		// Creating a benchmark module for each tile
-	    char b_name[20];
-	    char nodeid[20];
-	    sprintf(b_name, "bench[%02d][%02d]", i, j);
+
 	    int id = (j* NoximGlobalParams::mesh_dim_x)+ i;
 	    // Adapting to the ID numbers of the gpgpusim    -- needs change when expanding
 		if(id >= m1 && id < m2 )
@@ -46,15 +54,11 @@ void NoximNoC::buildMesh()
 			id = id-7;
 		if(id >= m8)
 			id = id-8;
-	    sprintf(nodeid, "node[%d].txt",id );
-		b_marks[i][j] = new benchmark(b_name, nodeid, id);
-		b_marks[i][j]->clock(clock);
-		b_marks[i][j]->reset(reset);
 
 	    // Create the single Tile with a proper name
 	    char tile_name[20];
 	    sprintf(tile_name, "Tile[%02d][%02d]", i, j);
-	    t[i][j] = new NoximTile(tile_name, *b_marks[i][j]);
+	    t[i][j] = new NoximTile(tile_name, trace_db_p);
 
 
 
@@ -200,24 +204,28 @@ void NoximNoC::sim_stop_poller()
 {
 	//int status = 0;
 	if (reset.read()){
-			sim_Stop = 0;
+
 		}
 
 	else{
-		sim_Stop = 0;
-		if((sc_time_stamp().to_double() / 1000) > 1000){
+		total_sent_pkts = 0;
+		total_recv_pkts  = 0;
+		if((sc_time_stamp().to_double()/1000) > 1000){
 	// Should poll for all the nodes and check if all of them are true
 		for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++) {
 			for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++) {
 				// Creating a benchmark module for each tile
 
-				sim_Stop = sim_Stop + t[i][j]->pe->get_sim_Stop();
+				total_sent_pkts +=  t[i][j]->pe->get_sent_packets();
+				total_recv_pkts += t[i][j]->pe->get_recv_packets();
 				//cout<<"=============="<<endl;
-				//cout << "at time "<< sc_time_stamp().to_double() / 1000<<" stop signal is "<<status<<endl;
+				//cout << "at time "<< sc_time_stamp().to_double()/1000 <<" stop signal is "<<status<<endl;
 			}
 		}
-	}
-		if(sim_Stop >= NUM_CORES)
+		}
+		if(total_sent_pkts >= 1000000){
+			cout<< " total packets "<< total_sent_pkts+total_recv_pkts <<endl;
 			sc_stop();
+		}
 	}
 }

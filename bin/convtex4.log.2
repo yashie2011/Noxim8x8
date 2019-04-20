@@ -1,0 +1,32 @@
+
+		Noxim - the NoC Simulator
+		(C) University of Catania
+
+
+Info: (I804) /IEEE_Std_1666/deprecated: use of () to specify sensitivity is deprecated, use << instead
+
+Info: (I804) /IEEE_Std_1666/deprecated: sc_sensitive_pos is deprecated use sc_sensitive << with pos() instead
+Reset... done! Now running for 100000 cycles...
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+Noxim simulation completed.
+ ( 974231.00000000 cycles executed)
+% Total received packets: 432399
+% Global average throughput (flits/cycle): 0.16655717
+% Throughput (flits/cycle/IP): 3.24626627
+% Max delay (cycles): 181.00000000
+% Total energy (J): 7.5880814098e-05
+% received flits to slice 0 648602
+% transmitted flits from slice 0 648607
+% average delay of slice 0 3.0097247469e+01
+% received flits to slice 1 864796
+% transmitted flits from slice 1 864804
+% average delay of slice 1 3.4750460226e+00
+
+Info: (I804) /IEEE_Std_1666/deprecated: You can turn off warnings about
+             IEEE 1666 deprecated features by placing this method call
+             as the first statement in your sc_main() function:
+
+  sc_core::sc_report_handler::set_actions( "/IEEE_Std_1666/deprecated",
+                                           sc_core::SC_DO_NOTHING );
+

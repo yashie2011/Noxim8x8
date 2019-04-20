@@ -21,6 +21,7 @@
 //#include "benchmark.h"
 #include "constants.h"
 #include "db_node.h"
+#include "NoximPower.h"
 
 extern int MC1_time ;
 extern int MC2_time ;
@@ -42,6 +43,7 @@ private:
 	int tRCD;
 	int max_queue_depth;
 	//vector<std::pair<int, int>> active_bank_rows;
+	int last_bank_q;
 
 
 public:

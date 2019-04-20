@@ -23,7 +23,9 @@ void NoximNoC::buildMesh()
     // create the Trace DB handler
     SQLiteDB* trace_db_p = new SQLiteDB();
     //Connect TO database
-    if(!trace_db_p->OpenConnection("trace_dct.db", "/home/yaswanth/NVIDIA_GPU_Computing_SDK/C/bin/linux/release/dct_logs/"))
+    char* trace_filename = NoximGlobalParams::bench_name;
+    char* trace_filepath = NoximGlobalParams::file_path;
+    if(!trace_db_p->OpenConnection(trace_filename, trace_filepath))
     {
     	cout<<"\nConnecting To DB Failed :"<<trace_db_p->GetLastError().c_str();
     	exit(0);

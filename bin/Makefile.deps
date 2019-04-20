@@ -13,7 +13,7 @@
 ../src/NoximRouter.o: ../src/NoximPower.h ../src/NoximGlobalRoutingTable.h
 ../src/NoximRouter.o: ../src/NoximLocalRoutingTable.h
 ../src/NoximRouter.o: ../src/NoximReservationTable.h
-../src/benchmark.o: ../src/benchmark.h
+../src/db_node.o: ../src/db_node.h 
 ../src/NoximProcessingElement.o: ../src/NoximProcessingElement.h
 ../src/NoximProcessingElement.o: ../src/NoximMain.h
 ../src/NoximProcessingElement.o: ../src/NoximGlobalTrafficTable.h
@@ -47,5 +47,5 @@
 ../src/NoximMain.o: ../src/NoximLocalRoutingTable.h
 ../src/NoximMain.o: ../src/NoximReservationTable.h
 ../src/NoximMain.o: ../src/NoximProcessingElement.h
-../src/NoximMain.o: ../src/NoximGlobalTrafficTable.h
+../src/NoximMain.o: ../src/NoximGlobalTrafficTable.h 
 ../src/NoximMain.o: ../src/NoximGlobalStats.h ../src/NoximCmdLineParser.h

@@ -4,12 +4,12 @@ TARGET_ARCH = linux64
 CC     = g++
 OPT    = -O3
 DEBUG  = -g
-OTHER  = # -Wall -Wno-deprecated
-CFLAGS = $(OPT) $(OTHER) # $(DEBUG)
+OTHER  = -std=gnu++11 # -Wall -Wno-deprecated
+CFLAGS = $(OPT) $(OTHER)  $(DEBUG)
 
 VPATH = ../src:.
 MODULE = noxim
-SRCS = ./NoximNoC.cpp ./NoximRouter.cpp ./benchmark.cpp ./NoximProcessingElement.cpp ./NoximBuffer.cpp \
+SRCS = ./db_node.cpp ./NoximNoC.cpp ./NoximRouter.cpp ./NoximProcessingElement.cpp ./NoximBuffer.cpp \
 	./NoximStats.cpp ./NoximGlobalStats.cpp ./NoximGlobalRoutingTable.cpp \
 	./NoximLocalRoutingTable.cpp ./NoximGlobalTrafficTable.cpp ./NoximReservationTable.cpp \
 	./NoximPower.cpp ./NoximCmdLineParser.cpp ./NoximMain.cpp 

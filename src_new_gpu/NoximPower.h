@@ -51,6 +51,7 @@ hop interconnect is 0.384nJ.
 #define PWR_BUFF_READ 1.75e-12
 #define PWR_ARB_FULL 3.31e-13
 #define PWR_CROSS_FULL 1.58e-12
+#define PWR_PKT_COALESCE 6.6e-11
 
 
 class NoximPower {
@@ -69,6 +70,7 @@ class NoximPower {
     void EndToEnd();
     void Leakage();
     void Latch();
+    void mc_coalescing();
 
     bool LoadPowerData(const char *fname);
 

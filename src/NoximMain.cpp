@@ -22,10 +22,6 @@ ofstream slice_1_trace;
 ofstream slice_2_trace;
 ofstream slice_3_trace;
 ofstream slice_4_trace;
-ofstream slice_5_trace;
-ofstream slice_6_trace;
-ofstream slice_7_trace;
-ofstream slice_8_trace;
 ofstream pre;
 ofstream pre_reply;
 
@@ -58,6 +54,13 @@ bool NoximGlobalParams::low_power_link_strategy = DEFAULT_LOW_POWER_LINK_STRATEG
 double NoximGlobalParams::qos = DEFAULT_QOS;
 bool NoximGlobalParams::show_buffer_stats = DEFAULT_SHOW_BUFFER_STATS;
 bool NoximGlobalParams::show_log = DEFAULT_LOGGING_FLAG;
+double NoximGlobalParams::address_max = DEFAULT_ADDR_MAX;
+double NoximGlobalParams::address_min = DEFAULT_ADDR_MIN;
+char NoximGlobalParams::bench_name[128] = DEFAULT_BENCH_NAME;
+char NoximGlobalParams::file_path[128] = DEFAULT_FILE_PATH;
+int NoximGlobalParams::check_depth = DEFAULT_CHECK_DEPTH;
+float NoximGlobalParams::approx_rate = DEFAULT_APPROX_RATE;
+int NoximGlobalParams::bank_queues = DEFAULT_BANK_QUEUES;
 
 
 //---------------------------------------------------------------------------
@@ -74,6 +77,7 @@ int sc_main(int arg_num, char *arg_vet[])
     parseCmdLine(arg_num, arg_vet);
 
     // Signals
+    //sc_set_time_resolution(1, SC_PS);
     sc_clock clock("clock", 1, SC_NS);
     sc_signal <bool> reset;
 
@@ -93,7 +97,6 @@ int sc_main(int arg_num, char *arg_vet[])
     if (NoximGlobalParams::trace_mode) {
 	tf = sc_create_vcd_trace_file(NoximGlobalParams::trace_filename);
 	sc_trace(tf, reset, "reset");
-	sc_trace(tf, clock, "clock");
 
 	for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++) {
 	    for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++) {
@@ -132,28 +135,26 @@ int sc_main(int arg_num, char *arg_vet[])
     slice_2_trace.open("slice_2.log", ios::out | ios::app);
     slice_3_trace.open("slice_3.log", ios::out | ios::app);
     slice_4_trace.open("slice_4.log", ios::out | ios::app);
-    slice_5_trace.open("slice_5.log", ios::out | ios::app);
-    slice_6_trace.open("slice_6.log", ios::out | ios::app);
-    slice_7_trace.open("slice_7.log", ios::out | ios::app);
-    slice_8_trace.open("slice_8.log", ios::out | ios::app);
     pre.open("pre.log", ios::out | ios::app);
     pre_reply.open("pre_reply.log", ios::out | ios::app);
 
 
-    //sc_start(NoximGlobalParams::simulation_time, SC_NS);
-    sc_start();
+    sc_start(NoximGlobalParams::simulation_time, SC_NS);
+    //sc_start();
+    if(not sc_end_of_simulation_invoked()) {
+        cout << "Simulation stopped without explicit sc_stop()" << endl;
+        sc_stop();
+      }
     // Close the simulation
     if (NoximGlobalParams::trace_mode)
 	sc_close_vcd_trace_file(tf);
     cout << "Noxim simulation completed." << endl;
-    cout << " ( " << sc_time_stamp().to_double() /
-	1000 << " cycles executed)" << endl;
+    cout << " ( " << sc_time_stamp().to_double()/1000 << " cycles executed)" << endl;
 
 
     // Show statistics
     NoximGlobalStats gs(n);
     gs.showStats(std::cout, NoximGlobalParams::detailed);
-
      slice_0_trace.close();
      slice_1_trace.close();
      slice_2_trace.close();
@@ -167,7 +168,7 @@ int sc_main(int arg_num, char *arg_vet[])
      pre.close();
         pre_reply.close();
     if ((NoximGlobalParams::max_volume_to_be_drained > 0) &&
-	(sc_time_stamp().to_double() / 1000 >=
+	(sc_time_stamp().to_double()/1000 >=
 	 NoximGlobalParams::simulation_time)) {
 	cout <<
 	    "\nWARNING! the number of flits specified with -volume option"

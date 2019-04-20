@@ -57,6 +57,7 @@ bool NoximGlobalParams::show_log = DEFAULT_LOGGING_FLAG;
 double NoximGlobalParams::address_max = DEFAULT_ADDR_MAX;
 double NoximGlobalParams::address_min = DEFAULT_ADDR_MIN;
 char NoximGlobalParams::bench_name[128] = DEFAULT_BENCH_NAME;
+char NoximGlobalParams::file_path[128] = DEFAULT_FILE_PATH;
 int NoximGlobalParams::check_depth = DEFAULT_CHECK_DEPTH;
 float NoximGlobalParams::approx_rate = DEFAULT_APPROX_RATE;
 int NoximGlobalParams::bank_queues = DEFAULT_BANK_QUEUES;

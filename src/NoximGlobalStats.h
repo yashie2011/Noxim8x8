@@ -76,6 +76,10 @@ class NoximGlobalStats {
     // Returns the total power
     double getPower();
 
+
+    // get the max buffer size occupied at mcs
+    int get_max_buffer_size();
+
     // Shows global statistics
     void showStats(std::ostream & out = std::cout, bool detailed = false);
 

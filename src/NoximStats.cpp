@@ -39,10 +39,10 @@ void NoximStats::receivedFlit(const double arrival_time,
 	i = chist.size() - 1;
     }
 
-    if (flit.flit_type == FLIT_TYPE_TAIL)
+    if (flit.flit_type == NoximFlitType::FLIT_TYPE_TAIL)
 	chist[i].delays.push_back(arrival_time - flit.timestamp);
 
-    if(flit.flit_type == FLIT_TYPE_TAIL)      // For better calculation
+    if(flit.flit_type == NoximFlitType::FLIT_TYPE_TAIL)      // For better calculation
     	chist[i].total_packets_received++;
 
     chist[i].total_received_flits++;

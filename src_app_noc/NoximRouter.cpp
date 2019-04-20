@@ -76,7 +76,7 @@ void NoximRouter::txProcess()
 	  // using 5 cycle router in slice 0
 	  pipeline_latency++;
 	  if(1) {
-		  if(pipeline_latency ==6){
+		  if(pipeline_latency ==3){
       // 1st phase: Reservation
       for (int j = 0; j < DIRECTIONS + 1; j++){
 

@@ -11,7 +11,7 @@
 
 #define NUM_CORES 56
 #define MEM_CONTROLLERS 8
-#define REPLY_DATA_SIZE 512
+#define REPLY_DATA_SIZE 1024
 #define FLIT_SIZE 64
 #define MC_BUFF_CAP 256
 

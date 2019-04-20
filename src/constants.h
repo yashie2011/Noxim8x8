@@ -11,9 +11,9 @@
 
 #define NUM_CORES 56
 #define MEM_CONTROLLERS 8
-#define REPLY_DATA_SIZE 128
-#define FLIT_SIZE 64
-#define MC_BUFF_CAP 32
+#define REPLY_DATA_SIZE 1024
+#define FLIT_SIZE 128
+#define MC_BUFF_CAP 256
 
 // positions of each value in trace line
 #define NUM_WORDS_IN_A_TRACE_LINE 12

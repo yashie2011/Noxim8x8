@@ -14,6 +14,7 @@
 #include <systemc.h>
 #include "NoximRouter.h"
 #include "NoximProcessingElement.h"
+#include "db_node.h"
 using namespace std;
 
 SC_MODULE(NoximTile)
@@ -61,10 +62,10 @@ SC_MODULE(NoximTile)
     NoximProcessingElement *pe;	                // Processing Element instance
 
     // Constructor
-    benchmark              &b_mark;
+    SQLiteDB *trace_db_p;
 
-    NoximTile(sc_module_name name, benchmark &_b_mark):
-    	  b_mark(_b_mark){
+    NoximTile(sc_module_name name, SQLiteDB *_trace_db_p):
+    	  trace_db_p(_trace_db_p){
 
 	// Router pin assignments  -- Looping over the slices
    for (int j = 0; j < SLICES; j++){
@@ -117,7 +118,8 @@ SC_MODULE(NoximTile)
    } */
 
 	// Processing Element pin assignments
-	pe = new NoximProcessingElement("ProcessingElement", b_mark);
+
+	pe = new NoximProcessingElement("ProcessingElement", trace_db_p);
 	pe->clock(clock);
 	pe->reset(reset);
 	// LOOPING OVER THE SLICES CONNECTION

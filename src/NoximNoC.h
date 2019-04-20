@@ -16,8 +16,9 @@
 #include "NoximGlobalRoutingTable.h"
 #include "NoximGlobalTrafficTable.h"
 #include "benchmark.h"
+#include <algorithm>
 #include "constants.h"
-
+#include "db_node.h"
 using namespace std;
 
 SC_MODULE(NoximNoC)
@@ -57,12 +58,13 @@ SC_MODULE(NoximNoC)
     // Matrix of tiles
     NoximTile *t[MAX_STATIC_DIM][MAX_STATIC_DIM];
     benchmark *b_marks[MAX_STATIC_DIM][MAX_STATIC_DIM];
+    SQLiteDB * trace_db_p;
 
     // Global tables
     NoximGlobalRoutingTable grtable;
     NoximGlobalTrafficTable gttable;
 
-    int sim_Stop;
+	double total_sent_pkts, total_recv_pkts;
 
     void sim_stop_poller();
     //---------- Mau experiment <start>
@@ -100,6 +102,8 @@ SC_MODULE(NoximNoC)
 
 	// Build the Mesh
 	buildMesh();
+	total_sent_pkts = 0;
+	total_recv_pkts = 0;
 
     }
 

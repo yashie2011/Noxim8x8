@@ -404,6 +404,18 @@ void parseCmdLine(int arg_num, char *arg_vet[])
 				NoximGlobalParams::show_log = true;
 		    else if (!strcmp(arg_vet[++i], "false"))
 		    	NoximGlobalParams::show_log = false;
+	    }else if (!strcmp(arg_vet[i], "-trf")) {
+			char *traffic = arg_vet[++i];
+			if (strlen(traffic) > 0)
+				strcpy(NoximGlobalParams::bench_name ,traffic);
+			else
+			    strcpy(NoximGlobalParams::bench_name, DEFAULT_BENCH_NAME);
+	    }
+	    else if (!strcmp(arg_vet[i], "-addr_min")) {
+	    	NoximGlobalParams::address_min = atof(arg_vet[++i]);
+	    }
+	    else if (!strcmp(arg_vet[i], "-addr_max")) {
+	    	NoximGlobalParams::address_max = atof(arg_vet[++i]);
 	    }
 	    else {
 		cerr << "Error: Invalid option: " << arg_vet[i] << endl;

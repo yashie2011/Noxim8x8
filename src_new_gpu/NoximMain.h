@@ -90,7 +90,7 @@ using namespace std;
 #define DEFAULT_TRAFFIC_DISTRIBUTION          TRAFFIC_BENCHMARK
 #define DEFAULT_TRAFFIC_TABLE_FILENAME                    ""
 #define DEFAULT_RESET_TIME                              1000
-#define DEFAULT_SIMULATION_TIME                        100000
+#define DEFAULT_SIMULATION_TIME                        10000
 #define DEFAULT_STATS_WARM_UP_TIME        DEFAULT_RESET_TIME
 #define DEFAULT_DETAILED                               false
 #define DEFAULT_DYAD_THRESHOLD                           0.6
@@ -104,7 +104,8 @@ using namespace std;
 #define DEFAULT_ADDR_MIN								2147745792
 #define DEFAULT_ADDR_MAX								2148832224
 #define DEFAULT_CHECK_DEPTH									6
-#define DEFAULT_BENCH_NAME									"dct"
+#define DEFAULT_BENCH_NAME									"trace_dct.db"
+#define DEFAULT_FILE_PATH                                   "/home/yaswanth/Documents/approx-gpgpu-sims/traces_db/"
 #define DEFAULT_APPROX_RATE									5
 #define DEFAULT_BANK_QUEUES									4
 
@@ -144,6 +145,7 @@ struct NoximGlobalParams {
     static bool show_log;
     // Dapper journal config
     static char bench_name[128];
+    static char file_path[128];
     static double address_min;
     static double address_max;
     static int check_depth;

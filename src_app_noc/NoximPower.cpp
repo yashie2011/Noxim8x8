@@ -81,6 +81,11 @@ void NoximPower::EndToEnd()
   pwr += pwr_end2end;
 }
 
+void NoximPower::mc_coalescing()
+{
+	pwr += PWR_PKT_COALESCE;
+}
+
 bool NoximPower::LoadPowerData(const char *fname)
 {
   ifstream fin(fname, ios::in);

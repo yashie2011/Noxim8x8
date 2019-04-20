@@ -248,10 +248,14 @@ double NoximGlobalStats::getPower()
 {
     double power = 0.0;
 
-    for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
-	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++)
-		for (int k = 0; k< SLICES; k++)
+    for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++){
+	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){
+		for (int k = 0; k< SLICES; k++){
 	    power += noc->t[x][y]->r[k]->getPower();
+		power += noc->t[x][y]->pe->pe_pwr.getPower();
+		}
+	}
+	}	
 
     return power;
 }
@@ -296,6 +300,17 @@ int NoximGlobalStats::gettransmittedflits_slice(int k){
 			}
 		return tx_flits;
 }
+
+int NoximGlobalStats::get_max_buffer_size(){
+
+	int max_buffer_size = 0;
+	for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
+		for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){
+			if (noc->t[x][y]->pe->max_buffer_size > max_buffer_size)
+			max_buffer_size = noc->t[x][y]->pe->max_buffer_size;
+		}
+	return max_buffer_size;
+}
 void NoximGlobalStats::showStats(std::ostream & out, bool detailed)
 {
     out << "% Total received packets: " << getReceivedPackets() << endl;
@@ -314,6 +329,7 @@ void NoximGlobalStats::showStats(std::ostream & out, bool detailed)
     	out << "% transmitted flits from slice "<< k<<" "<<gettransmittedflits_slice(k)<<endl;
     	out << "% average delay of slice "<<k<<" "<<getAverageDelay(k)<<endl;
     }
+    out<< "% Max buffer size occupied: "<< get_max_buffer_size() <<endl;
     //showReceivedflits();
 
 
