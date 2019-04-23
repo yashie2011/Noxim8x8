@@ -76,7 +76,7 @@ class NoximStats {
     double getCommunicationEnergy(int src_id, int dst_id);
 
     // Shows statistics for the current node
-    void showStats(int curr_node, int curr_slice, std::ostream & out =
+    void showStats(int curr_node, std::ostream & out =
 		   std::cout, bool header = false);
 
   public:

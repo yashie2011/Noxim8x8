@@ -1,0 +1,51 @@
+# DO NOT DELETE
+
+../src_app_base/NoximNoC.o: ../src_app_base/NoximNoC.h ../src_app_base/NoximTile.h ../src_app_base/NoximRouter.h
+../src_app_base/NoximNoC.o: ../src_app_base/NoximMain.h ../src_app_base/NoximBuffer.h
+../src_app_base/NoximNoC.o: ../src_app_base/NoximStats.h ../src_app_base/NoximPower.h
+../src_app_base/NoximNoC.o: ../src_app_base/NoximGlobalRoutingTable.h
+../src_app_base/NoximNoC.o: ../src_app_base/NoximLocalRoutingTable.h
+../src_app_base/NoximNoC.o: ../src_app_base/NoximReservationTable.h
+../src_app_base/NoximNoC.o: ../src_app_base/NoximProcessingElement.h
+../src_app_base/NoximNoC.o: ../src_app_base/NoximGlobalTrafficTable.h
+../src_app_base/NoximRouter.o: ../src_app_base/NoximRouter.h ../src_app_base/NoximMain.h
+../src_app_base/NoximRouter.o: ../src_app_base/NoximBuffer.h ../src_app_base/NoximStats.h
+../src_app_base/NoximRouter.o: ../src_app_base/NoximPower.h ../src_app_base/NoximGlobalRoutingTable.h
+../src_app_base/NoximRouter.o: ../src_app_base/NoximLocalRoutingTable.h
+../src_app_base/NoximRouter.o: ../src_app_base/NoximReservationTable.h
+../src_app_base/db_node.o: ../src_app_base/db_node.h 
+../src_app_base/NoximProcessingElement.o: ../src_app_base/NoximProcessingElement.h
+../src_app_base/NoximProcessingElement.o: ../src_app_base/NoximMain.h
+../src_app_base/NoximProcessingElement.o: ../src_app_base/NoximGlobalTrafficTable.h
+../src_app_base/NoximBuffer.o: ../src_app_base/NoximBuffer.h ../src_app_base/NoximMain.h
+../src_app_base/NoximStats.o: ../src_app_base/NoximStats.h ../src_app_base/NoximMain.h
+../src_app_base/NoximStats.o: ../src_app_base/NoximPower.h
+../src_app_base/NoximGlobalStats.o: ../src_app_base/NoximGlobalStats.h ../src_app_base/NoximNoC.h
+../src_app_base/NoximGlobalStats.o: ../src_app_base/NoximTile.h ../src_app_base/NoximRouter.h
+../src_app_base/NoximGlobalStats.o: ../src_app_base/NoximMain.h ../src_app_base/NoximBuffer.h
+../src_app_base/NoximGlobalStats.o: ../src_app_base/NoximStats.h ../src_app_base/NoximPower.h
+../src_app_base/NoximGlobalStats.o: ../src_app_base/NoximGlobalRoutingTable.h
+../src_app_base/NoximGlobalStats.o: ../src_app_base/NoximLocalRoutingTable.h
+../src_app_base/NoximGlobalStats.o: ../src_app_base/NoximReservationTable.h
+../src_app_base/NoximGlobalStats.o: ../src_app_base/NoximProcessingElement.h
+../src_app_base/NoximGlobalStats.o: ../src_app_base/NoximGlobalTrafficTable.h
+../src_app_base/NoximGlobalRoutingTable.o: ../src_app_base/NoximGlobalRoutingTable.h
+../src_app_base/NoximGlobalRoutingTable.o: ../src_app_base/NoximMain.h
+../src_app_base/NoximLocalRoutingTable.o: ../src_app_base/NoximLocalRoutingTable.h
+../src_app_base/NoximLocalRoutingTable.o: ../src_app_base/NoximMain.h
+../src_app_base/NoximLocalRoutingTable.o: ../src_app_base/NoximGlobalRoutingTable.h
+../src_app_base/NoximGlobalTrafficTable.o: ../src_app_base/NoximGlobalTrafficTable.h
+../src_app_base/NoximGlobalTrafficTable.o: ../src_app_base/NoximMain.h
+../src_app_base/NoximReservationTable.o: ../src_app_base/NoximReservationTable.h
+../src_app_base/NoximReservationTable.o: ../src_app_base/NoximMain.h
+../src_app_base/NoximPower.o: ../src_app_base/NoximPower.h ../src_app_base/NoximMain.h
+../src_app_base/NoximCmdLineParser.o: ../src_app_base/NoximCmdLineParser.h ../src_app_base/NoximMain.h
+../src_app_base/NoximMain.o: ../src_app_base/NoximMain.h ../src_app_base/NoximNoC.h ../src_app_base/NoximTile.h
+../src_app_base/NoximMain.o: ../src_app_base/NoximRouter.h ../src_app_base/NoximBuffer.h
+../src_app_base/NoximMain.o: ../src_app_base/NoximStats.h ../src_app_base/NoximPower.h
+../src_app_base/NoximMain.o: ../src_app_base/NoximGlobalRoutingTable.h
+../src_app_base/NoximMain.o: ../src_app_base/NoximLocalRoutingTable.h
+../src_app_base/NoximMain.o: ../src_app_base/NoximReservationTable.h
+../src_app_base/NoximMain.o: ../src_app_base/NoximProcessingElement.h
+../src_app_base/NoximMain.o: ../src_app_base/NoximGlobalTrafficTable.h 
+../src_app_base/NoximMain.o: ../src_app_base/NoximGlobalStats.h ../src_app_base/NoximCmdLineParser.h

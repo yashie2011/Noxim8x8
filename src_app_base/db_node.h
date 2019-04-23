@@ -1,8 +1,8 @@
 /******************************************************************************************
        Author : Yaswanth Raparti
        Dated  : 23 Mar 2019
-  
-    This Class provide the simple wrapper for SQLite DB.			 
+
+    This Class provide the simple wrapper for SQLite DB.
 ******************************************************************************************/
 
 #ifndef  _SQLLITE_DB
@@ -14,7 +14,7 @@
 //OS Headers
 #include <iostream>
 #include <string>
-#include <pthread>
+//#include <pthread>
 
 //SQLite Header and library
 #include "sqlite3.h"
@@ -28,14 +28,14 @@ using namespace std;
 class IResult
 {
 public:
-	/*This function return of count of column 
+	/*This function return of count of column
 	  present in result set of last excueted query*/
 	virtual int	    GetColumnCount() = 0;
 
 	/*Get the next coloumn name*/
 	virtual const char* NextColomnName(int iClmnCount) = 0;
-	
-	/*This function returns TRUE if rows are 
+
+	/*This function returns TRUE if rows are
 	there in result set of last excueted query
 	FALSE if no row present*/
 	virtual bool  Next() = 0;
@@ -56,9 +56,9 @@ class SQLiteDB : public IResult
 public:
 	SQLiteDB();
 	~SQLiteDB();
-	
+
 	/*Open Connection*/
-	bool OpenConnection(string DatabaseName,string DatabaseDir); 
+	bool OpenConnection(string DatabaseName,string DatabaseDir);
 
 
 	/*Close Connection*/
@@ -69,11 +69,11 @@ public:
 	void BeginTransaction();
 	void CommitTransection();
 
-	/*This Method called when SELECT Query to be excuted. 
+	/*This Method called when SELECT Query to be excuted.
 	Return RESULTSET class pointer on success else NULL of failed*/
 	IResult*  ExcuteSelect(const char *Query);
 
-	/*This Method called when INSERT/DELETE/UPDATE Query to be excuted. 
+	/*This Method called when INSERT/DELETE/UPDATE Query to be excuted.
 	Return UINT count of effected data on success*/
 	int	    Excute(const char *Query);
 
@@ -81,7 +81,7 @@ public:
 	string GetLastError();
 
 	/*Return TRUE if databse is connected else FALSE*/
-	bool  isConnected() ;	
+	bool  isConnected() ;
 
 
 protected:
@@ -91,14 +91,14 @@ protected:
 		string		 SQLiteDatabaseName;   //Database Name
 		string		 SQLiteDBPath;		   //Databse File Dir
 		sqlite3		 *pCon;				   //SQLite Connection Object
-		sqlite3_stmt *pRes;				   //SQLite statement object 
+		sqlite3_stmt *pRes;				   //SQLite statement object
 	}SQLITECONNECTIONOBJECT;
 
 	//SQLite Connection Details
 	SQLITECONNECTIONOBJECT	 *pSQLiteConn;
 
 	/*Sync Database in Case of Multiple Threads using class object*/
-	
+
 
 	bool	m_bConnected;      /*Is Connected To DB*/
 	bool    m_bConsole;	       /*If Console Application*/
@@ -107,15 +107,15 @@ protected:
 
 
 private:
-	/*This function return of count of column 
+	/*This function return of count of column
 	  present in result set of last excueted query*/
 	int	    GetColumnCount();
 
 	/*Get the next coloumn name*/
 	const char* NextColomnName(int iClmnCount);
-	
-	/*This function returns TRUE if still rows are 
-	der in result set of last excueted query FALSE 
+
+	/*This function returns TRUE if still rows are
+	der in result set of last excueted query FALSE
 	if no row present*/
 	bool  Next();
 
@@ -123,7 +123,7 @@ private:
 	const char*  ColomnData(int clmNum);
 
 	/*RELEASE all result set as well as RESET all data*/
-	void Release(); 
+	void Release();
 
 };
 

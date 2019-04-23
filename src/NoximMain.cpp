@@ -157,15 +157,10 @@ int sc_main(int arg_num, char *arg_vet[])
     gs.showStats(std::cout, NoximGlobalParams::detailed);
      slice_0_trace.close();
      slice_1_trace.close();
-     slice_2_trace.close();
-     slice_3_trace.close();
-     slice_4_trace.close();
-     slice_5_trace.close();
-     slice_6_trace.close();
-     slice_7_trace.close();
-     slice_8_trace.close();
-
-     pre.close();
+        slice_2_trace.close();
+        slice_3_trace.close();
+        slice_4_trace.close();
+        pre.close();
         pre_reply.close();
     if ((NoximGlobalParams::max_volume_to_be_drained > 0) &&
 	(sc_time_stamp().to_double()/1000 >=

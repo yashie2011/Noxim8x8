@@ -37,7 +37,6 @@ void benchmark::packet_injection_nodeindex()
 			//cout<<"Trace collecter cycle for node" << atoi(stringitem[SRC_ID_POS].c_str()) <<"is: "<< temp<<endl<<endl;
 			//cout<<" word count is "<<word_no;
 			//cout<<" Printing the last word "<< stringitem[9]<<endl;
-			//cout<<"Printing cc: "<<cc<<endl;
 			if(temp == cc)
 			{
 				//cout<<"node: "<< nodeid;

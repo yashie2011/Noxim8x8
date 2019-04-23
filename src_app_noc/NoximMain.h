@@ -76,8 +76,8 @@ using namespace std;
 #define DEFAULT_TRACE_FILENAME                            ""
 #define DEFAULT_MESH_DIM_X                                 8
 #define DEFAULT_MESH_DIM_Y                                 8
-#define DEFAULT_BUFFER_DEPTH                               4
-#define DEFAULT_MAX_PACKET_SIZE                           5     // In layer-1 the packets can have as many as 5 flits per packet
+#define DEFAULT_BUFFER_DEPTH                               8
+#define DEFAULT_MAX_PACKET_SIZE                            5     // In layer-1 the packets can have as many as 5 flits per packet
 #define DEFAULT_MIN_PACKET_SIZE                            2
 #define DEFAULT_PACKET_SIZE_MC							10    // in layer-1 from MC
 #define DEFAULT_ROUTING_ALGORITHM                 ROUTING_XY

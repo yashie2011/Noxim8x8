@@ -23,11 +23,6 @@
 using namespace std;
 
 extern unsigned int drained_volume;
-extern ofstream slice_0_trace;
-extern ofstream slice_1_trace;
-extern ofstream slice_2_trace;
-extern ofstream slice_3_trace;
-extern ofstream slice_4_trace;
 
 SC_MODULE(NoximRouter)
 {
@@ -58,7 +53,7 @@ SC_MODULE(NoximRouter)
      */
     int local_id;		                // Unique ID
     int routing_type;		                // Type of routing algorithm
-    int slice_id;
+
     int selection_type;
     NoximBuffer buffer[DIRECTIONS + 1];	        // Buffer for each input channel 
     bool current_level_rx[DIRECTIONS + 1];	// Current level for Alternating Bit Protocol (ABP)
@@ -78,7 +73,7 @@ SC_MODULE(NoximRouter)
     void bufferMonitor();
     void configure(const int _id, const double _warm_up_time,
 		   const unsigned int _max_buffer_size,
-		   NoximGlobalRoutingTable & grt, int slice);
+		   NoximGlobalRoutingTable & grt);
 
     unsigned long getRoutedFlits();	// Returns the number of routed flits 
     unsigned int getFlitsCount();	// Returns the number of flits into the router
@@ -119,8 +114,6 @@ SC_MODULE(NoximRouter)
     // routing functions
     vector < int >routingXY(const NoximCoord & current,
 			    const NoximCoord & destination);
-    vector < int >routingXY_slices(const NoximCoord & current,
-    			    const NoximCoord & destination);
     vector < int >routingWestFirst(const NoximCoord & current,
 				   const NoximCoord & destination);
     vector < int >routingNorthLast(const NoximCoord & current,

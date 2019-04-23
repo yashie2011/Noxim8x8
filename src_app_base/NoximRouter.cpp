@@ -10,6 +10,7 @@
 
 #include "NoximRouter.h"
 
+
 void NoximRouter::rxProcess()
 {
 	 if (reset.read()) {
@@ -36,56 +37,8 @@ void NoximRouter::rxProcess()
 	    if ((req_rx[i].read() == 1 - current_level_rx[i])
 		&& !buffer[i].IsFull()) {
 		NoximFlit received_flit = flit_rx[i].read();
-		/*if((received_flit.flit_type == FLIT_TYPE_HEAD || received_flit.flit_type == FLIT_TYPE_TAIL) && received_flit.dst_id == local_id){
-			switch (slice_id){
-			case 0:
-				slice_0_trace<<"node "<<this->local_id;
-				slice_0_trace<<" slice 0 received flits with "<< received_flit.src_id<< " "<<received_flit.dst_id;
-				slice_0_trace<<" Flit type "<< received_flit.flit_type;
-				slice_0_trace<<" flit timestamp "<< received_flit.timestamp;
-				slice_0_trace<<" at "<< (sc_time_stamp().to_double() / 1000);
-				slice_0_trace<<" with delay "<< (sc_time_stamp().to_double() / 1000)- received_flit.timestamp<< endl;
-				break;
-
-			case 1:
-				slice_1_trace<<"node "<<this->local_id;
-				slice_1_trace<<" slice 1 received flits with "<< received_flit.src_id<< " "<<received_flit.dst_id;
-				slice_1_trace<<" Flit type "<< received_flit.flit_type;
-				slice_1_trace<<" flit timestamp "<< received_flit.timestamp;
-				slice_1_trace<<" at "<< (sc_time_stamp().to_double() / 1000);
-				slice_1_trace<<" with delay "<< (sc_time_stamp().to_double() / 1000)- received_flit.timestamp<< endl;
-				break;
-			case 2:
-				slice_2_trace<<"node "<<this->local_id;
-				slice_2_trace<<" slice 2 received flits with "<< received_flit.src_id<< " "<<received_flit.dst_id;
-				slice_2_trace<<" Flit type "<< received_flit.flit_type;
-				slice_2_trace<<" flit timestamp "<< received_flit.timestamp;
-				slice_2_trace<<" at "<< (sc_time_stamp().to_double() / 1000);
-				slice_2_trace<<" delay "<< (sc_time_stamp().to_double() / 1000)- received_flit.timestamp<< endl;
-				break;
-			case 3:
-				slice_3_trace<<"node "<<this->local_id;
-				slice_3_trace<<" slice 3 received flits with "<< received_flit.src_id<< " "<<received_flit.dst_id;
-				slice_3_trace<<" Flit type "<< received_flit.flit_type;
-				slice_3_trace<<" flit timestamp "<< received_flit.timestamp;
-				slice_3_trace<<" at "<< (sc_time_stamp().to_double() / 1000);
-				slice_3_trace<<" delay "<< (sc_time_stamp().to_double() / 1000)- received_flit.timestamp<< endl;
-				break;
-			case 4:
-				slice_4_trace<<"node "<<this->local_id;
-				slice_4_trace<<" slice 4 received flits with "<< received_flit.src_id<< " "<<received_flit.dst_id;
-				slice_4_trace<<" Flit type "<< received_flit.flit_type;
-				slice_4_trace<<" flit timestamp "<< received_flit.timestamp;
-				slice_4_trace<<" at "<< (sc_time_stamp().to_double() / 1000);
-				slice_4_trace<<" delay "<< (sc_time_stamp().to_double() / 1000)- received_flit.timestamp<< endl;
-				break;
-			}
-
-		} */
-
 		if (NoximGlobalParams::verbose_mode > VERBOSE_OFF) {
-		    cout << sc_time_stamp().to_double() /
-			1000 << ": Router[" << local_id << "], Input[" << i
+		    cout << sc_time_stamp().to_double()/1000 << ": Router[" << local_id << "], Input[" << i
 			<< "], Received flit: " << received_flit << endl;
 		}
 		// Store the incoming flit in the circular buffer
@@ -121,21 +74,17 @@ void NoximRouter::txProcess()
   else 
     {
 	  // using 5 cycle router in slice 0
-	  pipeline_latency++;
-	  if(1) {
-		  if(pipeline_latency ==6){
+	 pipeline_latency++;
+	 if(pipeline_latency ==2){
       // 1st phase: Reservation
-      for (int j = 0; j < DIRECTIONS + 1; j++) 
-	{
-	  int i = (start_from_port + j) % (DIRECTIONS + 1);
+      for (int j = 0; j < DIRECTIONS + 1; j++){
 
-	  if (!buffer[i].IsEmpty()) 
-	    {
+    	  int i = (start_from_port + j) % (DIRECTIONS + 1);
+    	  if (!buffer[i].IsEmpty()){
 	      NoximFlit flit = buffer[i].Front();
 	      stats.power.Buffer_read();
 
-	      if (flit.flit_type == FLIT_TYPE_HEAD) 
-		{
+	      if (flit.flit_type == NoximFlitType::FLIT_TYPE_HEAD){
 		  // prepare data for routing
 		  NoximRouteData route_data;
 		  route_data.current_id = local_id;
@@ -151,9 +100,9 @@ void NoximRouter::txProcess()
 		    {
 		      stats.power.Crossbar();
 		      reservation_table.reserve(i, o);
-		      if (NoximGlobalParams::verbose_mode > VERBOSE_OFF) 
+		    if (NoximGlobalParams::verbose_mode > VERBOSE_OFF)
 			{
-			  cout << sc_time_stamp().to_double() / 1000
+			  cout << sc_time_stamp().to_double()/1000
 			       << ": Router[" << local_id
 			       << "], Input[" << i << "] (" << buffer[i].
 			    Size() << " flits)" << ", reserved Output["
@@ -181,7 +130,7 @@ void NoximRouter::txProcess()
 		    {
 		      if (NoximGlobalParams::verbose_mode > VERBOSE_OFF) 
 			{
-			  cout << sc_time_stamp().to_double() / 1000
+			  cout << sc_time_stamp().to_double()/1000
 			       << ": Router[" << local_id
 			       << "], Input[" << i <<
 			    "] forward to Output[" << o << "], flit: "
@@ -196,7 +145,7 @@ void NoximRouter::txProcess()
 
 		      if (NoximGlobalParams::low_power_link_strategy)
 			{
-			  if (flit.flit_type == FLIT_TYPE_HEAD || 
+			  if (flit.flit_type == NoximFlitType::FLIT_TYPE_HEAD ||
 			      flit.use_low_voltage_path == false)
 			    stats.power.Link(false);
 			  else
@@ -208,14 +157,14 @@ void NoximRouter::txProcess()
 		      if (flit.dst_id == local_id)
 			stats.power.EndToEnd();
 
-		      if (flit.flit_type == FLIT_TYPE_TAIL)
+		      if (flit.flit_type == NoximFlitType::FLIT_TYPE_TAIL)
 			reservation_table.release(o);
 
 		      // Update stats
 		      if (o == DIRECTION_LOCAL) 
 			{
 			  stats.receivedFlit(sc_time_stamp().
-					     to_double() / 1000, flit);
+					     to_double()/1000 , flit);
 			  if (NoximGlobalParams::
 			      max_volume_to_be_drained) 
 			    {
@@ -240,7 +189,6 @@ void NoximRouter::txProcess()
 	    }
 	}
     } // Checking slice_id
-    }// Adding the pipeline latency
     }				// else
   stats.power.Leakage();
 }
@@ -727,10 +675,9 @@ vector < int >NoximRouter::routingTableBased(const int dir_in,
 void NoximRouter::configure(const int _id,
 			    const double _warm_up_time,
 			    const unsigned int _max_buffer_size,
-			    NoximGlobalRoutingTable & grt, int slice)
+			    NoximGlobalRoutingTable & grt)
 {
     local_id = _id;
-    slice_id = slice;
     stats.configure(_id, _warm_up_time);
 
     start_from_port = DIRECTION_LOCAL;

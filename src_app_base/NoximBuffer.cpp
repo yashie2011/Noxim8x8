@@ -22,6 +22,18 @@ NoximBuffer::NoximBuffer()
   true_buffer = true;
 }
 
+NoximBuffer::NoximBuffer(int size)
+{
+  SetMaxBufferSize(size);
+  max_occupancy = 0;
+  hold_time = 0.0;
+  last_event = 0.0;
+  hold_time_sum = 0.0;
+  previous_occupancy = 0;
+  mean_occupancy = 0.0;
+  true_buffer = true;
+}
+
 void NoximBuffer::Disable()
 {
   true_buffer = false;
@@ -117,13 +129,13 @@ unsigned int NoximBuffer::getCurrentFreeSlots() const
 void NoximBuffer::SaveOccupancyAndTime()
 {
   previous_occupancy = buffer.size();
-  hold_time = (sc_time_stamp().to_double() / 1000) - last_event;
-  last_event = sc_time_stamp().to_double() / 1000;
+  hold_time = (sc_time_stamp().to_double())/1000 - last_event;
+  last_event = sc_time_stamp().to_double()/1000;
 }
 
 void NoximBuffer::UpdateMeanOccupancy()
 {
-  double current_time = sc_time_stamp().to_double() / 1000;
+  double current_time = sc_time_stamp().to_double()/1000;
   if (current_time - DEFAULT_RESET_TIME < NoximGlobalParams::stats_warm_up_time)
     return;
 

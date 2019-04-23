@@ -1,5 +1,5 @@
 //#include "StdAfx.h"
-#include "SQLLiteWrapper.h"
+#include "db_node.h"
 
 
 SQLiteDB::SQLiteDB()
@@ -38,17 +38,17 @@ bool SQLiteDB::OpenConnection(string DatabaseName,string DatabaseDir)
 {
 	pSQLiteConn->SQLiteDatabaseName = DatabaseName;
 	pSQLiteConn->SQLiteDBPath	    = DatabaseDir;
-	
+
 	m_bConnected = true;
 
 	string db=pSQLiteConn->SQLiteDatabaseName;
 	string dir=pSQLiteConn->SQLiteDBPath;
 	string path=dir.append(db);
-
+	cout <<"db to open: "<< path<<endl;
 	int rc = sqlite3_open(path.c_str(), &(pSQLiteConn->pCon));
 
 	m_strLastError =(string)sqlite3_errmsg(pSQLiteConn->pCon);
-	
+
 	if(!rc)
 	{
 		if(m_strLastError.find("not an error") == string::npos)
@@ -78,13 +78,13 @@ IResult*  SQLiteDB::ExcuteSelect(const char *Query)
 
 	if(sqlite3_prepare_v2(pSQLiteConn->pCon,Query,-1, &pSQLiteConn->pRes, NULL) != SQLITE_OK)
 		{
-			m_strLastError=sqlite3_errmsg(pSQLiteConn->pCon);		
+			m_strLastError=sqlite3_errmsg(pSQLiteConn->pCon);
 			sqlite3_finalize(pSQLiteConn->pRes);
 			//Sync->UnLockDB();
 			return NULL;
 		}
 		else
-		{			
+		{
 			m_iColumnCount   =sqlite3_column_count(pSQLiteConn->pRes);
 			IResult *ires=this;
 			return ires;
@@ -96,15 +96,15 @@ int SQLiteDB::Excute(const char *Query)
 	if(!isConnected())
 		return NULL;
 	m_strLastError="";
-	
+
 	char* err="";
-	
+
 	if(sqlite3_exec(pSQLiteConn->pCon, Query, NULL, 0, &err) != SQLITE_OK)
 	{
 		m_strLastError=sqlite3_errmsg(pSQLiteConn->pCon);
 		return 0;
 	}
-	return sqlite3_total_changes(pSQLiteConn->pCon);	
+	return sqlite3_total_changes(pSQLiteConn->pCon);
 }
 
 

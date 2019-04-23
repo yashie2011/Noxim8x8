@@ -675,10 +675,9 @@ vector < int >NoximRouter::routingTableBased(const int dir_in,
 void NoximRouter::configure(const int _id,
 			    const double _warm_up_time,
 			    const unsigned int _max_buffer_size,
-			    NoximGlobalRoutingTable & grt, int slice)
+			    NoximGlobalRoutingTable & grt)
 {
     local_id = _id;
-    slice_id = slice;
     stats.configure(_id, _warm_up_time);
 
     start_from_port = DIRECTION_LOCAL;

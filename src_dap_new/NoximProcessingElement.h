@@ -47,7 +47,7 @@ private:
 
 
 public:
-	vector< std::queue<NoximPacket> > bank_queues;
+	vector< std::deque<NoximPacket> > bank_queues;
 	memory_controller();
 	~memory_controller();
 	bool get_packets(deque <NoximPacket>& interface_buf);

@@ -17,12 +17,12 @@
 #include <iostream>
 #include <fstream>
 #include "benchmark.h"
+#include <map>
 
 using namespace std;
 
 // Define the directions as numbers
 #define DIRECTIONS             4
-#define SLICES				   1      // Added this for base work implementation
 #define DIRECTION_NORTH        0
 #define DIRECTION_EAST         1
 #define DIRECTION_SOUTH        2
@@ -74,21 +74,20 @@ using namespace std;
 #define DEFAULT_VERBOSE_MODE                     VERBOSE_OFF
 #define DEFAULT_TRACE_MODE                             false
 #define DEFAULT_TRACE_FILENAME                            ""
-#define DEFAULT_MESH_DIM_X                                 4
-#define DEFAULT_MESH_DIM_Y                                 4
-#define DEFAULT_BUFFER_DEPTH                               4
-#define DEFAULT_MAX_PACKET_SIZE                           5     // In layer-1 the packets can have as many as 5 flits per packet
+#define DEFAULT_MESH_DIM_X                                 8
+#define DEFAULT_MESH_DIM_Y                                 8
+#define DEFAULT_BUFFER_DEPTH                               8
+#define DEFAULT_MAX_PACKET_SIZE                            5     // In layer-1 the packets can have as many as 5 flits per packet
 #define DEFAULT_MIN_PACKET_SIZE                            2
 #define DEFAULT_PACKET_SIZE_MC							10    // in layer-1 from MC
-#define DEFAULT_PACKET_SIZE_MC_SLICE					40    // In layers-2 from MC
 #define DEFAULT_ROUTING_ALGORITHM                 ROUTING_XY
 #define DEFAULT_ROUTING_TABLE_FILENAME                    ""
 #define DEFAULT_SELECTION_STRATEGY                SEL_RANDOM
 #define DEFAULT_PACKET_INJECTION_RATE                   0.01
 #define DEFAULT_PROBABILITY_OF_RETRANSMISSION           0.01
-#define DEFAULT_TRAFFIC_DISTRIBUTION          TRAFFIC_RANDOM
+#define DEFAULT_TRAFFIC_DISTRIBUTION          TRAFFIC_BENCHMARK
 #define DEFAULT_TRAFFIC_TABLE_FILENAME                    ""
-#define DEFAULT_RESET_TIME                              100
+#define DEFAULT_RESET_TIME                              1000
 #define DEFAULT_SIMULATION_TIME                        10000
 #define DEFAULT_STATS_WARM_UP_TIME        DEFAULT_RESET_TIME
 #define DEFAULT_DETAILED                               false
@@ -99,6 +98,13 @@ using namespace std;
 #define DEFAULT_QOS                                      1.0
 #define DEFAULT_SHOW_BUFFER_STATS                      false
 #define DEFAULT_LOGGING_FLAG							true
+#define DEFAULT_ADDR_MIN								2147745792
+#define DEFAULT_ADDR_MAX								2148832224
+#define DEFAULT_CHECK_DEPTH									6
+#define DEFAULT_BENCH_NAME									"trace_dct.db"
+#define DEFAULT_FILE_PATH                                   "/home/yaswanth/Documents/approx-gpgpu-sims/traces_db/"
+#define DEFAULT_APPROX_RATE									5
+#define DEFAULT_BANK_QUEUES									4
 
 // TODO by Fafa - this MUST be removed!!! Use only STL vectors instead!!!
 #define MAX_STATIC_DIM 32
@@ -134,6 +140,14 @@ struct NoximGlobalParams {
     static double qos;
     static bool show_buffer_stats;
     static bool show_log;
+    // Dapper journal config
+    static char bench_name[128];
+    static char file_path[128];
+    static double address_min;
+    static double address_max;
+    static int check_depth;
+    static float approx_rate;
+    static int bank_queues;
 };
 
 // NoximCoord -- XY coordinates type of the Tile inside the Mesh
@@ -147,20 +161,86 @@ class NoximCoord {
 }};
 
 // NoximFlitType -- Flit type enumeration
-enum NoximFlitType {
-    FLIT_TYPE_HEAD, FLIT_TYPE_BODY, FLIT_TYPE_TAIL
+struct NoximFlitType {
+    enum value {FLIT_TYPE_HEAD = 0, FLIT_TYPE_BODY, FLIT_TYPE_TAIL};
 };
 
 // Memory controller tile id
 enum mem_controllers {m1 = 1, m2 = 6, m3 = 8, m4 = 15, m5 = 48, m6 = 55, m7 = 57, m8 = 62};
 
+
+// creating a map for core ids and mem controller ids to trace ids
+struct core_id_map{
+public:
+	int mem_ctrls[MEM_CONTROLLERS] = {1, 6, 8, 15, 48, 55, 57, 62};
+    int core_ids[NUM_CORES] =  {0, 2, 3, 4, 5, 7, 9, 10,
+    				11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+    				26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+    				40, 41, 42, 43, 44, 45, 46, 47, 49, 50, 51, 52, 53, 54,
+    				56, 58, 59, 60, 61, 63};
+    std::map<int, int> core_map;
+    std::map<int, int> mem_map;
+    int core_map_size, mem_map_size;
+
+    core_id_map(){
+    	core_map_size = sizeof(core_ids)/sizeof(int);
+    	mem_map_size = sizeof(mem_ctrls)/sizeof(int);
+
+    	for (int i =0; i < NUM_CORES ; i++){
+    		if(core_map_size  > i)
+    		core_map.insert(std::pair<int, int>(core_ids[i], i));
+    	}
+    	for (int i =0; i < MEM_CONTROLLERS ; i++){
+			if(mem_map_size > i)
+			mem_map.insert(std::pair<int, int>(i, mem_ctrls[i]));
+    	}
+    }
+
+    inline int get_trace_core_id(int local_id){
+    	map<int, int>::iterator it ;
+    	it = core_map.find(local_id);
+    	if(it != core_map.end())	return it->second;
+    	else return -1;
+    }
+
+    inline int get_chip_mcid(int local_id){
+		map<int, int>::iterator it ;
+		it = mem_map.find(local_id);
+		if (it != mem_map.end()) return mem_map[local_id];
+		else return -1;
+    }
+};
+
+struct memc_data{
+	double ts;
+	int row, col, core;
+	int bank;
+	double addr;
+	bool approx;
+	memc_data* next;
+
+	inline void print(){
+		printf("ts: %f row: %d col: %d bank: %d dest: %d addr: %f curnt_ts: %f\n",
+				ts, row, col, bank, core, addr, (sc_time_stamp().to_double()/1000));
+	}
+};
+
+
 // NoximPayload -- Payload definition
 struct NoximPayload {
     sc_uint<32> data;	// Bus for the data to be exchanged
+    int row, col, bank;
 
     inline bool operator ==(const NoximPayload & payload) const {
 	return (payload.data == data);
-}};
+}
+    NoximPayload():data(0), row(0), col(0), bank(0){
+
+    }
+	NoximPayload(int data):data(data){
+		row = 0; col = 0; bank = 0;
+	};
+};
 
 // NoximPacket -- Packet definition
 struct NoximPacket {
@@ -170,29 +250,29 @@ struct NoximPacket {
     int size;
     int flit_left;		// Number of remaining flits inside the packet
     bool use_low_voltage_path;
-    bool packet_returned ;  // To check for the packet returned
-    int reply_data_size;
     double ack_msg;
-    int  computation_time;
-    int data_value;
+    bool approximable;
+    NoximPayload payload;
 
     // Constructors
-    NoximPacket() { }
+    NoximPacket(): src_id(-1), dst_id(-1), approximable(0),
+    		timestamp(0), size(0), flit_left(0), use_low_voltage_path(0),
+    		ack_msg(0)  {
+    		payload.row = 0; payload.bank = 0; payload.col = 0;}
 
     NoximPacket(const int s, const int d, const double ts, const int sz, const int rp_sz) {
-	make(s, d, ts, sz, rp_sz);
+	make(s, d, ts, sz);
     }
 
-    void make(const int s, const int d, const double ts, const int sz, const int rp_sz) {
+    void make(const int s, const int d, const double ts, const int sz) {
 	src_id = s;
 	dst_id = d;
 	timestamp = ts;
 	size = sz;
 	flit_left = sz;
 	use_low_voltage_path = false;
-	reply_data_size = rp_sz;
+
 	ack_msg =0;
-	computation_time = 0;
     }
 };
 
@@ -234,16 +314,24 @@ struct NoximNoP_data {
 struct NoximFlit {
     int src_id;
     int dst_id;
-    NoximFlitType flit_type;	// The flit type (FLIT_TYPE_HEAD, FLIT_TYPE_BODY, FLIT_TYPE_TAIL)
+    NoximFlitType::value flit_type;	// The flit type (FLIT_TYPE_HEAD, FLIT_TYPE_BODY, FLIT_TYPE_TAIL)
     int sequence_no;		// The sequence number of the flit inside the packet
     NoximPayload payload;	// Optional payload
     double timestamp;		// Unix timestamp at packet generation
     int hop_no;			// Current number of hops from source to destination
     bool use_low_voltage_path;
     long data_size;
-	int data_value;
     double ack_msg;
+    bool flit_sent;
+    bool approximable;
+    uint tag;
 
+
+    NoximFlit() : payload(0)
+    {
+    	flit_sent = false; src_id =-1; dst_id =-1; flit_type = NoximFlitType::FLIT_TYPE_BODY;
+    	sequence_no = -1; timestamp =0; hop_no = 0;
+    	use_low_voltage_path = false; data_size =0; ack_msg =0; flit_sent = false; tag =0;}
 
     inline bool operator ==(const NoximFlit & flit) const {
 	return (flit.src_id == src_id && flit.dst_id == dst_id
@@ -265,13 +353,13 @@ inline ostream & operator <<(ostream & os, const NoximFlit & flit)
 	os << "Source Tile[" << flit.src_id << "]" << endl;
 	os << "Destination Tile[" << flit.dst_id << "]" << endl;
 	switch (flit.flit_type) {
-	case FLIT_TYPE_HEAD:
+	case NoximFlitType::FLIT_TYPE_HEAD:
 	    os << "Flit Type is HEAD" << endl;
 	    break;
-	case FLIT_TYPE_BODY:
+	case NoximFlitType::FLIT_TYPE_BODY:
 	    os << "Flit Type is BODY" << endl;
 	    break;
-	case FLIT_TYPE_TAIL:
+	case NoximFlitType::FLIT_TYPE_TAIL:
 	    os << "Flit Type is TAIL" << endl;
 	    break;
 	}
@@ -284,13 +372,13 @@ inline ostream & operator <<(ostream & os, const NoximFlit & flit)
     } else {
 	os << "[type: ";
 	switch (flit.flit_type) {
-	case FLIT_TYPE_HEAD:
+	case NoximFlitType::FLIT_TYPE_HEAD:
 	    os << "H";
 	    break;
-	case FLIT_TYPE_BODY:
+	case NoximFlitType::FLIT_TYPE_BODY:
 	    os << "B";
 	    break;
-	case FLIT_TYPE_TAIL:
+	case NoximFlitType::FLIT_TYPE_TAIL:
 	    os << "T";
 	    break;
 	}

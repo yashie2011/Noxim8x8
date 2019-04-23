@@ -23,14 +23,6 @@
 #include "db_node.h"
 #include "NoximPower.h"
 
-extern int MC1_time ;
-extern int MC2_time ;
-extern int MC3_time ;
-extern int MC4_time ;
-extern int MC5_time ;
-extern int MC6_time ;
-extern int MC7_time ;
-extern int MC8_time ;
 #define DRAM_BANK_QUEUES 4
 
 using namespace std;
@@ -64,24 +56,24 @@ public:
     sc_in_clk clock;		// The input clock for the PE
     sc_in < bool > reset;	// The reset signal for the PE
 
-    sc_in < NoximFlit > flit_rx[SLICES];	// The input channel
-    sc_in < bool > req_rx[SLICES];	// The request associated with the input channel
-    sc_out < bool > ack_rx[SLICES];	// The outgoing ack signal associated with the input channel
+    sc_in < NoximFlit > flit_rx ;	// The input channel
+    sc_in < bool > req_rx ;	// The request associated with the input channel
+    sc_out < bool > ack_rx ;	// The outgoing ack signal associated with the input channel
 
-    sc_out < NoximFlit > flit_tx[SLICES];	// The output channel
-    sc_out < bool > req_tx[SLICES];	// The request associated with the output channel
-    sc_in < bool > ack_tx[SLICES];	// The outgoing ack signal associated with the output channel
+    sc_out < NoximFlit > flit_tx ;	// The output channel
+    sc_out < bool > req_tx ;	// The request associated with the output channel
+    sc_in < bool > ack_tx ;	// The outgoing ack signal associated with the output channel
 
   //  sc_in < int >free_slots_neighbor;
 
     // Registers
     int local_id;		// Unique identification number
-    bool current_level_rx[SLICES];	// Current level for Alternating Bit Protocol (ABP)
-    bool current_level_tx[SLICES];	// Current level for Alternating Bit Protocol (ABP)
-    queue < NoximPacket > packet_queue[SLICES];	// Local queue of packets
+    bool current_level_rx ;	// Current level for Alternating Bit Protocol (ABP)
+    bool current_level_tx ;	// Current level for Alternating Bit Protocol (ABP)
+    queue < NoximPacket > packet_queue ;	// Local queue of packets
     bool transmittedAtPreviousCycle;	// Used for distributions with memory
-    int tx_flits[SLICES];
-    int rx_flits[SLICES];
+    int tx_flits ;
+    int rx_flits ;
 
 
 
@@ -130,7 +122,7 @@ public:
     void rxProcess();		// The receiving process
     void txProcess();		// The transmitting process
     bool canShot();	// True when the packet must be shot
-    NoximFlit nextFlit(int slice);	// Take the next flit of the current packet
+    NoximFlit nextFlit();	// Take the next flit of the current packet
    // NoximFlit nextFlit_view();   //  Added to lookup for the flit in the queue
     NoximPacket trafficRandom();	// Random destination distribution
     NoximPacket trafficTranspose1();	// Transpose 1 destination distribution
@@ -158,7 +150,6 @@ public:
     void setBit(int &x, int w, int v);
     int getBit(int x, int w);
     double log2ceil(double x);
-    int get_slice(NoximCoord src_coord, NoximCoord dest_coord);
     int get_reply_time();
     void push_packet();
     //void sim_stop_poll();

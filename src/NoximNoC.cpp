@@ -70,47 +70,46 @@ void NoximNoC::buildMesh()
 	    // Map clock and reset
 	    t[i][j]->clock(clock);
 	    t[i][j]->reset(reset);
-	    // Looping over the slices
-	        for (int k = 0; k< SLICES; k++) {
+
         // Tell to the router its coordinates
-	    t[i][j]->r[k]->configure(j * NoximGlobalParams::mesh_dim_x + i,
+	    t[i][j]->r->configure(j * NoximGlobalParams::mesh_dim_x + i,
 	       NoximGlobalParams::stats_warm_up_time,
 	       NoximGlobalParams::buffer_depth,
-	       grtable, k);
+	       grtable);
 	    // Map Rx signals
-	    t[i][j]->req_rx[k][DIRECTION_NORTH] (req_to_south[k][i][j]);
-	    t[i][j]->flit_rx[k][DIRECTION_NORTH] (flit_to_south[k][i][j]);
-	    t[i][j]->ack_rx[k][DIRECTION_NORTH] (ack_to_north[k][i][j]);
+	    t[i][j]->req_rx[DIRECTION_NORTH] (req_to_south[i][j]);
+	    t[i][j]->flit_rx[DIRECTION_NORTH] (flit_to_south[i][j]);
+	    t[i][j]->ack_rx[DIRECTION_NORTH] (ack_to_north[i][j]);
 
-	    t[i][j]->req_rx[k][DIRECTION_EAST] (req_to_west[k][i + 1][j]);
-	    t[i][j]->flit_rx[k][DIRECTION_EAST] (flit_to_west[k][i + 1][j]);
-	    t[i][j]->ack_rx[k][DIRECTION_EAST] (ack_to_east[k][i + 1][j]);
+	    t[i][j]->req_rx[DIRECTION_EAST] (req_to_west[i + 1][j]);
+	    t[i][j]->flit_rx[DIRECTION_EAST] (flit_to_west[i + 1][j]);
+	    t[i][j]->ack_rx[DIRECTION_EAST] (ack_to_east[i + 1][j]);
 
-	    t[i][j]->req_rx[k][DIRECTION_SOUTH] (req_to_north[k][i][j + 1]);
-	    t[i][j]->flit_rx[k][DIRECTION_SOUTH] (flit_to_north[k][i][j + 1]);
-	    t[i][j]->ack_rx[k][DIRECTION_SOUTH] (ack_to_south[k][i][j + 1]);
+	    t[i][j]->req_rx[DIRECTION_SOUTH] (req_to_north[i][j + 1]);
+	    t[i][j]->flit_rx[DIRECTION_SOUTH] (flit_to_north[i][j + 1]);
+	    t[i][j]->ack_rx[DIRECTION_SOUTH] (ack_to_south[i][j + 1]);
 
-	    t[i][j]->req_rx[k][DIRECTION_WEST] (req_to_east[k][i][j]);
-	    t[i][j]->flit_rx[k][DIRECTION_WEST] (flit_to_east[k][i][j]);
-	    t[i][j]->ack_rx[k][DIRECTION_WEST] (ack_to_west[k][i][j]);
+	    t[i][j]->req_rx[DIRECTION_WEST] (req_to_east[i][j]);
+	    t[i][j]->flit_rx[DIRECTION_WEST] (flit_to_east[i][j]);
+	    t[i][j]->ack_rx[DIRECTION_WEST] (ack_to_west[i][j]);
 
 	    // Map Tx signals
-	    t[i][j]->req_tx[k][DIRECTION_NORTH] (req_to_north[k][i][j]);
-	    t[i][j]->flit_tx[k][DIRECTION_NORTH] (flit_to_north[k][i][j]);
-	    t[i][j]->ack_tx[k][DIRECTION_NORTH] (ack_to_south[k][i][j]);
+	    t[i][j]->req_tx[DIRECTION_NORTH] (req_to_north[i][j]);
+	    t[i][j]->flit_tx[DIRECTION_NORTH] (flit_to_north[i][j]);
+	    t[i][j]->ack_tx[DIRECTION_NORTH] (ack_to_south[i][j]);
 
-	    t[i][j]->req_tx[k][DIRECTION_EAST] (req_to_east[k][i + 1][j]);
-	    t[i][j]->flit_tx[k][DIRECTION_EAST] (flit_to_east[k][i + 1][j]);
-	    t[i][j]->ack_tx[k][DIRECTION_EAST] (ack_to_west[k][i + 1][j]);
+	    t[i][j]->req_tx[DIRECTION_EAST] (req_to_east[i + 1][j]);
+	    t[i][j]->flit_tx[DIRECTION_EAST] (flit_to_east[i + 1][j]);
+	    t[i][j]->ack_tx[DIRECTION_EAST] (ack_to_west[i + 1][j]);
 
-	    t[i][j]->req_tx[k][DIRECTION_SOUTH] (req_to_south[k][i][j + 1]);
-	    t[i][j]->flit_tx[k][DIRECTION_SOUTH] (flit_to_south[k][i][j + 1]);
-	    t[i][j]->ack_tx[k][DIRECTION_SOUTH] (ack_to_north[k][i][j + 1]);
+	    t[i][j]->req_tx[DIRECTION_SOUTH] (req_to_south[i][j + 1]);
+	    t[i][j]->flit_tx[DIRECTION_SOUTH] (flit_to_south[i][j + 1]);
+	    t[i][j]->ack_tx[DIRECTION_SOUTH] (ack_to_north[i][j + 1]);
 
-	    t[i][j]->req_tx[k][DIRECTION_WEST] (req_to_west[k][i][j]);
-	    t[i][j]->flit_tx[k][DIRECTION_WEST] (flit_to_west[k][i][j]);
-	    t[i][j]->ack_tx[k][DIRECTION_WEST] (ack_to_east[k][i][j]);
-	        } // Looping over the slices
+	    t[i][j]->req_tx[DIRECTION_WEST] (req_to_west[i][j]);
+	    t[i][j]->flit_tx[DIRECTION_WEST] (flit_to_west[i][j]);
+	    t[i][j]->ack_tx[DIRECTION_WEST] (ack_to_east[i][j]);
+
 
 	    // Map buffer level signals (analogy with req_tx/rx port mapping)
 	    /*t[i][j]->free_slots[DIRECTION_NORTH] (free_slots_to_north[i][j]);
@@ -146,14 +145,12 @@ void NoximNoC::buildMesh()
 	tmp_NoP.channel_status_neighbor[i].available = false;
     }
 
-    // Looping over the slices
-    for (int k =0; k< SLICES; k++) {
     // Clear signals for borderline nodes
     for (int i = 0; i <= NoximGlobalParams::mesh_dim_x; i++) {
-	req_to_south[k][i][0] = 0;
-	ack_to_north[k][i][0] = 0;
-	req_to_north[k][i][NoximGlobalParams::mesh_dim_y] = 0;
-	ack_to_south[k][i][NoximGlobalParams::mesh_dim_y] = 0;
+	req_to_south[i][0] = 0;
+	ack_to_north[i][0] = 0;
+	req_to_north[i][NoximGlobalParams::mesh_dim_y] = 0;
+	ack_to_south[i][NoximGlobalParams::mesh_dim_y] = 0;
 	/*
 	free_slots_to_south[i][0].write(NOT_VALID);
 	free_slots_to_north[i][NoximGlobalParams::mesh_dim_y].write(NOT_VALID);
@@ -164,10 +161,10 @@ void NoximNoC::buildMesh()
     }
 
     for (int j = 0; j <= NoximGlobalParams::mesh_dim_y; j++) {
-	req_to_east[k][0][j] = 0;
-	ack_to_west[k][0][j] = 0;
-	req_to_west[k][NoximGlobalParams::mesh_dim_x][j] = 0;
-	ack_to_east[k][NoximGlobalParams::mesh_dim_x][j] = 0;
+	req_to_east[0][j] = 0;
+	ack_to_west[0][j] = 0;
+	req_to_west[NoximGlobalParams::mesh_dim_x][j] = 0;
+	ack_to_east[NoximGlobalParams::mesh_dim_x][j] = 0;
 
 	/*free_slots_to_east[0][j].write(NOT_VALID);
 	free_slots_to_west[NoximGlobalParams::mesh_dim_x][j].write(NOT_VALID);
@@ -179,22 +176,21 @@ void NoximNoC::buildMesh()
 
     // invalidate reservation table entries for non-exhistent channels
     for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++) {
-	t[i][0]->r[k]->reservation_table.invalidate(DIRECTION_NORTH);
-	t[i][NoximGlobalParams::mesh_dim_y - 1]->r[k]->reservation_table.invalidate(DIRECTION_SOUTH);
+	t[i][0]->r->reservation_table.invalidate(DIRECTION_NORTH);
+	t[i][NoximGlobalParams::mesh_dim_y - 1]->r->reservation_table.invalidate(DIRECTION_SOUTH);
     }
     for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++) {
-	t[0][j]->r[k]->reservation_table.invalidate(DIRECTION_WEST);
-	t[NoximGlobalParams::mesh_dim_x - 1][j]->r[k]->reservation_table.invalidate(DIRECTION_EAST);
+	t[0][j]->r->reservation_table.invalidate(DIRECTION_WEST);
+	t[NoximGlobalParams::mesh_dim_x - 1][j]->r->reservation_table.invalidate(DIRECTION_EAST);
     }
-} // Looping over the slices
+
 }
 
 NoximTile *NoximNoC::searchNode(const int id) const
 {
     for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++)
 	for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++)
-		for (int k=0; k < SLICES; k++)
-	    if (t[i][j]->r[k]->local_id == id)
+	    if (t[i][j]->r->local_id == id)
 		return t[i][j];
 
     return NULL;

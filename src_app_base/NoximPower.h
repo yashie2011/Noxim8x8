@@ -51,6 +51,7 @@ hop interconnect is 0.384nJ.
 #define PWR_BUFF_READ 3.45e-12
 #define PWR_ARB_FULL 3.3e-13
 #define PWR_CROSS_FULL 2.9e-12
+#define PWR_END_2_END 5.9e-12
 
 class NoximPower {
 

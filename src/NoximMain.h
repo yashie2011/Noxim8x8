@@ -23,7 +23,6 @@ using namespace std;
 
 // Define the directions as numbers
 #define DIRECTIONS             4
-#define SLICES				   1      // Added this for base work implementation
 #define DIRECTION_NORTH        0
 #define DIRECTION_EAST         1
 #define DIRECTION_SOUTH        2
@@ -77,11 +76,10 @@ using namespace std;
 #define DEFAULT_TRACE_FILENAME                            ""
 #define DEFAULT_MESH_DIM_X                                 8
 #define DEFAULT_MESH_DIM_Y                                 8
-#define DEFAULT_BUFFER_DEPTH                               4
-#define DEFAULT_MAX_PACKET_SIZE                           5     // In layer-1 the packets can have as many as 5 flits per packet
+#define DEFAULT_BUFFER_DEPTH                               8
+#define DEFAULT_MAX_PACKET_SIZE                            5     // In layer-1 the packets can have as many as 5 flits per packet
 #define DEFAULT_MIN_PACKET_SIZE                            2
 #define DEFAULT_PACKET_SIZE_MC							10    // in layer-1 from MC
-#define DEFAULT_PACKET_SIZE_MC_SLICE					40    // In layers-2 from MC
 #define DEFAULT_ROUTING_ALGORITHM                 ROUTING_XY
 #define DEFAULT_ROUTING_TABLE_FILENAME                    ""
 #define DEFAULT_SELECTION_STRATEGY                SEL_RANDOM

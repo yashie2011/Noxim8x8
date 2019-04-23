@@ -18,6 +18,7 @@
 #include <fstream>
 #include "benchmark.h"
 #include <map>
+#include <deque>
 
 using namespace std;
 
@@ -77,7 +78,7 @@ using namespace std;
 #define DEFAULT_TRACE_FILENAME                            ""
 #define DEFAULT_MESH_DIM_X                                 8
 #define DEFAULT_MESH_DIM_Y                                 8
-#define DEFAULT_BUFFER_DEPTH                               4
+#define DEFAULT_BUFFER_DEPTH                               8
 #define DEFAULT_MAX_PACKET_SIZE                            5     // In layer-1 the packets can have as many as 5 flits per packet
 #define DEFAULT_MIN_PACKET_SIZE                            2
 #define DEFAULT_PACKET_SIZE_MC							10    // in layer-1 from MC
@@ -107,7 +108,7 @@ using namespace std;
 #define DEFAULT_BENCH_NAME									"trace_dct.db"
 #define DEFAULT_FILE_PATH                                   "/home/yaswanth/Documents/approx-gpgpu-sims/traces_db/"
 #define DEFAULT_APPROX_RATE									5
-#define DEFAULT_BANK_QUEUES									2
+#define DEFAULT_BANK_QUEUES									4
 
 // TODO by Fafa - this MUST be removed!!! Use only STL vectors instead!!!
 #define MAX_STATIC_DIM 32
@@ -338,7 +339,9 @@ struct NoximFlit {
     {
     	flit_sent = false; src_id =-1; dst_id =-1; flit_type = NoximFlitType::FLIT_TYPE_BODY;
     	sequence_no = -1; timestamp =0; hop_no = 0;
-    	use_low_voltage_path = false; data_size =0; ack_msg =0; flit_sent = false; tag =0;}
+    	use_low_voltage_path = false; data_size =0; ack_msg =0; flit_sent = false; tag =0;
+    	approx_len = 0; approximable = false;
+    }
 
     inline bool operator ==(const NoximFlit & flit) const {
 	return (flit.src_id == src_id && flit.dst_id == dst_id
@@ -502,5 +505,44 @@ inline bool is_mc(int local_id)
 				return true;
 	else
 		return false;
+}
+
+inline void g_approximate(deque <NoximPacket>& interface_buf){
+
+	vector<int> rem_indx;
+	double err_thresh = 0;
+	int check_depth = NoximGlobalParams::check_depth;
+	float approx_ratio = NoximGlobalParams::approx_rate;
+	NoximPacket pkt = interface_buf.front();
+
+	//pkt.approx_len = 0;
+		if(pkt.approximable)
+		{
+
+			//cout<<"interface buff size "<< interface_buf.size()<<endl;
+
+			for (int i = 0; i< interface_buf.size()-1; i++)
+			{
+				if (i > check_depth) break;  // only do it to the extent of check depth
+
+				err_thresh = rand()%10;
+				NoximPacket nxt_pkt = interface_buf.at(i+1);
+				if(nxt_pkt.approximable && err_thresh < approx_ratio)
+				{
+					pkt.apx_dst_id[i] = nxt_pkt.dst_id;
+					rem_indx.push_back(i+1);
+					pkt.approx_len++;
+					//cout<<"PACKET COALESCED count "<<pkt.approx_len<<endl;
+
+				}
+			}
+			int indx_adjuster = 0;
+			for (int i =0; i < rem_indx.size(); i++)
+			{
+				interface_buf.erase(interface_buf.begin()+(rem_indx[i] - indx_adjuster));
+				indx_adjuster++;
+			}
+		}
+
 }
 #endif

@@ -77,7 +77,7 @@ using namespace std;
 #define DEFAULT_TRACE_FILENAME                            ""
 #define DEFAULT_MESH_DIM_X                                 8
 #define DEFAULT_MESH_DIM_Y                                 8
-#define DEFAULT_BUFFER_DEPTH                               4
+#define DEFAULT_BUFFER_DEPTH                               8
 #define DEFAULT_MAX_PACKET_SIZE                            5     // In layer-1 the packets can have as many as 5 flits per packet
 #define DEFAULT_MIN_PACKET_SIZE                            2
 #define DEFAULT_PACKET_SIZE_MC							10    // in layer-1 from MC
@@ -338,7 +338,9 @@ struct NoximFlit {
     {
     	flit_sent = false; src_id =-1; dst_id =-1; flit_type = NoximFlitType::FLIT_TYPE_BODY;
     	sequence_no = -1; timestamp =0; hop_no = 0;
-    	use_low_voltage_path = false; data_size =0; ack_msg =0; flit_sent = false; tag =0;}
+    	use_low_voltage_path = false; data_size =0; ack_msg =0; flit_sent = false; tag =0;
+    	approx_len = 0; approximable = false;
+    }
 
     inline bool operator ==(const NoximFlit & flit) const {
 	return (flit.src_id == src_id && flit.dst_id == dst_id
@@ -503,4 +505,6 @@ inline bool is_mc(int local_id)
 	else
 		return false;
 }
+
+
 #endif

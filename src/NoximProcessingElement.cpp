@@ -10,14 +10,6 @@
 
 #include "NoximProcessingElement.h"
 
-extern ofstream slice_0_trace;
-extern ofstream slice_1_trace;
-extern ofstream slice_2_trace;
-extern ofstream slice_3_trace;
-extern ofstream slice_4_trace;
-
-extern ofstream pre;
-extern ofstream pre_reply;
 
 memory_controller::memory_controller() {
 
@@ -68,7 +60,7 @@ bool memory_controller::push_packet(NoximFlit hd_flit){
 		tmp_p.timestamp = (sc_time_stamp().to_double()/1000) + tCAS + tRCD + tRAS;
 	}
 
-	if(bank_queues[q_indx].size() < 2*NoximGlobalParams::buffer_depth){
+	if(bank_queues[q_indx].size() < 20 *NoximGlobalParams::buffer_depth){
 		//cout<<"pushing packet into reply queue "<< tmp_p.src_id<<" "<<tmp_p.dst_id<<endl;
 		bank_queues[q_indx].push(tmp_p);
 		return true;
@@ -84,9 +76,9 @@ bool memory_controller::get_packets(deque<NoximPacket>& interface_buf){
 	// go through all the bank queues
 	for(int q =0; q < NoximGlobalParams::bank_queues; q++){
 		int indx = (q + last_bank_q) % NoximGlobalParams::bank_queues;
-		if(bank_queues[indx ].empty()) continue;
+		if(bank_queues[indx].empty()) continue;
 		else if (bank_queues[indx ].front().timestamp <= sc_time_stamp().to_double()/1000) {
-			if(interface_buf.size() < 20 * NoximGlobalParams::buffer_depth)
+			if(1)//(interface_buf.size() < 20 * NoximGlobalParams::buffer_depth)
 			{
 				//cout<<"reply packet collected at mc"<< bank_queues[q].front().src_id<<
 						//bank_queues[q].front().dst_id<<endl;
@@ -97,7 +89,7 @@ bool memory_controller::get_packets(deque<NoximPacket>& interface_buf){
 			}
 		}
 	}
-	last_bank_q = last_bank_q + 1 % NoximGlobalParams::bank_queues;
+	last_bank_q = (last_bank_q + 1 )% NoximGlobalParams::bank_queues;
 	return ret_flag;
 }
 
@@ -112,40 +104,47 @@ void NoximProcessingElement::rxProcess()
 {
 
     if (reset.read()) {
-    //looping over the slices
-    	for(int k=0; k<SLICES; k++){
-    		ack_rx[k].write(0);
-    			current_level_rx[k] = 0;
-    			rx_flits[k]=0;
+
+    		ack_rx.write(0);
+    			current_level_rx = 0;
+    			rx_flits=0;
     			num_reqs = 0;
     			max_buffer_size=0;
-    	}
+
 
     }
     else {
     	// Read from each slice -- arbitration no priority.. Just reading in order
 
-    	for(int k=0; k< SLICES; k++){
-    		if (req_rx[k].read() == 1 - current_level_rx[k]) {
+    	if (req_rx.read() == 1 - current_level_rx) {
     			NoximFlit flit_tmp;
-    			flit_tmp = flit_rx[k].read();
+    			flit_tmp = flit_rx.read();
     			NoximCoord dest_id = id2Coord(flit_tmp.dst_id);
     			NoximCoord src_id = id2Coord(flit_tmp.src_id);
     			if(is_mc(dest_id)){
 
     				bool pkt_pushed = true;
 					// Then check if the current PE is a memory controller
-					// If yes, push the packet into mem_c
+					// If head flit, push the packet into mem_c and then send
+    				// read ack to the sender router
 					if(flit_tmp.flit_type == NoximFlitType::FLIT_TYPE_HEAD){
 						pkt_pushed = mem_c->push_packet(flit_tmp);
-					}
 
-					if(pkt_pushed){
-						num_reqs++;
-						received_packets++;
-						// Negate the old value for Alternating Bit Protocol (ABP)
-						current_level_rx[k] = 1 - current_level_rx[k];
-						rx_flits[k]++;
+					//cout << sc_simulation_time() << ": ProcessingElement[" <<
+					    				    //local_id << "] RECEIVING " << flit_tmp << endl;
+						if(pkt_pushed){
+							num_reqs++;
+							received_packets++;
+							// Negate the old value for Alternating Bit Protocol (ABP)
+							current_level_rx = 1 - current_level_rx;
+							rx_flits++;
+							pe_pwr.Buffering();
+						}
+					}
+					// else send read ack to the sender router anyway
+					else{
+						current_level_rx = 1 - current_level_rx;
+						rx_flits++;
 						pe_pwr.Buffering();
 					}
 
@@ -161,8 +160,8 @@ void NoximProcessingElement::rxProcess()
     			    	//cout<<" with time stamp: "<< flit_tmp.timestamp<< " received at: "<< (sc_time_stamp().to_double()/1000)<<endl;
     			    	  //last_packet = 0;
     			    	}
-        			    current_level_rx[k] = 1 - current_level_rx[k];	// Negate the old value for Alternating Bit Protocol (ABP)
-        			    rx_flits[k]++;
+        			    current_level_rx = 1 - current_level_rx;	// Negate the old value for Alternating Bit Protocol (ABP)
+        			    rx_flits++;
     			    }
 
     			    if (NoximGlobalParams::verbose_mode > VERBOSE_OFF) {
@@ -171,32 +170,23 @@ void NoximProcessingElement::rxProcess()
     			    }
 
     			}
-    			ack_rx[k].write(current_level_rx[k]);
+    			ack_rx.write(current_level_rx);
 
-    	}
+
 
     }
 }
 
-// Get the slice of the destination
-int NoximProcessingElement::get_slice(NoximCoord src_coord, NoximCoord dest_coord){
-		// Base case : if the request data, slice 0, reply data slice 2
 
-	if(is_mc(src_coord))
-		return 0;
-	else { return 0;  }// Lowest slice
-
-}
 
 void NoximProcessingElement::txProcess()
 {
     if (reset.read()) {
-    for(int k=0; k< SLICES; k++){
-    	req_tx[k].write(0);
-    		current_level_tx[k] = 0;
-    		tx_flits[k]=0;
+    	req_tx.write(0);
+    		current_level_tx = 0;
+    		tx_flits=0;
 
-    }
+
 	send = true;
 	computation_clock = 0;
 	start_clock = false;
@@ -221,12 +211,11 @@ void NoximProcessingElement::txProcess()
     	}
 
     if(1){
-		for(int slice =0; slice<SLICES; slice++){
 
-		if (ack_tx[slice].read() == current_level_tx[slice]) {
-			if (!packet_queue[slice].empty()) {
-			NoximFlit flit = nextFlit(slice);	// Generate a new flit
-			//if(slice == 1)
+
+		if (ack_tx.read() == current_level_tx) {
+			if (!packet_queue.empty()) {
+			NoximFlit flit = nextFlit();	// Generate a new flit
 			//cout<<"Sending flit to slice 1 at pe of node "<<local_id<<endl;
 			if(flit.flit_type == NoximFlitType::FLIT_TYPE_HEAD) sent_packets++;
 			if (NoximGlobalParams::verbose_mode > VERBOSE_OFF) {
@@ -234,21 +223,20 @@ void NoximProcessingElement::txProcess()
 				1000 << ": ProcessingElement[" << local_id <<
 				"] SENDING " << flit << endl;
 			}
-			flit_tx[slice]->write(flit);	// Send the generated flit
-			current_level_tx[slice] = 1 - current_level_tx[slice];	// Negate the old value for Alternating Bit Protocol (ABP)
-			req_tx[slice].write(current_level_tx[slice]);
-			tx_flits[slice]++;
+			flit_tx->write(flit);	// Send the generated flit
+			current_level_tx = 1 - current_level_tx;	// Negate the old value for Alternating Bit Protocol (ABP)
+			req_tx.write(current_level_tx);
+			tx_flits++;
 
 			}
 		}
-		}  // loop over slices
+
     }
     }
 }
 
 void NoximProcessingElement::push_packet(){
 	NoximPacket packet;
-	int slice = 0;
 	NoximCoord src_coord = {0};
 	NoximCoord dest_coord = {0};
 
@@ -263,9 +251,8 @@ void NoximProcessingElement::push_packet(){
 			//approximate(packet, interface_buf);
 		}
 		dest_coord = id2Coord(packet.dst_id);
-		slice = get_slice(src_coord, dest_coord);
 
-		if (packet_queue[slice].size() < 10 * NoximGlobalParams::buffer_depth ){//&& packet.packet_returned)   {   // Added since canshot is irrelevant now!
+		if (packet_queue.size() < 10 * NoximGlobalParams::buffer_depth ){//&& packet.packet_returned)   {   // Added since canshot is irrelevant now!
 			//cout<<" Packet with src "<< packet.src_id<< " dest_"<< packet.dst_id<<" queued in slice "<<slice<<endl;
 			packet.timestamp =  sc_time_stamp().to_double()/1000 ;
 			//if(slice == 1)
@@ -277,7 +264,7 @@ void NoximProcessingElement::push_packet(){
 			else {
 			//cout<< "packet queue lenght so far "<<packet_queue[slice].size() <<endl;
 			}
-			packet_queue[slice].push(packet);
+			packet_queue.push(packet);
 			if(max_buffer_size < interface_buf.size())
 				max_buffer_size = interface_buf.size();
 			interface_buf.pop_front();
@@ -292,11 +279,11 @@ void NoximProcessingElement::push_packet(){
 
 }
 
-NoximFlit NoximProcessingElement::nextFlit(int slice)
+NoximFlit NoximProcessingElement::nextFlit()
 {
     NoximFlit flit;
-    NoximPacket packet = packet_queue[slice].front();
-    if(!packet_queue[slice].empty()){
+    NoximPacket packet = packet_queue.front();
+    if(!packet_queue.empty()){
     flit.src_id = packet.src_id;
     flit.dst_id = packet.dst_id;
     flit.timestamp = packet.timestamp;
@@ -328,9 +315,9 @@ NoximFlit NoximProcessingElement::nextFlit(int slice)
     else
 	flit.flit_type = NoximFlitType::FLIT_TYPE_BODY;
 
-    packet_queue[slice].front().flit_left--;
-    if (packet_queue[slice].front().flit_left == 0)
-	packet_queue[slice].pop();
+    packet_queue.front().flit_left--;
+    if (packet_queue.front().flit_left == 0)
+	packet_queue.pop();
     }
     return flit;
 }
@@ -560,7 +547,7 @@ NoximPacket NoximProcessingElement::trafficDB(){
 	if(!is_mc(src_coord)){
 		// get mem_trace from DB pointer
 		while (temp_ptr != NULL
-				&& (interface_buf.size() < 12*NoximGlobalParams::buffer_depth)){
+				&& (interface_buf.size() <  20 *NoximGlobalParams::buffer_depth)){
 			//cout<<" local id "<<local_id<<endl;
 			//temp_ptr->print();
 			p.dst_id = cmap->get_chip_mcid(temp_ptr->core);
@@ -568,6 +555,9 @@ NoximPacket NoximProcessingElement::trafficDB(){
 			p.timestamp = time_stamp;
 			p.size = 3;
 			p.flit_left = p.size;
+			p.payload.bank = temp_ptr->bank;
+			p.payload.col = temp_ptr->col;
+			p.payload.row = temp_ptr->row;
 
 			if (temp_ptr->addr >= NoximGlobalParams::address_min
 					&& temp_ptr->addr <= NoximGlobalParams::address_max)
@@ -766,10 +756,9 @@ int NoximProcessingElement::getRandomSize()
 
 
 int NoximProcessingElement::get_reply_queue_size(){ // Needs change
-	int total_size = 0;
-	for(int i=0; i<SLICES; i++)
-		total_size = total_size + packet_queue[i].size();
-	return total_size;
+
+	return packet_queue.size();
+
 }
 bool NoximProcessingElement::reply_queue_full(){
 	//cout<<"reply queue size: "<<reply_queue.size()<<endl;

@@ -7,9 +7,9 @@ DEBUG  = -g
 OTHER  = -std=gnu++11 # -Wall -Wno-deprecated
 CFLAGS = $(OPT) $(OTHER)  $(DEBUG)
 
-VPATH = ../src_dap_new:.
+VPATH = ../src_app_base:.
 MODULE = noxim
-SRCS = ./db_node.cpp ./global_vars.cpp ./NoximNoC.cpp ./NoximRouter.cpp ./fc_router.cpp ./NoximProcessingElement.cpp ./NoximBuffer.cpp \
+SRCS = ./db_node.cpp ./NoximNoC.cpp ./NoximRouter.cpp ./NoximProcessingElement.cpp ./NoximBuffer.cpp \
 	./NoximStats.cpp ./NoximGlobalStats.cpp ./NoximGlobalRoutingTable.cpp \
 	./NoximLocalRoutingTable.cpp ./NoximGlobalTrafficTable.cpp ./NoximReservationTable.cpp \
 	./NoximPower.cpp ./NoximCmdLineParser.cpp ./NoximMain.cpp 

@@ -39,10 +39,10 @@ void NoximStats::receivedFlit(const double arrival_time,
 	i = chist.size() - 1;
     }
 
-    if (flit.flit_type == FLIT_TYPE_TAIL)
+    if (flit.flit_type == NoximFlitType::FLIT_TYPE_TAIL)
 	chist[i].delays.push_back(arrival_time - flit.timestamp);
 
-    if(flit.flit_type == FLIT_TYPE_TAIL)      // For better calculation
+    if(flit.flit_type == NoximFlitType::FLIT_TYPE_TAIL)      // For better calculation
     	chist[i].total_packets_received++;
 
     chist[i].total_received_flits++;
@@ -195,7 +195,7 @@ int NoximStats::searchCommHistory(int src_id)
     return -1;
 }
 
-void NoximStats::showStats(int curr_node, int curr_slice, std::ostream & out, bool header)
+void NoximStats::showStats(int curr_node, std::ostream & out, bool header)
 {
     if (header) {
 	out << "%"
@@ -220,7 +220,6 @@ void NoximStats::showStats(int curr_node, int curr_slice, std::ostream & out, bo
 	out << " "
 	    << setw(5) << chist[i].src_id
 	    << setw(5) << curr_node
-	    << setw(5) << curr_slice
 	    << setw(10) << getAverageDelay(chist[i].src_id)
 	    << setw(10) << getMaxDelay(chist[i].src_id)
 	    << setw(15) << getAverageThroughput(chist[i].src_id)

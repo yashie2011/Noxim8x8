@@ -10,14 +10,6 @@
 
 #include "NoximProcessingElement.h"
 
-extern ofstream slice_0_trace;
-extern ofstream slice_1_trace;
-extern ofstream slice_2_trace;
-extern ofstream slice_3_trace;
-extern ofstream slice_4_trace;
-
-extern ofstream pre;
-extern ofstream pre_reply;
 
 memory_controller::memory_controller() {
 
@@ -28,7 +20,7 @@ memory_controller::memory_controller() {
 	last_bank_q = 0;
 	//bank_queues = new queue<NoximPacket> [NoximGlobalParams::bank_queues];
 	for (int i =0; i< NoximGlobalParams::bank_queues ; i++){
-		bank_queues.push_back(queue<NoximPacket>());
+		bank_queues.push_back(deque<NoximPacket>());
 	}
 
 }
@@ -42,8 +34,26 @@ memory_controller::~memory_controller(){
 
 bool memory_controller::push_packet(NoximFlit hd_flit){
 
+	int q_indx = -1;
 	// select the suitable the queues
-	int q_indx = hd_flit.payload.bank % NoximGlobalParams::bank_queues;
+	 //(!hd_flit.approximable)
+	q_indx = hd_flit.payload.bank % NoximGlobalParams::bank_queues;
+	 /*ifelse {
+		for (int q_idx = 0; q_idx < NoximGlobalParams::bank_queues; q_idx++){
+			if (!(bank_queues[q_idx].empty()) &&
+					bank_queues[q_idx].size() < 2 *NoximGlobalParams::buffer_depth){
+				if (bank_queues[q_idx].back().approximable){
+					q_indx = q_idx;
+					//cout<<"found approximable at "<< q_indx<<endl;
+					break;
+				}
+			}
+		}
+		if (q_indx == -1){
+			q_indx = hd_flit.payload.bank % NoximGlobalParams::bank_queues;
+			//cout<<"no approximable, random at "<<q_indx<<endl;
+		}
+	}*/
 	NoximPacket tmp_p;
 	tmp_p.src_id = hd_flit.dst_id;
 	tmp_p.dst_id = hd_flit.src_id;
@@ -68,9 +78,9 @@ bool memory_controller::push_packet(NoximFlit hd_flit){
 		tmp_p.timestamp = (sc_time_stamp().to_double()/1000) + tCAS + tRCD + tRAS;
 	}
 
-	if(bank_queues[q_indx].size() < 2*NoximGlobalParams::buffer_depth){
+	if(bank_queues[q_indx].size() < 20 *NoximGlobalParams::buffer_depth){
 		//cout<<"pushing packet into reply queue "<< tmp_p.src_id<<" "<<tmp_p.dst_id<<endl;
-		bank_queues[q_indx].push(tmp_p);
+		bank_queues[q_indx].push_back(tmp_p);
 		return true;
 	}
 	else
@@ -84,20 +94,21 @@ bool memory_controller::get_packets(deque<NoximPacket>& interface_buf){
 	// go through all the bank queues
 	for(int q =0; q < NoximGlobalParams::bank_queues; q++){
 		int indx = (q + last_bank_q) % NoximGlobalParams::bank_queues;
-		if(bank_queues[indx ].empty()) continue;
+		if(bank_queues[indx].empty()) continue;
 		else if (bank_queues[indx ].front().timestamp <= sc_time_stamp().to_double()/1000) {
-			if(interface_buf.size() < 20 * NoximGlobalParams::buffer_depth)
+			if(1)//(interface_buf.size() < 20 * NoximGlobalParams::buffer_depth)
 			{
+				g_approximate(bank_queues[indx]);
 				//cout<<"reply packet collected at mc"<< bank_queues[q].front().src_id<<
 						//bank_queues[q].front().dst_id<<endl;
 				interface_buf.push_back(bank_queues[indx ].front());
-				bank_queues[indx ].pop();
+				bank_queues[indx ].pop_front();
 				ret_flag |= true;
 				break;
 			}
 		}
 	}
-	last_bank_q = last_bank_q + 1 % NoximGlobalParams::bank_queues;
+	last_bank_q = (last_bank_q + 1) % NoximGlobalParams::bank_queues;
 	return ret_flag;
 }
 
@@ -138,15 +149,22 @@ void NoximProcessingElement::rxProcess()
 					// If yes, push the packet into mem_c
 					if(flit_tmp.flit_type == NoximFlitType::FLIT_TYPE_HEAD){
 						pkt_pushed = mem_c->push_packet(flit_tmp);
-					}
+					
 
-					if(pkt_pushed){
-						num_reqs++;
-						received_packets++;
-						// Negate the old value for Alternating Bit Protocol (ABP)
-						current_level_rx[k] = 1 - current_level_rx[k];
-						rx_flits[k]++;
-						pe_pwr.Buffering();
+						if(pkt_pushed){
+							num_reqs++;
+							received_packets++;
+							// Negate the old value for Alternating Bit Protocol (ABP)
+							current_level_rx[k] = 1 - current_level_rx[k];
+							rx_flits[k]++;
+							pe_pwr.Buffering();
+						}
+					}	
+					else{
+							// Negate the old value for Alternating Bit Protocol (ABP)
+							current_level_rx[k] = 1 - current_level_rx[k];
+							rx_flits[k]++;
+							pe_pwr.Buffering();
 					}
 
     			  }
@@ -156,7 +174,9 @@ void NoximProcessingElement::rxProcess()
     			    		start_clock = true;
     			    		received_packets++;
 
-    	    			   //cout<<" with time stamp: "<< flit_tmp.timestamp<< " received at: "<< (sc_time_stamp().to_double()/1000)<<endl;
+    			    		cout << sc_simulation_time() << ": ProcessingElement[" <<
+    			    		    				    local_id << "] RECEIVING " << flit_tmp << endl;
+    			    	//cout<<" with time stamp: "<< flit_tmp.timestamp<< " received at: "<< (sc_time_stamp().to_double()/1000)<<endl;
     			    	  //last_packet = 0;
     			    	}
         			    current_level_rx[k] = 1 - current_level_rx[k];	// Negate the old value for Alternating Bit Protocol (ABP)
@@ -224,8 +244,6 @@ void NoximProcessingElement::txProcess()
 		if (ack_tx[slice].read() == current_level_tx[slice]) {
 			if (!packet_queue[slice].empty()) {
 			NoximFlit flit = nextFlit(slice);	// Generate a new flit
-			//if(slice == 1)
-			//cout<<"Sending flit to slice 1 at pe of node "<<local_id<<endl;
 			if(flit.flit_type == NoximFlitType::FLIT_TYPE_HEAD) sent_packets++;
 			if (NoximGlobalParams::verbose_mode > VERBOSE_OFF) {
 				cout << sc_time_stamp().to_double() /
@@ -250,12 +268,11 @@ void NoximProcessingElement::push_packet(){
 	NoximCoord src_coord = {0};
 	NoximCoord dest_coord = {0};
 
-	if (true) {
+	if (!interface_buf.empty()) {
 
 		/// Decide which layer the packet should be sent..
 		src_coord = id2Coord(local_id);
-		if ((!interface_buf.empty()) &&
-				interface_buf.front().approx_len == 0)  {  // This should cover the entire module
+		if (interface_buf.front().approx_len == 0)  {  // This should cover the entire module
 		packet = interface_buf.front();
 		if(is_mc(packet.src_id)){
 
@@ -563,7 +580,7 @@ NoximPacket NoximProcessingElement::trafficDB(){
 	if(!is_mc(src_coord)){
 		// get mem_trace from DB pointer
 		while (temp_ptr != NULL
-				&& (interface_buf.size() < 12*NoximGlobalParams::buffer_depth)){
+				&& (interface_buf.size() <  20 *NoximGlobalParams::buffer_depth)){
 			//cout<<" local id "<<local_id<<endl;
 			//temp_ptr->print();
 			p.dst_id = cmap->get_chip_mcid(temp_ptr->core);
@@ -571,6 +588,9 @@ NoximPacket NoximProcessingElement::trafficDB(){
 			p.timestamp = time_stamp;
 			p.size = 3;
 			p.flit_left = p.size;
+			p.payload.bank = temp_ptr->bank;
+			p.payload.col = temp_ptr->col;
+			p.payload.row = temp_ptr->row;
 
 			if (temp_ptr->addr >= NoximGlobalParams::address_min
 					&& temp_ptr->addr <= NoximGlobalParams::address_max)
@@ -789,42 +809,39 @@ void NoximProcessingElement::approximate(NoximPacket& pkt, deque <NoximPacket>& 
 	int check_depth = NoximGlobalParams::check_depth;
 	float approx_ratio = NoximGlobalParams::approx_rate;
 
-	if (pkt.approx_len > 0)
-		return;
 
-	pkt.approx_len = 0;
-		if (is_mc(local_id))
+	//pkt.approx_len = 0;
+	if (is_mc(local_id))
+	{
+		if(pkt.approximable)
 		{
-			if(pkt.approximable)
+
+			//cout<<"interface buff size "<< interface_buf.size()<<endl;
+
+			for (int i = 0; i< interface_buf.size()-1; i++)
 			{
+				if (i > check_depth) break;  // only do it to the extent of check depth
 
-				//cout<<"interface buff size "<< interface_buf.size()<<endl;
-
-				for (int i = 0; i< interface_buf.size()-1; i++)
+				err_thresh = rand()%10;
+				NoximPacket nxt_pkt = interface_buf.at(i+1);
+				if(nxt_pkt.approximable && err_thresh < approx_ratio)
 				{
-					if (i > check_depth) break;  // only do it to the extent of check depth
+					pkt.apx_dst_id[i] = nxt_pkt.dst_id;
+					rem_indx.push_back(i+1);
+					pkt.approx_len++;
+					//cout<<"PACKET COALESCED count "<<pkt.approx_len<<endl;
+					pe_pwr.mc_coalescing();
 
-					err_thresh = rand()%10;
-					NoximPacket nxt_pkt = interface_buf.at(i+1);
-					if(nxt_pkt.approximable && pkt.approx_len < check_depth
-							&& err_thresh < approx_ratio)
-					{
-						pkt.apx_dst_id[i] = nxt_pkt.dst_id;
-						rem_indx.push_back(i+1);
-						pkt.approx_len++;
-						//cout<<"PACKET COALESCED count "<<pkt.approx_len<<endl;
-						pe_pwr.mc_coalescing();
-
-					}
-				}
-				int indx_adjuster = 0;
-				for (int i =0; i < rem_indx.size(); i++)
-				{
-					interface_buf.erase(interface_buf.begin()+(rem_indx[i] - indx_adjuster));
-					indx_adjuster++;
 				}
 			}
+			int indx_adjuster = 0;
+			for (int i =0; i < rem_indx.size(); i++)
+			{
+				interface_buf.erase(interface_buf.begin()+(rem_indx[i] - indx_adjuster));
+				indx_adjuster++;
+			}
 		}
+	}
 }
 
 void NoximProcessingElement::end_of_simulation(){

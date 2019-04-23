@@ -21,6 +21,7 @@ class NoximBuffer {
   public:
 
     NoximBuffer();
+    NoximBuffer(int size);
 
     virtual ~ NoximBuffer() {
     } void SetMaxBufferSize(const unsigned int bms);	// Set buffer max size (in flits)

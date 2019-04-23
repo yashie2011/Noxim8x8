@@ -20,7 +20,7 @@ NoximGlobalStats::NoximGlobalStats(const NoximNoC * _noc)
 #endif
 }
 
-double NoximGlobalStats::getAverageDelay(int slice)
+double NoximGlobalStats::getAverageDelay()
 {
     unsigned int total_packets = 0;
     double avg_delay = 0.0;
@@ -29,12 +29,12 @@ double NoximGlobalStats::getAverageDelay(int slice)
 	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++) {
 	{
 	    unsigned int received_packets =
-		noc->t[x][y]->r[slice]->stats.getReceivedPackets();
+		noc->t[x][y]->r->stats.getReceivedPackets();
 	    //cout << "received packets in this slice "<<received_packets<<endl;
 	    if (received_packets) {
 		avg_delay +=
 		    received_packets *
-		    noc->t[x][y]->r[slice]->stats.getAverageDelay();
+		    noc->t[x][y]->r->stats.getAverageDelay();
 		total_packets += received_packets;
 		//cout << "average delay of the routers in this slice "<<noc->t[x][y]->r[slice]->stats.getAverageDelay()<<endl;
 	    }
@@ -52,10 +52,8 @@ double NoximGlobalStats::getAverageDelay(const int src_id,
     NoximTile *tile = noc->searchNode(dst_id);
     double average_delay =0;
     assert(tile != NULL);
-    for (int k =0; k < SLICES; k++){      // Looping over the slices
-    	average_delay += tile->r[k]->stats.getAverageDelay(src_id);
-    }
-    average_delay = average_delay/SLICES;
+    average_delay += tile->r->stats.getAverageDelay(src_id);
+
     return average_delay;
 }
 
@@ -82,16 +80,13 @@ double NoximGlobalStats::getMaxDelay(const int node_id)
 
     NoximCoord coord = id2Coord(node_id);
     double max_delay = 0;
-    // Looping over the slices
-    for(int k=0; k< SLICES; k++){
     unsigned int received_packets =
-	noc->t[coord.x][coord.y]->r[k]->stats.getReceivedPackets();
+	noc->t[coord.x][coord.y]->r->stats.getReceivedPackets();
 
     if (received_packets){
-    	if(max_delay <= noc->t[coord.x][coord.y]->r[k]->stats.getMaxDelay())
-    		max_delay = noc->t[coord.x][coord.y]->r[k]->stats.getMaxDelay();
+    	if(max_delay <= noc->t[coord.x][coord.y]->r->stats.getMaxDelay())
+    		max_delay = noc->t[coord.x][coord.y]->r->stats.getMaxDelay();
 	}
-    }  // Loop over the slices
     if(max_delay == 0)
     	return -1.0;
     else
@@ -103,11 +98,10 @@ double NoximGlobalStats::getMaxDelay(const int src_id, const int dst_id)
     NoximTile *tile = noc->searchNode(dst_id);
     double max_delay = 0;
     assert(tile != NULL);
-    for (int k=0; k<SLICES; k++){
-    	if(max_delay <= tile->r[k]->stats.getMaxDelay(src_id) ){
-    		max_delay = tile->r[k]->stats.getMaxDelay(src_id);
+    	if(max_delay <= tile->r->stats.getMaxDelay(src_id) ){
+    		max_delay = tile->r->stats.getMaxDelay(src_id);
     	}
-    }
+
 
     return max_delay;
 }
@@ -138,10 +132,7 @@ double NoximGlobalStats::getAverageThroughput(const int src_id,
     NoximTile *tile = noc->searchNode(dst_id);
     double avg_throughput = 0;
     assert(tile != NULL);
-    for (int k=0; k< SLICES; k++){
-    	avg_throughput += tile->r[k]->stats.getAverageThroughput(src_id);
-    }
-    avg_throughput = avg_throughput/SLICES;
+    avg_throughput += tile->r->stats.getAverageThroughput(src_id);
     return avg_throughput;
 }
 
@@ -151,14 +142,13 @@ double NoximGlobalStats::getAverageThroughput()
     double avg_throughput = 0.0;
 
     for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
-	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++)
-	for (int k=0; k< SLICES; k++){// Looping over the slices
+	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){
 	    unsigned int ncomms =
-		noc->t[x][y]->r[k]->stats.getTotalCommunications();
+		noc->t[x][y]->r->stats.getTotalCommunications();
 
 	    if (ncomms) {
 		avg_throughput +=
-		    ncomms * noc->t[x][y]->r[k]->stats.getAverageThroughput();
+		    ncomms * noc->t[x][y]->r->stats.getAverageThroughput();
 		total_comms += ncomms;
 	    }
 	}
@@ -171,11 +161,9 @@ double NoximGlobalStats::getAverageThroughput()
 unsigned int NoximGlobalStats::getReceivedPackets()
 {
     unsigned int n = 0;
-    for(int k=0; k< SLICES; k++){
     for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
-	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++)
-	 n = n+ noc->t[x][y]->r[k]->stats.getReceivedPackets();
-	    //cout<<"%% Total received packets in slice: "<<k<<" "<< n ;
+	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){
+	 n = n+ noc->t[x][y]->r->stats.getReceivedPackets();
 	}
 
     return n;
@@ -186,9 +174,8 @@ unsigned int NoximGlobalStats::getReceivedFlits()
     unsigned int n = 0;
 
     for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
-	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++)
-	for(int k=0; k< SLICES; k++){
-	    n += noc->t[x][y]->r[k]->stats.getReceivedFlits();
+	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){
+	    n += noc->t[x][y]->r->stats.getReceivedFlits();
 #ifdef TESTING
 	    drained_total += noc->t[x][y]->r->local_drained;
 #endif
@@ -209,16 +196,15 @@ double NoximGlobalStats::getThroughput()
     unsigned int n = 0;
     unsigned int trf = 0;
     for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
-	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++)
-	for (int k=0; k< SLICES; k++){
-	    unsigned int rf = noc->t[x][y]->r[k]->stats.getReceivedFlits();
+	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){
+	    unsigned int rf = noc->t[x][y]->r->stats.getReceivedFlits();
 
 	    if (rf != 0)
 		n++;
 
 	    trf += rf;
 	}
-    return (double) (trf * SLICES) / (double) (total_cycles * n);
+    return (double) (trf) / (double) (total_cycles * n);
 
 }
 
@@ -233,9 +219,8 @@ vector < vector < unsigned long > > NoximGlobalStats::getRoutedFlitsMtx()
 	mtx[y].resize(NoximGlobalParams::mesh_dim_x);
 
     for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
-	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){
-		for(int k=0; k< SLICES; k++){
-			routed_flits += noc->t[x][y]->r[k]->getRoutedFlits();
+	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){{
+			routed_flits += noc->t[x][y]->r->getRoutedFlits();
 		}
 	    mtx[y][x] = routed_flits ;
 
@@ -248,53 +233,28 @@ double NoximGlobalStats::getPower()
 {
     double power = 0.0;
 
-    for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
-	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++)
-		for (int k = 0; k< SLICES; k++)
-	    power += noc->t[x][y]->r[k]->getPower();
+    for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++){
+	for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){{
+	    power += noc->t[x][y]->r->getPower();
+		power += noc->t[x][y]->pe->pe_pwr.getPower();
+		}
+	}
+	}	
 
     return power;
 }
 
-int NoximGlobalStats::getReceivedflits_slice(int k){
-	int recv_flits =0;
-	//cout << "getReceivedflits_slice input "<< k<<endl;
+
+
+int NoximGlobalStats::get_max_buffer_size(){
+
+	int max_buffer_size = 0;
 	for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
 		for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){
-			{
-				if(k == 0) {
-				slice_0_trace<<(noc->t[x][y]->r[k]->in_flits/(sc_time_stamp().to_double()/1000))<<endl;
-				}
-				if(k == 1) {
-				slice_1_trace<<noc->t[x][y]->r[k]->in_flits/(sc_time_stamp().to_double()/1000)<<endl;
-				}
-				if(k == 2){
-				slice_2_trace<<noc->t[x][y]->r[k]->in_flits/(sc_time_stamp().to_double()/1000)<<endl;
-				}
-				if(k == 3) {
-				slice_3_trace<<noc->t[x][y]->r[k]->in_flits/(sc_time_stamp().to_double()/1000)<<endl;
-				}
-				if(k == 4) {
-				slice_4_trace<<noc->t[x][y]->r[k]->in_flits/(sc_time_stamp().to_double()/1000)<<endl;
-				}
-
-
-
-			}
-			recv_flits += noc->t[x][y]->pe->rx_flits[k];
+			if (noc->t[x][y]->pe->max_buffer_size > max_buffer_size)
+			max_buffer_size = noc->t[x][y]->pe->max_buffer_size;
 		}
-	return recv_flits;
-}
-
-
-
-int NoximGlobalStats::gettransmittedflits_slice(int k){
-	int tx_flits =0;
-		for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
-			for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++){
-				tx_flits += noc->t[x][y]->pe->tx_flits[k];
-			}
-		return tx_flits;
+	return max_buffer_size;
 }
 void NoximGlobalStats::showStats(std::ostream & out, bool detailed)
 {
@@ -309,12 +269,9 @@ void NoximGlobalStats::showStats(std::ostream & out, bool detailed)
     out.precision(10);
     out<<std::scientific;
     out << "% Total energy (J): " << getPower() << endl;
-    for (int k=0; k< SLICES; k++){
-    	out << "% received flits to slice "<< k<<" "<< getReceivedflits_slice(k)<<endl;
-    	out << "% transmitted flits from slice "<< k<<" "<<gettransmittedflits_slice(k)<<endl;
-    	out << "% average delay of slice "<<k<<" "<<getAverageDelay(k)<<endl;
-    }
-    out << "% Total Error :"<< noc->error << endl;
+	out << "% average delay of slice "<<getAverageDelay()<<endl;
+
+    out<< "% Max buffer size occupied: "<< get_max_buffer_size() <<endl;
     //showReceivedflits();
 
 
@@ -325,10 +282,9 @@ void NoximGlobalStats::showStats(std::ostream & out, bool detailed)
 	out << endl << "detailed = [" << endl;
 	for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
 	    for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++)
-	    	for( int k=0; k< SLICES; k++)
-		noc->t[x][y]->r[k]->stats.showStats(y *
+		noc->t[x][y]->r->stats.showStats(y *
 						 NoximGlobalParams::
-						 mesh_dim_x + x, k, out,
+						 mesh_dim_x + x, out,
 						 true);
 	out << "];" << endl;
 
@@ -365,10 +321,10 @@ void NoximGlobalStats::showBufferStats(std::ostream & out)
   out << "         \tMean\tMax\tMean\tMax\tMean\tMax\tMean\tMax\tMean\tMax" << endl;
   for (int y = 0; y < NoximGlobalParams::mesh_dim_y; y++)
     for (int x = 0; x < NoximGlobalParams::mesh_dim_x; x++)
-      for (int k=0; k< SLICES; k++)
       {
-	out << noc->t[x][y]->r[k]->local_id;
-	noc->t[x][y]->r[k]->ShowBuffersStats(out);
+	out << noc->t[x][y]->r->local_id;
+	noc->t[x][y]->r->ShowBuffersStats(out);
 	out << endl;
+
       }
 }

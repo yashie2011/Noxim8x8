@@ -20,14 +20,22 @@ void NoximNoC::buildMesh()
     if (NoximGlobalParams::traffic_distribution == TRAFFIC_TABLE_BASED)
 	assert(gttable.load(NoximGlobalParams::traffic_table_filename));
 
+    // create the Trace DB handler
+    SQLiteDB* trace_db_p = new SQLiteDB();
+    //Connect TO database
+    char* trace_filename = NoximGlobalParams::bench_name;
+    char* trace_filepath = NoximGlobalParams::file_path;
+    if(!trace_db_p->OpenConnection(trace_filename, trace_filepath))
+    {
+    	cout<<"\nConnecting To DB Failed :"<<trace_db_p->GetLastError().c_str();
+    	exit(0);
+    }
     // Create the mesh as a matrix of tiles
 
     for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++) {
 	for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++) {
 		// Creating a benchmark module for each tile
-	    char b_name[20];
-	    char nodeid[20];
-	    sprintf(b_name, "bench[%02d][%02d]", i, j);
+
 	    int id = (j* NoximGlobalParams::mesh_dim_x)+ i;
 	    // Adapting to the ID numbers of the gpgpusim    -- needs change when expanding
 		if(id >= m1 && id < m2 )
@@ -46,15 +54,11 @@ void NoximNoC::buildMesh()
 			id = id-7;
 		if(id >= m8)
 			id = id-8;
-	    sprintf(nodeid, "node[%d].txt",id );
-		b_marks[i][j] = new benchmark(b_name, nodeid, id);
-		b_marks[i][j]->clock(clock);
-		b_marks[i][j]->reset(reset);
 
 	    // Create the single Tile with a proper name
 	    char tile_name[20];
 	    sprintf(tile_name, "Tile[%02d][%02d]", i, j);
-	    t[i][j] = new NoximTile(tile_name, *b_marks[i][j]);
+	    t[i][j] = new NoximTile(tile_name, trace_db_p);
 
 
 
@@ -66,47 +70,46 @@ void NoximNoC::buildMesh()
 	    // Map clock and reset
 	    t[i][j]->clock(clock);
 	    t[i][j]->reset(reset);
-	    // Looping over the slices
-	        for (int k = 0; k< SLICES; k++) {
+
         // Tell to the router its coordinates
-	    t[i][j]->r[k]->configure(j * NoximGlobalParams::mesh_dim_x + i,
+	    t[i][j]->r->configure(j * NoximGlobalParams::mesh_dim_x + i,
 	       NoximGlobalParams::stats_warm_up_time,
 	       NoximGlobalParams::buffer_depth,
-	       grtable, k);
+	       grtable);
 	    // Map Rx signals
-	    t[i][j]->req_rx[k][DIRECTION_NORTH] (req_to_south[k][i][j]);
-	    t[i][j]->flit_rx[k][DIRECTION_NORTH] (flit_to_south[k][i][j]);
-	    t[i][j]->ack_rx[k][DIRECTION_NORTH] (ack_to_north[k][i][j]);
+	    t[i][j]->req_rx[DIRECTION_NORTH] (req_to_south[i][j]);
+	    t[i][j]->flit_rx[DIRECTION_NORTH] (flit_to_south[i][j]);
+	    t[i][j]->ack_rx[DIRECTION_NORTH] (ack_to_north[i][j]);
 
-	    t[i][j]->req_rx[k][DIRECTION_EAST] (req_to_west[k][i + 1][j]);
-	    t[i][j]->flit_rx[k][DIRECTION_EAST] (flit_to_west[k][i + 1][j]);
-	    t[i][j]->ack_rx[k][DIRECTION_EAST] (ack_to_east[k][i + 1][j]);
+	    t[i][j]->req_rx[DIRECTION_EAST] (req_to_west[i + 1][j]);
+	    t[i][j]->flit_rx[DIRECTION_EAST] (flit_to_west[i + 1][j]);
+	    t[i][j]->ack_rx[DIRECTION_EAST] (ack_to_east[i + 1][j]);
 
-	    t[i][j]->req_rx[k][DIRECTION_SOUTH] (req_to_north[k][i][j + 1]);
-	    t[i][j]->flit_rx[k][DIRECTION_SOUTH] (flit_to_north[k][i][j + 1]);
-	    t[i][j]->ack_rx[k][DIRECTION_SOUTH] (ack_to_south[k][i][j + 1]);
+	    t[i][j]->req_rx[DIRECTION_SOUTH] (req_to_north[i][j + 1]);
+	    t[i][j]->flit_rx[DIRECTION_SOUTH] (flit_to_north[i][j + 1]);
+	    t[i][j]->ack_rx[DIRECTION_SOUTH] (ack_to_south[i][j + 1]);
 
-	    t[i][j]->req_rx[k][DIRECTION_WEST] (req_to_east[k][i][j]);
-	    t[i][j]->flit_rx[k][DIRECTION_WEST] (flit_to_east[k][i][j]);
-	    t[i][j]->ack_rx[k][DIRECTION_WEST] (ack_to_west[k][i][j]);
+	    t[i][j]->req_rx[DIRECTION_WEST] (req_to_east[i][j]);
+	    t[i][j]->flit_rx[DIRECTION_WEST] (flit_to_east[i][j]);
+	    t[i][j]->ack_rx[DIRECTION_WEST] (ack_to_west[i][j]);
 
 	    // Map Tx signals
-	    t[i][j]->req_tx[k][DIRECTION_NORTH] (req_to_north[k][i][j]);
-	    t[i][j]->flit_tx[k][DIRECTION_NORTH] (flit_to_north[k][i][j]);
-	    t[i][j]->ack_tx[k][DIRECTION_NORTH] (ack_to_south[k][i][j]);
+	    t[i][j]->req_tx[DIRECTION_NORTH] (req_to_north[i][j]);
+	    t[i][j]->flit_tx[DIRECTION_NORTH] (flit_to_north[i][j]);
+	    t[i][j]->ack_tx[DIRECTION_NORTH] (ack_to_south[i][j]);
 
-	    t[i][j]->req_tx[k][DIRECTION_EAST] (req_to_east[k][i + 1][j]);
-	    t[i][j]->flit_tx[k][DIRECTION_EAST] (flit_to_east[k][i + 1][j]);
-	    t[i][j]->ack_tx[k][DIRECTION_EAST] (ack_to_west[k][i + 1][j]);
+	    t[i][j]->req_tx[DIRECTION_EAST] (req_to_east[i + 1][j]);
+	    t[i][j]->flit_tx[DIRECTION_EAST] (flit_to_east[i + 1][j]);
+	    t[i][j]->ack_tx[DIRECTION_EAST] (ack_to_west[i + 1][j]);
 
-	    t[i][j]->req_tx[k][DIRECTION_SOUTH] (req_to_south[k][i][j + 1]);
-	    t[i][j]->flit_tx[k][DIRECTION_SOUTH] (flit_to_south[k][i][j + 1]);
-	    t[i][j]->ack_tx[k][DIRECTION_SOUTH] (ack_to_north[k][i][j + 1]);
+	    t[i][j]->req_tx[DIRECTION_SOUTH] (req_to_south[i][j + 1]);
+	    t[i][j]->flit_tx[DIRECTION_SOUTH] (flit_to_south[i][j + 1]);
+	    t[i][j]->ack_tx[DIRECTION_SOUTH] (ack_to_north[i][j + 1]);
 
-	    t[i][j]->req_tx[k][DIRECTION_WEST] (req_to_west[k][i][j]);
-	    t[i][j]->flit_tx[k][DIRECTION_WEST] (flit_to_west[k][i][j]);
-	    t[i][j]->ack_tx[k][DIRECTION_WEST] (ack_to_east[k][i][j]);
-	        } // Looping over the slices
+	    t[i][j]->req_tx[DIRECTION_WEST] (req_to_west[i][j]);
+	    t[i][j]->flit_tx[DIRECTION_WEST] (flit_to_west[i][j]);
+	    t[i][j]->ack_tx[DIRECTION_WEST] (ack_to_east[i][j]);
+
 
 	    // Map buffer level signals (analogy with req_tx/rx port mapping)
 	    /*t[i][j]->free_slots[DIRECTION_NORTH] (free_slots_to_north[i][j]);
@@ -142,14 +145,12 @@ void NoximNoC::buildMesh()
 	tmp_NoP.channel_status_neighbor[i].available = false;
     }
 
-    // Looping over the slices
-    for (int k =0; k< SLICES; k++) {
     // Clear signals for borderline nodes
     for (int i = 0; i <= NoximGlobalParams::mesh_dim_x; i++) {
-	req_to_south[k][i][0] = 0;
-	ack_to_north[k][i][0] = 0;
-	req_to_north[k][i][NoximGlobalParams::mesh_dim_y] = 0;
-	ack_to_south[k][i][NoximGlobalParams::mesh_dim_y] = 0;
+	req_to_south[i][0] = 0;
+	ack_to_north[i][0] = 0;
+	req_to_north[i][NoximGlobalParams::mesh_dim_y] = 0;
+	ack_to_south[i][NoximGlobalParams::mesh_dim_y] = 0;
 	/*
 	free_slots_to_south[i][0].write(NOT_VALID);
 	free_slots_to_north[i][NoximGlobalParams::mesh_dim_y].write(NOT_VALID);
@@ -160,10 +161,10 @@ void NoximNoC::buildMesh()
     }
 
     for (int j = 0; j <= NoximGlobalParams::mesh_dim_y; j++) {
-	req_to_east[k][0][j] = 0;
-	ack_to_west[k][0][j] = 0;
-	req_to_west[k][NoximGlobalParams::mesh_dim_x][j] = 0;
-	ack_to_east[k][NoximGlobalParams::mesh_dim_x][j] = 0;
+	req_to_east[0][j] = 0;
+	ack_to_west[0][j] = 0;
+	req_to_west[NoximGlobalParams::mesh_dim_x][j] = 0;
+	ack_to_east[NoximGlobalParams::mesh_dim_x][j] = 0;
 
 	/*free_slots_to_east[0][j].write(NOT_VALID);
 	free_slots_to_west[NoximGlobalParams::mesh_dim_x][j].write(NOT_VALID);
@@ -175,22 +176,21 @@ void NoximNoC::buildMesh()
 
     // invalidate reservation table entries for non-exhistent channels
     for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++) {
-	t[i][0]->r[k]->reservation_table.invalidate(DIRECTION_NORTH);
-	t[i][NoximGlobalParams::mesh_dim_y - 1]->r[k]->reservation_table.invalidate(DIRECTION_SOUTH);
+	t[i][0]->r->reservation_table.invalidate(DIRECTION_NORTH);
+	t[i][NoximGlobalParams::mesh_dim_y - 1]->r->reservation_table.invalidate(DIRECTION_SOUTH);
     }
     for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++) {
-	t[0][j]->r[k]->reservation_table.invalidate(DIRECTION_WEST);
-	t[NoximGlobalParams::mesh_dim_x - 1][j]->r[k]->reservation_table.invalidate(DIRECTION_EAST);
+	t[0][j]->r->reservation_table.invalidate(DIRECTION_WEST);
+	t[NoximGlobalParams::mesh_dim_x - 1][j]->r->reservation_table.invalidate(DIRECTION_EAST);
     }
-} // Looping over the slices
+
 }
 
 NoximTile *NoximNoC::searchNode(const int id) const
 {
     for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++)
 	for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++)
-		for (int k=0; k < SLICES; k++)
-	    if (t[i][j]->r[k]->local_id == id)
+	    if (t[i][j]->r->local_id == id)
 		return t[i][j];
 
     return NULL;
@@ -200,24 +200,28 @@ void NoximNoC::sim_stop_poller()
 {
 	//int status = 0;
 	if (reset.read()){
-			sim_Stop = 0;
+
 		}
 
 	else{
-		sim_Stop = 0;
-		if((sc_time_stamp().to_double() / 1000) > 1000){
+		total_sent_pkts = 0;
+		total_recv_pkts  = 0;
+		if((sc_time_stamp().to_double()/1000) > 1000){
 	// Should poll for all the nodes and check if all of them are true
 		for (int i = 0; i < NoximGlobalParams::mesh_dim_x; i++) {
 			for (int j = 0; j < NoximGlobalParams::mesh_dim_y; j++) {
 				// Creating a benchmark module for each tile
 
-				sim_Stop = sim_Stop + t[i][j]->pe->get_sim_Stop();
+				total_sent_pkts +=  t[i][j]->pe->get_sent_packets();
+				total_recv_pkts += t[i][j]->pe->get_recv_packets();
 				//cout<<"=============="<<endl;
-				//cout << "at time "<< sc_time_stamp().to_double() / 1000<<" stop signal is "<<status<<endl;
+				//cout << "at time "<< sc_time_stamp().to_double()/1000 <<" stop signal is "<<status<<endl;
 			}
 		}
-	}
-		if(sim_Stop >= NUM_CORES)
+		}
+		if(total_sent_pkts >= 1000000){
+			cout<< " total packets "<< total_sent_pkts+total_recv_pkts <<endl;
 			sc_stop();
+		}
 	}
 }
