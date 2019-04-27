@@ -19,27 +19,29 @@ void fc_router::rxProcess()
 	routed_flits = 0;
 	local_drained = 0;
 	in_flits = 0;
+	prev_flit = 0;
+	prev_flit_ax = 0;
     } else {
     	if(!is_mc(local_id)){
     		for(int i=0; i<2; i++){
-    		if(enable_rx[i].read() == 1){
+    		if(enable_rx[i].read()){
     			NoximFlit flit = fast_flit_rx[i].read();
-    			//cout<<"The router at node "<<local_id<<"has received a flit from "<< flit.src_id<<endl;
-    			if(flit.dst_id == local_id){
+    			if(flit.dst_id == local_id &&
+    					flit.hop_no > prev_flit){
     				incoming_buffer.Push(flit);
     				stats.receivedFlit(sc_time_stamp().to_double()/1000, flit);
     				stats.power.Buffering();
+    				prev_flit = flit.hop_no;
     			}
-    			else
+    			else if(flit.hop_no > prev_flit_ax)
 				{
+    				prev_flit_ax = flit.hop_no ;
 				// Dapper change
 				for (int i = 0; i< flit.approx_len; i++)
 				{
-					//cout<<"nxt appx dest "<<flit.apx_dst_id[i]<< "at "<<local_id<<endl;
 					if(flit.apx_dst_id[i] == local_id)
 					{
-						//cout<<"approx match "<<flit.apx_dst_id[i]<<" local "<<local_id
-								//<<" going to "<<flit.dst_id<<endl;
+						//cout<<"incoming buffer size "<<incoming_buffer.Size()<<endl;
 						flit.dst_id = local_id;   // changing the actual desti id to the local id for approximation
 						incoming_buffer.Push(flit);
 						stats.receivedFlit(sc_time_stamp().to_double() / 1000, flit);
@@ -68,7 +70,6 @@ void fc_router::rxProcess()
     					stats.power.Latch();
     					stats.power.Link(false);
     					stats.power.Crossbar();
-
     				}
     			}
     		}
@@ -92,16 +93,35 @@ void fc_router::txProcess()
     {
 	 // cout<<" fc_tx_process at node "<<local_id<<" check"<<endl;
 	  if(is_mc(local_id) && send_enable){
+		  bool en_flag = enable_rx[fast_line].read();
+		  bool en_flag_2 = enable_rx[1 -fast_line].read();
+
 		  if(!outgoing_buffer.IsEmpty()){
 			  NoximFlit flit = outgoing_buffer.Front();
-			  enable_tx[fast_line].write(1);
-			  fast_flit_tx[fast_line].write(flit);
-			  outgoing_buffer.Pop();
-			  stats.power.Buffer_read();
-			  //cout<<"The router at node "<<local_id<<" has sent a flit to "<<flit.dst_id<<endl;
-		  }
+			  NoximCoord dst_coord = id2Coord(flit.dst_id);
+			  if( !fc_buffer_full[dst_coord.x][dst_coord.y]){
+				  bool ret = true;
+				  for (int i = 0; i< flit.approx_len; i++)
+				  {
+					  NoximCoord dst_coord_i = id2Coord(flit.apx_dst_id[i]);
+				  		if( !fc_buffer_full[dst_coord_i.x][dst_coord_i.y])
+				  		{
+				  			ret &= false;
+				  		}
+				  	}
+				  if(ret){
+						  enable_tx[fast_line].write(en_flag|true);
+						  enable_tx[1-fast_line].write(en_flag_2|false);
+						  flit.hop_no = sc_time_stamp().to_double()/1000;
+						  fast_flit_tx[fast_line].write(flit);
+						  outgoing_buffer.Pop();
+						  stats.power.Buffer_read();
+				  }
+			  }
+	  	  }
 		  else{
-			  enable_tx[fast_line].write(0);
+			  enable_tx[fast_line].write(en_flag|false);
+			  enable_tx[1-fast_line].write(en_flag_2|false);
 
 		  }
 	  }

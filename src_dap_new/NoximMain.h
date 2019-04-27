@@ -106,7 +106,7 @@ using namespace std;
 #define DEFAULT_ADDR_MAX								2148832224
 #define DEFAULT_CHECK_DEPTH									6
 #define DEFAULT_BENCH_NAME									"trace_dct.db"
-#define DEFAULT_FILE_PATH                                   "/home/yaswanth/Documents/approx-gpgpu-sims/traces_db/"
+#define DEFAULT_FILE_PATH                                   "/home/yaswanth/Codes/traces_db/"
 #define DEFAULT_APPROX_RATE									5
 #define DEFAULT_BANK_QUEUES									4
 

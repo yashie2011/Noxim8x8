@@ -30,6 +30,8 @@ extern ofstream slice_2_trace;
 extern ofstream slice_3_trace;
 extern ofstream slice_4_trace;
 
+extern bool fc_buffer_full[DEFAULT_MESH_DIM_X][DEFAULT_MESH_DIM_Y];
+
 SC_MODULE(fc_router)
 {
 
@@ -68,6 +70,8 @@ SC_MODULE(fc_router)
      */
     int local_id;		                // Unique ID
     int slice_id;
+    double prev_flit;
+    double prev_flit_ax;
     NoximBuffer outgoing_buffer;	        // Buffer to store flits from PE
     NoximBuffer incoming_buffer;            // Buffer to store flits going to PE
 
@@ -100,13 +104,16 @@ SC_MODULE(fc_router)
     inline void set_send_enable(){send_enable = true;};
     inline void reset_send_enable(){send_enable = false;};
     inline void set_fast_line(int x){fast_line = x;};
+    inline bool Is_buffer_full(){return incoming_buffer.IsFull();};
 
     // Constructor
 
     SC_CTOR(fc_router) {
 
-    incoming_buffer.SetMaxBufferSize(8);
-    outgoing_buffer.SetMaxBufferSize(8);
+    incoming_buffer.SetMaxBufferSize(160);
+    outgoing_buffer.SetMaxBufferSize(160);
+    prev_flit = 0;
+    prev_flit_ax = 0;
 
 	SC_METHOD(rxProcess);
 	sensitive << reset;

@@ -32,6 +32,7 @@ extern int MC6_time ;
 extern int MC7_time ;
 extern int MC8_time ;
 
+extern bool fc_buffer_full[DEFAULT_MESH_DIM_X][DEFAULT_MESH_DIM_Y];
 
 SC_MODULE(NoximNoC)
 {
@@ -78,6 +79,7 @@ SC_MODULE(NoximNoC)
     void gam();
     void normalize(vector<double> &x);
     void enable_mcs();
+    void fill_fc_buff_status();
     //---------- Mau experiment <start>
     void flitsMonitor() {
 
@@ -114,6 +116,10 @@ SC_MODULE(NoximNoC)
         SC_METHOD(enable_mcs);
         sensitive(reset);
         sensitive_pos(clock);
+
+        SC_METHOD(fill_fc_buff_status);
+         sensitive(reset);
+         sensitive_pos(clock);
 
 	//---------- Mau experiment <start>
 	/*

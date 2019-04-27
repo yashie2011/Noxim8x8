@@ -352,6 +352,24 @@ void NoximNoC::gam()   //needs change while expanding
 
 }
 
+//this shows the status at the beginning of each cycle. written only here.
+void NoximNoC::fill_fc_buff_status(){
+
+	for(int i = 0; i< DEFAULT_MESH_DIM_X; i++){
+		for (int j= 0; j< DEFAULT_MESH_DIM_Y; j++){
+			if(t[i][j]->fcr->Is_buffer_full()){
+				fc_buffer_full[i][j] = true;
+			}
+			else
+				fc_buffer_full[i][j] = false;
+
+
+		//cout<<fc_buffer_full[i][j]<< " ";
+		}
+		//cout<<endl;
+	}
+}
+
 void NoximNoC::enable_mcs(){
 	if(reset.read()){
 		enable_timer = 0;

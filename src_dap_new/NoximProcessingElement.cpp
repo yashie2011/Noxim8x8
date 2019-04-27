@@ -78,8 +78,8 @@ bool memory_controller::push_packet(NoximFlit hd_flit){
 		tmp_p.timestamp = (sc_time_stamp().to_double()/1000) + tCAS + tRCD + tRAS;
 	}
 
-	if(bank_queues[q_indx].size() < 20 *NoximGlobalParams::buffer_depth){
-		//cout<<"pushing packet into reply queue "<< tmp_p.src_id<<" "<<tmp_p.dst_id<<endl;
+	if(1){//bank_queues[q_indx].size() < 500 *NoximGlobalParams::buffer_depth){
+		//cout<<"pushing queue size "<< bank_queues[q_indx].size()<<" "<<tmp_p.dst_id<<endl;
 		bank_queues[q_indx].push_back(tmp_p);
 		return true;
 	}
@@ -174,8 +174,8 @@ void NoximProcessingElement::rxProcess()
     			    		start_clock = true;
     			    		received_packets++;
 
-    			    		cout << sc_simulation_time() << ": ProcessingElement[" <<
-    			    		    				    local_id << "] RECEIVING " << flit_tmp << endl;
+    			    		//cout << sc_simulation_time() << ": ProcessingElement[" <<
+    			    		    				   // local_id << "] RECEIVING " << flit_tmp << endl;
     			    	//cout<<" with time stamp: "<< flit_tmp.timestamp<< " received at: "<< (sc_time_stamp().to_double()/1000)<<endl;
     			    	  //last_packet = 0;
     			    	}
@@ -281,7 +281,7 @@ void NoximProcessingElement::push_packet(){
 		dest_coord = id2Coord(packet.dst_id);
 		slice = get_slice(src_coord, dest_coord);
 
-		if (packet_queue[slice].size() < 10 * NoximGlobalParams::buffer_depth ){//&& packet.packet_returned)   {   // Added since canshot is irrelevant now!
+		if (1){//packet_queue[slice].size() < 20 * NoximGlobalParams::buffer_depth ){//&& packet.packet_returned)   {   // Added since canshot is irrelevant now!
 			//cout<<" Packet with src "<< packet.src_id<< " dest_"<< packet.dst_id<<" queued in slice "<<slice<<endl;
 			packet.timestamp =  sc_time_stamp().to_double()/1000 ;
 			//if(slice == 1)
@@ -370,7 +370,7 @@ bool NoximProcessingElement::canShot()
 
 	//shot = (((double) rand()) / RAND_MAX < threshold);  We cant use this in benchmark traffic
 	shot = true;
-	if (1){  // (shot) {    Changed to look for a packet at each cycle
+	if (interface_buf.size() <  20 *NoximGlobalParams::buffer_depth){  // (shot) {    Changed to look for a packet at each cycle
 	    switch (NoximGlobalParams::traffic_distribution) {
 	    case TRAFFIC_RANDOM:
 		packet = trafficRandom();
@@ -579,8 +579,7 @@ NoximPacket NoximProcessingElement::trafficDB(){
 	//if (local_id == 1) exit(0);
 	if(!is_mc(src_coord)){
 		// get mem_trace from DB pointer
-		while (temp_ptr != NULL
-				&& (interface_buf.size() <  20 *NoximGlobalParams::buffer_depth)){
+		while (temp_ptr != NULL){
 			//cout<<" local id "<<local_id<<endl;
 			//temp_ptr->print();
 			p.dst_id = cmap->get_chip_mcid(temp_ptr->core);
